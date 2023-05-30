@@ -161,6 +161,6 @@
 <h1 class="text-3xl text-center font-bold underline">
     Hello world!
 </h1>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>--}}
 </body>
 </html>
