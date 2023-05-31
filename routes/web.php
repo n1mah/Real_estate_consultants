@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome');
+//    $people= \App\Models\Person::find(5);
+//    dd($people);
+
+    $people= \App\Models\Person::find(3)->contract_of_sales()->get();
+    dd($people->first());
+
 });
