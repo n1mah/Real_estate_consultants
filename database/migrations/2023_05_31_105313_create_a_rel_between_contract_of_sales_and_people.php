@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contract_of_sales_people', function (Blueprint $table) {
+        Schema::create('contract_of_sale_person', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("contract_of_sale_id");
             $table->foreign("contract_of_sale_id")->references("id")->on("contract_of_sales")->onUpdate("cascade")->onDelete("cascade");
@@ -32,7 +32,7 @@ return new class extends Migration
             [2,4,true,5],
         ];
         for ($i = 0; $i < count($data); $i++) {
-            DB::table('contract_of_sales_people')->insert(
+            DB::table('contract_of_sale_person')->insert(
                 [
                     'contract_of_sale_id' => $data[$i][0],
                     'person_id' =>  $data[$i][1],
