@@ -29,6 +29,8 @@ return new class extends Migration
                 [
                     'level' => $data[$i][0],
                     'confirm_date' => Carbon::createFromTimestamp($data[$i][1])->format("Y/m/d H:i:s"),
+                    'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
+                    'updated_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
                 ]
             );
         }

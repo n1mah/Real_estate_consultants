@@ -13,6 +13,6 @@ class Person extends Model
     ];
     public function contract_of_sales()
     {
-        return $this->belongsToMany(ContractOfSale::class);
+        return $this->belongsToMany(ContractOfSale::class)->withPivot('is_buyer', 'lawyer_id','created_at','updated_at');
     }
 }

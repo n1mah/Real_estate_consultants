@@ -18,7 +18,7 @@ Route::get('/', function () {
 //    $people= \App\Models\Person::find(5);
 //    dd($people);
 
-    $people= \App\Models\Person::find(3)->contract_of_sales()->get();
-    dd($people->first());
+    $people= \App\Models\Person::find(4)->contract_of_sales()->get();
+    echo ($people->first()->pivot->created_at);
 
 });

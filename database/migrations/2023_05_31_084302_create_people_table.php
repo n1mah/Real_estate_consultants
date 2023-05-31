@@ -49,6 +49,9 @@ return new class extends Migration
                     'postal_code' => $data[$i][8],
                     'mobile' =>  $data[$i][9],
                     'phone' =>  $data[$i][10],
+                    'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
+                    'updated_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
+
                 ]
             );
         }

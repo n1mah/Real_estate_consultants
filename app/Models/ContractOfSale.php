@@ -14,6 +14,6 @@ class ContractOfSale extends Model
     ];
     public function people()
     {
-        return $this->belongsToMany(Person::class);
+        return $this->belongsToMany(Person::class)->withPivot('is_buyer', 'lawyer_id','created_at','updated_at');
     }
 }

@@ -38,6 +38,8 @@ return new class extends Migration
                     'person_id' =>  $data[$i][1],
                     'is_buyer' =>  $data[$i][2],
                     'lawyer_id' =>  $data[$i][3],
+                    'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
+                    'updated_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
                 ]
             );
         }
