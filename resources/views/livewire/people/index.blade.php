@@ -86,7 +86,7 @@
                             <td class="px-4 py-3 " dir="rtl">{{$person->place_of_birth}}</td>
                             <td class="px-4 py-3">{{$person->mobile}}</td>
                             <td class="px-4 py-3 flex items-center justify-center">
-                                <button type="button" class="px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">مشاهده</button>
+                                <button type="button" class="px-2 py-1.5 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده</button>
                                 <button type="button" class="px-2 py-1.5 mx-1.5 text-xs font-medium text-center focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 rounded-lg dark:focus:ring-yellow-900">ویرایش</button>
                                 <button type="button" class="px-2 py-1.5 text-xs font-medium text-center focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">حذف</button>
                             </td>
