@@ -14,8 +14,8 @@
                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                                 </svg>
                             </div>
+                            {{--Search Implement--}}
                             <input wire:model="search" type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="جستجو ..." required="">
-{{--                            <button wire:click="">Like Post</button>--}}
 
                         </div>
                     </form>
@@ -50,7 +50,6 @@
                         </button>
                         <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
                             <h6 class="mb-3 text-center text-sm font-medium text-gray-900 dark:text-white border-b pb-2">شهر را انتخاب کنید</h6>
-
                             <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
                                 @foreach($places as $place)
                                 <li class="flex items-center ">
