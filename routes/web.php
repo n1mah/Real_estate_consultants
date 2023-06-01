@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\People\Index as People;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 //    $people= \App\Models\Person::find(5);
@@ -22,3 +22,5 @@ Route::get('/', function () {
 //    echo ($people->first()->pivot->created_at);
 
 });
+Route::get('/post', People::class);
+
