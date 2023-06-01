@@ -82,8 +82,8 @@
                         <tr class="border-b dark:border-gray-700">
                             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$person->firstname}} {{$person->lastname}}</th>
                             <td class="px-4 py-3">{{$person->national_code}}</td>
-                            <td class="px-4 py-3 ">{{$person->date_of_birth}}</td>
-                            <td class="px-4 py-3 " dir="rtl">{{$person->place_of_birth}}</td>
+                            <td class="px-4 py-3 " dir="ltr">{{\Morilog\Jalali\Jalalian::forge($person->date_of_birth)->format('Y/m/d') }}</td>
+                            <td class="px-4 py-3 ">{{$person->place_of_birth}}</td>
                             <td class="px-4 py-3">{{$person->mobile}}</td>
                             <td class="px-4 py-3 flex items-center justify-center">
                                 <button type="button" class="px-2 py-1.5 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده</button>

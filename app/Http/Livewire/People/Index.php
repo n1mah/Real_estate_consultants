@@ -5,6 +5,7 @@ namespace App\Http\Livewire\People;
 use App\Models\Person;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Morilog\Jalali\Jalalian;
 
 class Index extends Component
 {
@@ -68,7 +69,7 @@ class Index extends Component
     }
     public function render()
     {
-
+        $a=3;
         $people= $this->getPeople();
         $this->gotoFirstPage($people);
         $people=$people->paginate($this->perPage);
@@ -76,6 +77,7 @@ class Index extends Component
         return view('livewire.people.index',[
             ...compact('people'),
             ...compact('places'),
+            'a'=>$a
         ])
             ->layout('components.layouts.app');
     }

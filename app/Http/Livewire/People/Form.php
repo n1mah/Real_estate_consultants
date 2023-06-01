@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\People;
 
 use App\Models\Person;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Form extends Component
@@ -22,8 +23,8 @@ class Form extends Component
         'person.birth_certificate_number' => 'required',
         'person.place_of_birth' => 'required|max:55',
         'person.postal_code' => 'required',
-        'person.mobile' => 'required|integer|digits:11',
-        'person.phone' => 'nullable|integer|min:8|max:13',
+        'person.mobile' => 'required|digits:11',
+        'person.phone' => 'nullable',
         'person.address' => 'required|min:6',
         'person.date_of_birth' => 'required',
     ];
@@ -50,8 +51,8 @@ class Form extends Component
         'person.mobile.numeric' => 'شماره موبایل باید عدد باشد',
         'person.mobile.digits' => 'شماره موبایل باید 11 رقم باشد',
         'person.phone.numeric' => 'شماره تلفن باید عدد باشد',
-        'person.phone.min' => 'شماره تلفن نامعتبر می باشد',
-        'person.phone.max' => 'شماره تلفن نامعتبر می باشد',
+//        'person.phone.min' => 'شماره تلفن نامعتبر می باشد',
+//        'person.phone.max' => 'شماره تلفن نامعتبر می باشد',
         'person.address.required' => 'آدرس خود را وارد کنید',
         'person.address.min' => 'آدرس باید حداقل 6 کارکتر باشد',
         'person.date_of_birth.required' => 'تاریخ تولد را وارد کنید',
@@ -60,12 +61,13 @@ class Form extends Component
     public function create()
     {
         $this->validate();
+        $this->person->date_of_birth=Carbon::createFromTimestamp($this->person->date_of_birth, 'Asia/Tehran')->format('y/m/d H:i');
         $this->person->save();
         redirect()->route('people');
     }
     public function render()
     {
-        return view('livewire.people.form')
+        return view('livewire.people.form',['ss'=>$this->person->date_of_birth])
         ->layout('components.layouts.app');
     }
 }

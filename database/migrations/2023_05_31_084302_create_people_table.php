@@ -25,7 +25,7 @@ return new class extends Migration
             $table->longText("address");
             $table->string("postal_code");
             $table->string("mobile");
-            $table->string("phone");
+            $table->string("phone")->nullable();
             $table->timestamps();
         });
         $data=[
