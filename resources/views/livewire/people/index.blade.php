@@ -21,6 +21,9 @@
                     </form>
                 </div>
                 <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end flex-shrink-0">
+                    <button wire:click="refreshPage" title="پاکسازی جدول و فیلتر" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-gray-800 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                        بروز رسانی
+                    </button>
                     <button type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                         <svg class="h-3.5 w-3.5 ml-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
@@ -48,14 +51,14 @@
                                 <path clip-rule="evenodd" fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                             </svg>
                         </button>
-                        <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
-                            <h6 class="mb-3 text-center text-sm font-medium text-gray-900 dark:text-white border-b pb-2">شهر را انتخاب کنید</h6>
+                        <div wire:ignore.self id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
+                            <h6 wire:init="loadPlaces" class="mb-3 text-center text-sm font-medium text-gray-900 dark:text-white border-b pb-2">شهر را انتخاب کنید</h6>
                             <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
                                 @foreach($places as $place)
-                                <li class="flex items-center ">
-                                    <input id="place{{isset($i) ? ++$i : $i=0 }}" type="checkbox" value="{{$place->place_of_birth}}" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="place{{$i}}" class="mr-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{$place->place_of_birth}}</label>
-                                </li>
+                                    <li class="flex items-center ">
+                                        <input id="place{{isset($i) ? ++$i : $i=0 }}"  wire:model="places_filter" checked type="checkbox" value="{{$place}}" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                        <label for="place{{$i}}" class="mr-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{$place}}</label>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -69,7 +72,7 @@
                         <th scope="col" class="px-4 py-3">نام</th>
                         <th scope="col" class="px-4 py-3">کدملی</th>
                         <th scope="col" class="px-4 py-3">تاریخ تولد</th>
-                        <th scope="col" class="px-4 py-3">شهرتولد</th>
+                        <th scope="col" class="px-4 py-3">شهر تولد</th>
                         <th scope="col" class="px-4 py-3">موبایل</th>
                         <th scope="col" class="px-4 py-3">عملیات</th>
                     </tr>

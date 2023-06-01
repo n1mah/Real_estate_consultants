@@ -12,32 +12,67 @@ class Index extends Component
 //    protected $listeners = ['searchData' => 'search'];
     public $search="";
     public $perPage=2;
+    public $places_filter=[];
 
 
+
+    public function loadPlaces()
+    {
+        $this->places_filter=[ ...Person::pluck('place_of_birth')->unique()];
+    }
+
+
+    public function updatedPlacesFilter(){
+        $people=  Person::orderBy("created_at","asc")
+            ->whereIn('place_of_birth', [...$this->places_filter])
+            ->where(function($query) {
+                $query->where("firstname","like","%$this->search%")
+                    ->orWhere("lastname","like","%$this->search%")
+                    ->orWhere("national_code","like","%$this->search%");
+            });
+
+
+    }
+    public function updatedSearch(){
+            self::setPage(1);
+    }
     public function paginationView()
     {
         return 'livewire.components.pagination';
     }
+    public function refreshPage()
+    {
+        $this->search="";
+        $this->places_filter=[...Person::pluck('place_of_birth')->unique()];
+        self::setPage(1);
+    }
     public function getPeople()
     {
-        return Person::orderBy("created_at","asc")->where("firstname","like","%$this->search%");
+        return Person::orderBy("created_at","asc")
+            ->whereIn('place_of_birth', [...$this->places_filter])
+            ->where(function($query) {
+                $query->where("firstname","like","%$this->search%")
+                ->orWhere("lastname","like","%$this->search%")
+                ->orWhere("national_code","like","%$this->search%");
+            });
     }
     public function getPlaceOfBirthPeople()
     {
-        $people= new Person;
-        return $people->groupBy('place_of_birth')->get('place_of_birth');
+        return Person::pluck('place_of_birth')->unique();
+    }
+
+    public function gotoFirstPage($people)
+    {
+        if (ceil($people->count()/$this->perPage) < $this->page)
+            self::setPage(1);
     }
     public function render()
     {
 
         $people= $this->getPeople();
-        if ($this->page>ceil($people->count()/$this->perPage)){
-            self::setPage(1);
-        }
+        $this->gotoFirstPage($people);
         $people=$people->paginate($this->perPage);
-
         $places = $this->getPlaceOfBirthPeople();
-
         return view('livewire.people.index',[
             ...compact('people'),
             ...compact('places'),
