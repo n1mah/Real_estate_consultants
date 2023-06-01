@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Livewire\People\Index as People;
+use App\Http\Livewire\People\Form as Person_add;
+use App\Http\Livewire\People\Index as People_Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,7 @@ Route::get('/', function () {
 //    echo ($people->first()->pivot->created_at);
 
 });
-Route::get('/post', People::class);
+Route::get('/people', People_Index::class)->name("people");
+Route::get('/people/add', Person_add::class)->name("people.add");
+//Route::post('/people', People_Index::class);
 
