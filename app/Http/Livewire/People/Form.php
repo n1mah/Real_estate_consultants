@@ -11,9 +11,9 @@ class Form extends Component
 
     public Person $person;
 
-    public function mount()
+    public function mount(Person $person)
     {
-        $this->person = new Person();
+        $this->person = $person;
     }
     protected $rules = [
         'person.firstname' => 'required|min:3|max:30',
