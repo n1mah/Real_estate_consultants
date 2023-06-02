@@ -85,7 +85,10 @@
                                 :required="true"
                                 :defaultDate="date('Y-m-d')"
                                 :setNullInput="true"
-                            />
+                            >
+                                <label for="date_of_birth" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تاریخ تولد<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
+
+                            </x-persian-datepicker>
                         <div class="w-full flex items-center justify-center text-center">
                             @if($errors->has('person.date_of_birth'))
                                 <span class="text-red-500 text-xs">{{ $errors->first('person.date_of_birth') }}</span>

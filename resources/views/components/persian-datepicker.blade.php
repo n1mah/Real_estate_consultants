@@ -8,9 +8,7 @@
             <input type="text" name="datepickerDate" class="dp-return-input hidden" wire:model.defer="{{$wirePropertyName}}"
                    @input="$wire.set('{{$wirePropertyName}}', (!$event.target.value ? null : $event.target.value) )">
             @if($label)
-                <label class="block font-medium text-sm text-gray-700">
-                    {!! $label !!} {!! $required ? '<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span>' : ''!!}
-                </label>
+                {{$slot}}
             @endif
             <div class="w-full relative flex items-center mt-1">
                 <input @click="showDatepicker = !showDatepicker"

@@ -1,6 +1,6 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5"  style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5"  style="min-height: 70vh">
     <div class="text-center text-primary">
-        <h1 class="font-bold text-3xl p-5">حذف </h1>
+        <h1 class="font-bold text-3xl p-5 text-danger">حذف </h1>
         <hr>
     </div>
     <div class="max-w-3xl px-4 py-2 mx-auto">
@@ -36,6 +36,7 @@
                 </div>
             </div>
             <hr class="sm:col-span-3">
+            <br>
             <div class="flex items-center sm:col-span-3">
                 <button wire:click="$emit('deleteAction')" type="submit" class="w-full ml-4 text-white bg-danger-600 hover:bg-danger-600 focus:ring-4 focus:outline-none focus:ring-danger-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-danger-300 dark:hover:bg-danger-500 dark:focus:ring-danger-500">
                     حذف مشتری
