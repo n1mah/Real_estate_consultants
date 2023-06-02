@@ -7,9 +7,12 @@ use LivewireUI\Modal\ModalComponent;
 
 class Edit extends ModalComponent
 {
+    protected static array $maxWidths=[
+        'custom_edit_people' => 'w-full-80',
+    ];
     public static function modalMaxWidth(): string
     {
-        return 'cusome_edit_people';
+        return 'custom_edit_people';
     }
     public function render()
     {
