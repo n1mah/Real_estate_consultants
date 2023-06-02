@@ -78,6 +78,7 @@
                     showFormat="jYYYY/jMM/jDD"
                     returnFormat="X"
                     :required="true"
+                    :setNullInput="false"
                     :defaultDate="$date_of_birth"
                 />
                 <div class="w-full flex items-center justify-center text-center sm:col-span-3">
@@ -95,12 +96,12 @@
 
             </div>
             <div class="flex items-center space-x-4">
-                <button type="submit" class="ml-4 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                    افزودن مشتری
+                <button type="submit" class="ml-4 text-white bg-warning-500 hover:bg-warning-500 focus:ring-4 focus:outline-none focus:ring-warning-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-warning-300 dark:hover:bg-warning-500 dark:focus:ring-warning-500">
+                    ویرایش مشتری
                 </button>
-                <a href="{{route("people")}}" class="text-yellow-600 inline-flex items-center hover:text-white border border-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600 dark:focus:ring-yellow-900">
+                <button wire:click="$emit('closeModal')" class="text-yellow-600 inline-flex items-center hover:text-white border border-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-600 dark:focus:ring-yellow-900">
                     بازگشت به مشتریان
-                </a>
+                </button>
             </div>
         </form>
     </div>

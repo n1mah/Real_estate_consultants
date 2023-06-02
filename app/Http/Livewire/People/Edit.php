@@ -10,7 +10,6 @@ use LivewireUI\Modal\ModalComponent;
 class Edit extends ModalComponent
 {
     public Person $person_get;
-    public Person $person;
     public $person_id;
     public $firstname;
     public $lastname;
@@ -23,11 +22,11 @@ class Edit extends ModalComponent
     public $phone;
     public $address;
     public $date_of_birth;
-    public  $aaa;
-//    public function getListeners()
-//    {
-//        return ['userDeleted' => '$refresh']; // Refresh the component
-//    }
+
+    public function update()
+    {
+
+    }
     protected static array $maxWidths=[
         'custom_edit_people' => 'w-full-65',
     ];
@@ -35,17 +34,9 @@ class Edit extends ModalComponent
     {
         return 'custom_edit_people';
     }
-    public function mount(Person $person_get,Person $person)
+    public function mount(Person $person_get)
     {
         $this->person_get=$person_get;
-        $this->person=$person;
-//        $this->person=$this->person_get;
-
-    }
-
-    public function dehydrate()
-    {
-        $this->person = $this->person_get;
         $this->person_id=$this->person_get->id;
         $this->firstname=$this->person_get->firstname;
         $this->lastname=$this->person_get->lastname;
@@ -58,8 +49,9 @@ class Edit extends ModalComponent
         $this->phone=$this->person_get->phone;
         $this->address=$this->person_get->address;
         $this->date_of_birth=$this->person_get->date_of_birth;
-
     }
+
+
     public function render()
     {
 
