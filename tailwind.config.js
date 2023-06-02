@@ -10,12 +10,18 @@ module.exports = {
         // prefix: "",
         darkTheme: "dark",
     },
+    presets: [
+            require('./vendor/wireui/wireui/tailwind.config.js')
+    ],
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
         "./node_modules/flowbite/**/*.js",
-        "./node_modules/tw-elements/dist/js/**/*.js"
+        "./node_modules/tw-elements/dist/js/**/*.js",
+        './vendor/wireui/wireui/resources/**/*.blade.php',
+        './vendor/wireui/wireui/ts/**/*.ts',
+        './vendor/wireui/wireui/src/View/**/*.php'
     ],
     theme: {
         extend: {

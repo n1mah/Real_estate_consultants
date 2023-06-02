@@ -5,6 +5,8 @@
 /public/storage
 /storage/*.key
 /vendor
+!/vendor/wire-elements/modal/src/ModalComponent.php
+!/vendor/wire-elements/modal/.gitignore
 .env
 .env.backup
 .env.production
