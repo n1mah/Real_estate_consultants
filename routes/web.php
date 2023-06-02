@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\People\Form as Person_add;
+use App\Http\Livewire\People\Add as Person_add;
 use App\Http\Livewire\People\Index as People_Index;
 use Illuminate\Support\Facades\Route;
 

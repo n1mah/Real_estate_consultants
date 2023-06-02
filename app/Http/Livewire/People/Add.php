@@ -6,7 +6,7 @@ use App\Models\Person;
 use Carbon\Carbon;
 use Livewire\Component;
 
-class Form extends Component
+class Add extends Component
 {
 
     public Person $person;
@@ -67,7 +67,7 @@ class Form extends Component
     }
     public function render()
     {
-        return view('livewire.people.form',['ss'=>$this->person->date_of_birth])
+        return view('livewire.people.add',['ss'=>$this->person->date_of_birth])
         ->layout('components.layouts.app');
     }
 }
