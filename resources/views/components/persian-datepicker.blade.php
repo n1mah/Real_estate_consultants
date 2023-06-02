@@ -5,7 +5,7 @@
          x-init="[initDate(), getNoOfDays()]" id="{{$uniqueId}}"
          x-cloak>
         <div class="relative pdp-input-area">
-            <input type="text" name="datepickerDate" class="dp-return-input hidden"
+            <input type="text" name="datepickerDate" class="dp-return-input hidden" wire:model.defer="{{$wirePropertyName}}"
                    @input="$wire.set('{{$wirePropertyName}}', (!$event.target.value ? null : $event.target.value) )">
             @if($label)
                 <label class="block font-medium text-sm text-gray-700">

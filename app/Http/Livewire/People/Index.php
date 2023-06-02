@@ -10,7 +10,7 @@ use Morilog\Jalali\Jalalian;
 class Index extends Component
 {
     use WithPagination;
-//    protected $listeners = ['searchData' => 'search'];
+    protected $listeners = ['changeCustomer' => '$refresh'];
     public $search="";
     public $perPage=2;
     public $places_filter=[];
