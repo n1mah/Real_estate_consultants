@@ -1,6 +1,6 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5"  style="min-height: 100vh">
     <div class="text-center text-primary">
-        <h1 class="font-bold text-3xl p-5">مشاهده مشتری</h1>
+        <h1 class="font-bold text-3xl p-5 text-gray-400">مشاهده مشتری</h1>
         <hr>
     </div>
     <div class="max-w-3xl px-4 py-2 mx-auto">
@@ -47,7 +47,7 @@
                     <label for="date_of_birth" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تاریخ تولد</label>
                         <div class="relative pdp-input-area">
                             <div class="w-full relative flex items-center mt-1">
-                                <input value="{{\Morilog\Jalali\Jalalian::forge($date_of_birth)->format('Y/m/d')}}" class="bg-gray-300 border border-gray-600 auto-go-to-next pdp-input block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input readonly value="{{\Morilog\Jalali\Jalalian::forge($date_of_birth)->format('Y/m/d')}}" class="bg-gray-300 border border-gray-600 auto-go-to-next pdp-input block p-2.5 w-full text-sm text-gray-900 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <div class="absolute left-0 pl-3" @click="showDatepicker = !showDatepicker">
                                     <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
