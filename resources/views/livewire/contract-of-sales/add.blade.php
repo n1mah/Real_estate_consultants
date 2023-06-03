@@ -42,7 +42,7 @@
                                          </select>
                                      </div>
                                      <div class="w-full">
-                                         <label for="selected" class="text-right block inline-block text-sm font-medium text-gray-900 dark:text-white text-right opacity-0"> - </label>
+                                         <label for="selected" class="text-right mb-2 block inline-block text-sm font-medium text-gray-900 dark:text-white text-right opacity-0"> - </label>
                                          <button data-modal-target="buyerModal" data-modal-toggle="buyerModal" class="w-full block text-white bg-gray-600 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" type="button">
                                              جستجو
                                          </button>
@@ -74,7 +74,7 @@
 
                                      @endforeach
                                  </div>
-                                     <button data-modal-target="buyerModal" data-modal-toggle="buyerModal" class="mt-2 w-full block text-white bg-success hover:bg-success-600 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-success dark:hover:bg-success dark:focus:ring-gray-800" type="button">
+                                     <button class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
                                          تایید  @if(count($people_selected)>1) خریداران @else خریدار @endif
                                      </button>
                                  @endif
@@ -95,7 +95,7 @@
                                          <select  wire:model="selectedSeller" wire:change="$emit('selectedItemSeller')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                              <option selected value="">فروشنده را انتخاب کنید</option>
                                              @foreach($people as $person)
-                                                 <option value="{{$person->id}}">{{$person->firstname}}</option>
+                                                 <option value="{{$person->id}}">{{$person->firstname}} {{$person->lastname}}</option>
                                              @endforeach
                                          </select>
                                      </div>
@@ -130,7 +130,7 @@
                                              </div>
                                          @endforeach
                                      </div>
-                                     <button data-modal-target="buyerModal" data-modal-toggle="buyerModal" class="mt-2 w-full block text-white bg-success hover:bg-success-600 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-success dark:hover:bg-success dark:focus:ring-gray-800" type="button">
+                                     <button class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
                                          تایید  @if(count($people_selected)>1) فروشندگان @else فروشنده @endif
                                      </button>
                                  @endif
