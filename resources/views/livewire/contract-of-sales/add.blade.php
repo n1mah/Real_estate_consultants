@@ -15,7 +15,7 @@
                  <div class="text-center text-primary">
                             <h1 class="font-bold text-3xl p-5">مبایعه نامه جدید</h1>
 {{--    level 0  --}}
-                     <div class="@if($level!=0) hidden @endif px-4 py-2 mx-auto flex justify-center flex-col">
+                     <div class="@if($level!=0) hidden @endif px-4 py-2">
                          <h2 class="font-medium p-3 text-gray-400">ایجاد یک قرارداد مبایعه جدید</h2>
                          <hr class="p-2 w-full">
                          <button wire:click="$emit('level1Action')" class="mt-2 w50 w-full mx-auto block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
@@ -25,67 +25,66 @@
 {{--    level 1  --}}
 
 
+                         <div class="@if($level!=1) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
+                             <h2 class="font-medium p-3 text-gray-400">تعریف خریدار / خریداران</h2>
+                             <hr class="p-2 w-full">
+                             <div class="w-full flex flex-col items-center">
+                                 <form class="py-2 w-full flex flex-col items-center">
+                                     <div class="w-full-45 flex flex-col items-center mb-4 sm:mb-5">
 
+                                         <p class="sm:col-span-2 text-gray-600 text-right">
+                                             از لیست پایین خریداران خود را انتخاب کنید یا در بین مشتریان جستجو کنید
+                                         </p>
+                                         <div class="w-full flex flex-col">
+                                             <label for="selected" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خریدار <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
+                                             <select  wire:model="selectedBuyer" wire:change="$emit('selectedItemBuyer')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                 <option selected value="">خریدار را انتخاب کنید</option>
+                                                 @foreach($people as $person)
+                                                     <option value="{{$person->id}}">{{$person->firstname}} {{$person->lastname}}</option>
+                                                 @endforeach
+                                             </select>
+                                         </div>
+                                         <div class="w-full">
+                                             <label for="selected" class="text-right mb-2 block inline-block text-sm font-medium text-gray-900 dark:text-white text-right opacity-0"> - </label>
+                                             <button data-modal-target="buyerModal" data-modal-toggle="buyerModal" class="w-full block text-white bg-gray-600 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" type="button">
+                                                 جستجو
+                                             </button>
+                                         </div>
 
-                     <div class="@if($level!=1) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
-                         <h2 class="font-medium p-3 text-gray-400">تعریف خریدار / خریداران</h2>
-                         <hr class="p-2 w-full">
-                         <div class="w-full flex flex-col items-center">
-                             <form class="py-2 w-full flex flex-col items-center">
-                                 <div class="w-full-45 flex flex-col items-center mb-4 sm:mb-5">
+                                     </div>
+                                 </form>
 
-                                     <p class="sm:col-span-2 text-gray-600 text-right">
-                                         از لیست پایین خریداران خود را انتخاب کنید یا در بین مشتریان جستجو کنید
-                                     </p>
-                                     <div class="w-full flex flex-col">
-                                         <label for="selected" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خریدار <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                                         <select  wire:model="selected" wire:change="$emit('selectedItem')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                             <option selected value="">خریدار را انتخاب کنید</option>
-                                             @foreach($people as $person)
-                                                 <option value="{{$person->id}}">{{$person->firstname}} {{$person->lastname}}</option>
+                                 <div class="w-full-65 mb-4 mt-2 w-full sm:mb-5">
+                                     @if($people_selectedBuyer)
+                                         <hr>
+
+                                         <p class="sm:col-span-2 text-center my-2">
+                                             @if(count($people_selectedBuyer)>1) خریداران @else خریدار @endif
+                                         </p>
+
+                                         <div class="w-full flex flex-row flex-wrap justify-center">
+                                             @foreach($people_selectedBuyer as $person_selected)
+                                                 <div  class="w-full-45 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-400 dark:hover:bg-blue-600 dark:focus:ring-blue-600">
+
+                                                     {{$person_selected['firstname']}} {{$person_selected['lastname']}}
+
+                                                     <div>
+                                                         <span class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</span>
+                                                         <button wire:click="$emit('removeItemBuyer',{{$person_selected['id']}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
+                                                     </div>
+
+                                                 </div>
+
                                              @endforeach
-                                         </select>
-                                     </div>
-                                     <div class="w-full">
-                                         <label for="selected" class="text-right mb-2 block inline-block text-sm font-medium text-gray-900 dark:text-white text-right opacity-0"> - </label>
-                                         <button data-modal-target="buyerModal" data-modal-toggle="buyerModal" class="w-full block text-white bg-gray-600 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" type="button">
-                                             جستجو
+                                         </div>
+                                         <button wire:click="$emit('level2Action')" class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
+                                             تایید  @if(count($people_selectedBuyer)>1) خریداران @else خریدار @endif
                                          </button>
-                                     </div>
-
+                                     @endif
                                  </div>
-                             </form>
-
-                             <div class="w-full-65 mb-4 mt-2 w-full sm:mb-5">
-                                 @if($people_selected)
-                                     <hr>
-
-                                     <p class="sm:col-span-2 text-center my-2">
-                                         @if(count($people_selected)>1) خریداران @else خریدار @endif
-                                     </p>
-
-                                 <div class="w-full flex flex-row flex-wrap justify-center">
-                                     @foreach($people_selected as $person_selected)
-                                         <div  class="w-full-45 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-400 dark:hover:bg-blue-600 dark:focus:ring-blue-600">
-
-                        {{$person_selected['firstname']}} {{$person_selected['lastname']}}
-
-                        <div>
-                            <span class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</span>
-                            <button wire:click="$emit('removeItem',{{$person_selected['id']}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
-                        </div>
-
-                    </div>
-
-                                     @endforeach
-                                 </div>
-                                     <button wire:click="$emit('level2Action')" class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
-                                         تایید  @if(count($people_selected)>1) خریداران @else خریدار @endif
-                                     </button>
-                                 @endif
                              </div>
                          </div>
-                     </div>
+
 
                      <div class="@if($level!=2) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
                          <h2 class="font-medium p-3 text-gray-400">تعریف فروشنده / فروشندگان</h2>
@@ -138,12 +137,17 @@
                                          @endforeach
                                      </div>
                                      <button wire:click="$emit('level3Action')" class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
-                                         تایید  @if(count($people_selected)>1) فروشندگان @else فروشنده @endif
+                                         تایید  @if(count($people_selectedSeller)>1) فروشندگان @else فروشنده @endif
                                      </button>
                                  @endif
                              </div>
                          </div>
 
+                     </div>
+
+                     <div class="@if($level!=3) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
+                         <h2 class="font-medium p-3 text-gray-400">تعریف s</h2>
+                         <hr class="p-2 w-full">
                      </div>
 
     </div>
@@ -165,19 +169,19 @@
                             <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                                 <div class="sm:col-span-2 px-4 py-2">
                                     <label for="search"  class="block  text-sm font-medium text-gray-900 dark:text-white p-2"> <span class="font-bold mx-2">نام</span>,<span class="font-bold mx-2">نام خانوادگی</span>یا<span class="font-bold mx-2">کد ملی</span>مورد نظر را جستجو کنید</label>
-                                    <input wire:model.debounce.200ms="search" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
+                                    <input wire:model.debounce.200ms="searchBuyer" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
 
                                 </div>
 
 
                             </div>
                             <div class="my-1 py-1 px-5">
-                                @if($searchResult)
+                                @if($searchResultBuyer)
 
-                                    @foreach($searchResult as $item)
+                                    @foreach($searchResultBuyer as $item)
                                         <div class="flex justify-between p-2 bg-gray-100 m-1 mb-2 rounded-[16px]">
                                             <div class="pr-3">{{$item->firstname}} &nbsp; {{$item->lastname}} &nbsp;-&nbsp; {{$item->national_code}} </div>
-                                            <div><button wire:click="$emit('selectedItem',{{$item->id}})"  class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-xs">افزودن</button></div>
+                                            <div><button wire:click="$emit('selectedItemBuyer',{{$item->id}})"  class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-xs">افزودن</button></div>
                                         </div>
                                     @endforeach
                                 @endif

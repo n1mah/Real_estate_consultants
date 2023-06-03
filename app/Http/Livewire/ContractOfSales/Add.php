@@ -10,21 +10,21 @@ class Add extends Component
     public $level=0;
     public $people;
 
-    public $selected;
+    public $selectedBuyer;
     public $selectedSeller;
 
-    public $search;
+    public $searchBuyer;
     public $searchSeller;
-    public $searchResult;
+    public $searchResultBuyer;
     public $searchResultSeller;
-    public $people_selected=[];
+    public $people_selectedBuyer=[];
     public $people_selectedSeller=[];
-    public $id_selected=[];
+    public $id_selectedBuyer=[];
     public $id_selectedSeller=[];
 
     protected $listeners = [
-        'selectedItem',
-        'removeItem',
+        'selectedItemBuyer',
+        'removeItemBuyer',
         'selectedItemSeller',
         'removeItemSeller',
         'level0',
@@ -51,7 +51,7 @@ class Add extends Component
     }
     public function level2()
     {
-        if (count($this->people_selected)>0)
+        if (count($this->people_selectedBuyer)>0)
             $this->level=2;
 
     }
@@ -80,49 +80,59 @@ class Add extends Component
     {
         $this->level=8;
     }
-    public function updatedSearch()
+
+    public function searchPeople($value){
+        if (!empty($value)){
+            return Person::orderBy("lastname", "asc")
+                ->where("firstname", "like", "%$value%")
+                ->orWhere("lastname", "like", "%$value%")
+                ->orWhere("national_code", "like", "%$value%")->get();
+        }else{
+            return null;
+        }
+    }
+    public function updatedSearchBuyer():void
     {
-        if (!empty($this->search))
-        $this->searchResult = Person::orderBy("lastname","asc")
-           ->where("firstname","like","%$this->search%")
-            ->orWhere("lastname","like","%$this->search%")
-            ->orWhere("national_code","like","%$this->search%")->get();
-        else
-            $this->searchResult=null;
+        $this->searchResultBuyer = $this->searchPeople($this->searchBuyer);
     }
 
-    public function updatedSearchSeller()
+    public function updatedSearchSeller():void
     {
-        if (!empty($this->searchSeller))
-        $this->searchResultSeller = Person::orderBy("lastname","asc")
-           ->where("firstname","like","%$this->searchSeller%")
-            ->orWhere("lastname","like","%$this->searchSeller%")
-            ->orWhere("national_code","like","%$this->searchSeller%")->get();
-        else
-            $this->searchResultSeller=null;
+        $this->searchResultSeller = $this->searchPeople($this->searchSeller);
     }
-    public function removeItem(int $id){
-        if (in_array($id,$this->id_selected)) {
-            if (($key = array_search($id, $this->id_selected)) !== false) {
-                unset($this->id_selected[$key]);
-                unset($this->people_selected[$key]);
+    public function searchItemInArray(int $id,array $array):null|int{
+        if (in_array($id,$array)) {
+            if (($key = array_search($id, $array)) !== false) {
+                return $key;
             }
         }
+        return null;
+    }
+    public function removeItemBuyer(int $id){
+            if (($key = $this->searchItemInArray($id,$this->id_selectedBuyer)) !== null) {
+                unset($this->id_selectedBuyer[$key]);
+                unset($this->people_selectedBuyer[$key]);
+            }
         }
-    public function selectedItem(int $id=null)
-    {
-        $id_add=null;
-        if (!is_null($id)){
-            $id_add=$id;
-        }else{
-            $id_add=$this->selected;
+    public function removeItemSeller(int $id){
+        if (($key = $this->searchItemInArray($id,$this->id_selectedSeller)) !== null) {
+            unset($this->id_selectedSeller[$key]);
+            unset($this->people_selectedSeller[$key]);
         }
+    }
+    public function selectedItem(int $id=null,$selected){
+        $id_add = (!is_null($id))? $id : $selected;
 
+
+    }
+    public function selectedItemBuyer(int $id=null)
+    {
+        $id_add=(!is_null($id))?$id:$this->selectedBuyer;
         if (!empty($id_add)){
-            if (!in_array($id_add,$this->id_selected)){
-                array_push($this->id_selected,$id_add);
+            if (!in_array($id_add,$this->id_selectedBuyer)){
+                array_push($this->id_selectedBuyer,$id_add);
                 $p=Person::find($id_add);
-                $this->people_selected[] = [
+                $this->people_selectedBuyer[] = [
                     'id' => $p->id,
                     'firstname' => $p->firstname,
                     'lastname' => $p->lastname,
@@ -130,23 +140,11 @@ class Add extends Component
                 ];
             }
         }
-    }  public function removeItemSeller(int $id){
-        if (in_array($id,$this->id_selectedSeller)) {
-            if (($key = array_search($id, $this->id_selectedSeller)) !== false) {
-                unset($this->id_selectedSeller[$key]);
-                unset($this->people_selectedSeller[$key]);
-            }
-        }
     }
+
     public function selectedItemSeller(int $id=null)
     {
-        $id_add=null;
-        if (!is_null($id)){
-            $id_add=$id;
-        }else{
-            $id_add=$this->selectedSeller;
-        }
-
+        $id_add=(!is_null($id))?$id:$this->selectedBuyer;
         if (!empty($id_add)){
             if (!in_array($id_add,$this->id_selectedSeller)){
                 array_push($this->id_selectedSeller,$id_add);
@@ -158,10 +156,10 @@ class Add extends Component
                     'national_code' => $p->national_code,
                 ];
             }
-        }    }
+        }
+    }
     public function mount(){
         $this->people=Person::all();
-//        dd($this->persons);
     }
     public function render()
     {
