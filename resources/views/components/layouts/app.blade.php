@@ -10,13 +10,14 @@
 <body>
 <div class="drawer">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle"/>
-    <div class="drawer-content flex flex-col">
+    <div class="drawer-content flex flex-col {{ $zz ?? '' }}" >
         <x-layouts.navigation></x-layouts.navigation>
         {{$slot}}
         <x-layouts.footer></x-layouts.footer>
     </div>
     <x-layouts.navigation-responsive></x-layouts.navigation-responsive>
 </div>
+
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>--}}
 @livewire('livewire-ui-modal')
 @livewireScripts

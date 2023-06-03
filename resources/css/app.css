@@ -9,3 +9,9 @@
         width: 65% !important;
     }
 }
+.z-50-imp{
+    z-index: 50!important;
+}
+.w50{
+    width: 50%;
+}
