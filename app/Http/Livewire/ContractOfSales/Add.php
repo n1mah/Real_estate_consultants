@@ -47,14 +47,17 @@ class Add extends Component
     }
     public function level1()
     {
-        $this->level=1;
+            $this->level=1;
     }
     public function level2()
     {
-        $this->level=2;
+        if (count($this->people_selected)>0)
+            $this->level=2;
+
     }
     public function level3()
     {
+        if (count($this->people_selectedSeller)>0)
         $this->level=3;
     }
     public function level4()
