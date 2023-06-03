@@ -7,6 +7,12 @@
         <hr>
         <button wire:click="$emit('level1')">level1</button>
         <button wire:click="$emit('level2')">level2</button>
+        <button wire:click="$emit('level3')">level3</button>
+        <button wire:click="$emit('level4')">level4</button>
+        <button wire:click="$emit('level5')">level5</button>
+        <button wire:click="$emit('level6')">level6</button>
+        <button wire:click="$emit('level7')">level7</button>
+        <button wire:click="$emit('level8')">level8</button>
         <hr>
 
         <div class=" px-4 py-2 mx-auto flex justify-around flex-row flex-wrap">

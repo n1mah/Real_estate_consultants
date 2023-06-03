@@ -29,6 +29,12 @@ class Add extends Component
         'removeItem2' => 'deleteItem2',
         'level1',
         'level2',
+        'level3',
+        'level4',
+        'level5',
+        'level6',
+        'level7',
+        'level8',
         ];
 
     public function level1()
@@ -38,6 +44,30 @@ class Add extends Component
     public function level2()
     {
         $this->level=2;
+    }
+    public function level3()
+    {
+        $this->level=3;
+    }
+    public function level4()
+    {
+        $this->level=4;
+    }
+    public function level5()
+    {
+        $this->level=5;
+    }
+    public function level6()
+    {
+        $this->level=6;
+    }
+    public function level7()
+    {
+        $this->level=7;
+    }
+    public function level8()
+    {
+        $this->level=8;
     }
     public function updatedSearch()
     {
