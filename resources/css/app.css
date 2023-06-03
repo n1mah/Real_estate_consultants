@@ -1,12 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@media (max-width: 640px){
+
+    .w-full-45 {
+        width: 100% !important;
+    }
+}
 @media (min-width: 640px){
     .w-full-80 {
         width: 80% !important;
     }
     .w-full-65 {
         width: 65% !important;
+    }
+    .w-full-45 {
+        width: 45% !important;
     }
 }
 .z-50-imp{
@@ -15,3 +24,5 @@
 .w50{
     width: 50%;
 }
+
+

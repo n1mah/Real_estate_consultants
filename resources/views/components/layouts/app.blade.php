@@ -8,7 +8,7 @@
 {{--    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>--}}
 </head>
 <body>
-<div class="drawer">
+<div class="drawer h-auto">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle"/>
     <div class="drawer-content flex flex-col {{ $zz ?? '' }}" >
         <x-layouts.navigation></x-layouts.navigation>
