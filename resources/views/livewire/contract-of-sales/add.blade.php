@@ -3,6 +3,10 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">افزودن مبایعه</h1>
+        {{$level}}
+        <hr>
+        <button wire:click="$emit('level1')">level1</button>
+        <button wire:click="$emit('level2')">level2</button>
         <hr>
 
         <div class=" px-4 py-2 mx-auto flex justify-around flex-row flex-wrap">

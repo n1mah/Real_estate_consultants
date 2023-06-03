@@ -4,10 +4,10 @@ namespace App\Http\Livewire\ContractOfSales;
 
 use App\Models\Person;
 use Livewire\Component;
-use function PHPUnit\Framework\isNull;
-
 class Add extends Component
 {
+
+    public $level=0;
     public $people;
 
     public $selected;
@@ -27,8 +27,18 @@ class Add extends Component
         'removeItem' => 'deleteItem',
         'selectedItem2' => 'addItem2',
         'removeItem2' => 'deleteItem2',
+        'level1',
+        'level2',
         ];
 
+    public function level1()
+    {
+        $this->level=1;
+    }
+    public function level2()
+    {
+        $this->level=2;
+    }
     public function updatedSearch()
     {
         if (!empty($this->search))
@@ -39,6 +49,7 @@ class Add extends Component
         else
             $this->searchResult=null;
     }
+
     public function updatedSearch2()
     {
         if (!empty($this->search2))
