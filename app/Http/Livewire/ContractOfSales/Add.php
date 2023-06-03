@@ -36,6 +36,9 @@ class Add extends Component
         'level6',
         'level7',
         'level8',
+        'level1Action'=>'level1',
+        'level2Action'=>'level2',
+        'level3Action'=>'level3'
         ];
 
     public function level0()

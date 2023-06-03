@@ -1,30 +1,35 @@
 {{--@extends('components.layouts.app',['zIndex' => ''])--}}
 <x-slot:zz>z-50-imp</x-slot:zz>
             <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
-<p>{{$level}}</p>
-<button wire:click="$emit('level0')">level0</button>
-<button wire:click="$emit('level1')">level1</button>
-<button wire:click="$emit('level2')">level2</button>
-<button wire:click="$emit('level3')">level3</button>
-<button wire:click="$emit('level4')">level4</button>
-<button wire:click="$emit('level5')">level5</button>
-<button wire:click="$emit('level6')">level6</button>
-<button wire:click="$emit('level7')">level7</button>
-<button wire:click="$emit('level8')">level8</button>
-<hr>
+{{--<p>{{$level}}</p>--}}
+{{--<button wire:click="$emit('level0')">level0</button>--}}
+{{--<button wire:click="$emit('level1')">level1</button>--}}
+{{--<button wire:click="$emit('level2')">level2</button>--}}
+{{--<button wire:click="$emit('level3')">level3</button>--}}
+{{--<button wire:click="$emit('level4')">level4</button>--}}
+{{--<button wire:click="$emit('level5')">level5</button>--}}
+{{--<button wire:click="$emit('level6')">level6</button>--}}
+{{--<button wire:click="$emit('level7')">level7</button>--}}
+{{--<button wire:click="$emit('level8')">level8</button>--}}
+{{--<hr>--}}
                  <div class="text-center text-primary">
-                            <h1 class="font-bold text-3xl p-5">افزودن مبایعه</h1>
+                            <h1 class="font-bold text-3xl p-5">مبایعه نامه جدید</h1>
 {{--    level 0  --}}
-                     <div class="@if($level!=0) hidden @endif px-4 py-2 mx-auto flex justify-center">
-                     <h2 class="mx-auto my-auto"> welcome </h2>
+                     <div class="@if($level!=0) hidden @endif px-4 py-2 mx-auto flex justify-center flex-col">
+                         <h2 class="font-medium p-3 text-gray-400">ایجاد یک قرارداد مبایعه جدید</h2>
+                         <hr class="p-2 w-full">
+                         <button wire:click="$emit('level1Action')" class="mt-2 w50 w-full mx-auto block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
+                             افزودن قرارداد جدید
+                         </button>
                      </div>
 {{--    level 1  --}}
 
-{{--                            <h2 class="font-medium p-3 text-gray-400">تعریف فروشنده / فروشندگان</h2>--}}
-{{--                            <hr>--}}
 
 
-                     <div class="@if($level!=1) hidden @endif px-4 py-2 mx-auto flex justify-center">
+
+                     <div class="@if($level!=1) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
+                         <h2 class="font-medium p-3 text-gray-400">تعریف خریدار / خریداران</h2>
+                         <hr class="p-2 w-full">
                          <div class="w-full flex flex-col items-center">
                              <form class="py-2 w-full flex flex-col items-center">
                                  <div class="w-full-45 flex flex-col items-center mb-4 sm:mb-5">
@@ -74,7 +79,7 @@
 
                                      @endforeach
                                  </div>
-                                     <button class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
+                                     <button wire:click="$emit('level2Action')" class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
                                          تایید  @if(count($people_selected)>1) خریداران @else خریدار @endif
                                      </button>
                                  @endif
@@ -82,7 +87,9 @@
                          </div>
                      </div>
 
-                     <div class="@if($level!=2) hidden @endif px-4 py-2 mx-auto flex justify-center">
+                     <div class="@if($level!=2) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
+                         <h2 class="font-medium p-3 text-gray-400">تعریف فروشنده / فروشندگان</h2>
+                         <hr class="p-2 w-full">
                          <div class="w-full flex flex-col items-center">
                              <form class="py-2 w-full flex flex-col items-center">
                                  <div class="w-full-45 flex flex-col items-center mb-4 sm:mb-5">
@@ -130,7 +137,7 @@
                                              </div>
                                          @endforeach
                                      </div>
-                                     <button class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
+                                     <button wire:click="$emit('level3Action')" class="mt-2 w-full block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
                                          تایید  @if(count($people_selected)>1) فروشندگان @else فروشنده @endif
                                      </button>
                                  @endif
