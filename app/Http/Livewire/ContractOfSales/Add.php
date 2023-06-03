@@ -28,11 +28,17 @@ class Add extends Component
 
 
     }
-    public function aa()
+    public function aa(int $id=null)
     {
-        if (!empty($this->selected))
-            if (!in_array($this->selected,$this->people_selected))
-                 array_push($this->people_selected,$this->selected);
+        $id_add=null;
+        if (!is_null($id)){
+            $id_add=$id;
+        }else{
+            $id_add=$this->selected;
+        }
+        if (!in_array($id_add,$this->people_selected))
+            array_push($this->people_selected,$id_add);
+        $this->dispatchBrowserEvent('onHide');
 
     }
     public function mount(){

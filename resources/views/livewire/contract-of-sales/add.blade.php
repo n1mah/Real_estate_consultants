@@ -82,12 +82,13 @@
                         @foreach($searchResult as $item)
                             <div class="flex justify-between p-2 bg-gray-100 m-1 mb-2 rounded-[16px]">
                                 <div class="pr-3">{{$item->firstname}} &nbsp; {{$item->lastname}} &nbsp;-&nbsp; {{$item->national_code}} </div>
-                                <div><button  class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-xs">افزودن</button></div>
+                                <div><button wire:click="$emit('selectedItem',{{$item->id}})"  class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-xs">افزودن</button></div>
                             </div>
                         @endforeach
-
                     @endif
+
                 </div>
+
                 {{--            @foreach($people as $person)--}}
                 {{--                <p>--}}
                 {{--                    {{$person->firstname}}--}}
@@ -104,4 +105,4 @@
 
 </section>
 
-
+{{--let elem = document.getElementById('defaultModal');elem.classList.add('hidden');elem.setAttribute('aria-hidden','true');elem.removeAttribute('aria-modal');document.body.classList.remove('overflow-hidden')--}}
