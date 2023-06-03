@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\People\Add as Person_add;
 use App\Http\Livewire\People\Index as People_Index;
+use App\Http\Livewire\ContractOfSales\Add as Sale_Add;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +26,6 @@ Route::get('/', function () {
 });
 Route::get('/people', People_Index::class)->name("people");
 Route::get('/people/add', Person_add::class)->name("people.add");
+Route::get('/sales', Sale_Add::class)->name("sales");
 //Route::post('/people', People_Index::class);
 
