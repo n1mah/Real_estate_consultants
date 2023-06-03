@@ -11,22 +11,23 @@ class Add extends Component
     public $people;
 
     public $selected;
-    public $selected2;
+    public $selectedSeller;
 
     public $search;
-    public $search2;
+    public $searchSeller;
     public $searchResult;
-    public $searchResult2;
+    public $searchResultSeller;
     public $people_selected=[];
-    public $people_selected2=[];
+    public $people_selectedSeller=[];
     public $id_selected=[];
-    public $id_selected2=[];
+    public $id_selectedSeller=[];
 
     protected $listeners = [
-        'selectedItem' => 'addItem',
-        'removeItem' => 'deleteItem',
-        'selectedItem2' => 'addItem2',
-        'removeItem2' => 'deleteItem2',
+        'selectedItem',
+        'removeItem',
+        'selectedItemSeller',
+        'removeItemSeller',
+        'level0',
         'level1',
         'level2',
         'level3',
@@ -37,6 +38,10 @@ class Add extends Component
         'level8',
         ];
 
+    public function level0()
+    {
+        $this->level=0;
+    }
     public function level1()
     {
         $this->level=1;
@@ -80,17 +85,17 @@ class Add extends Component
             $this->searchResult=null;
     }
 
-    public function updatedSearch2()
+    public function updatedSearchSeller()
     {
-        if (!empty($this->search2))
-        $this->searchResult2 = Person::orderBy("lastname","asc")
-           ->where("firstname","like","%$this->search2%")
-            ->orWhere("lastname","like","%$this->search2%")
-            ->orWhere("national_code","like","%$this->search2%")->get();
+        if (!empty($this->searchSeller))
+        $this->searchResultSeller = Person::orderBy("lastname","asc")
+           ->where("firstname","like","%$this->searchSeller%")
+            ->orWhere("lastname","like","%$this->searchSeller%")
+            ->orWhere("national_code","like","%$this->searchSeller%")->get();
         else
-            $this->searchResult2=null;
+            $this->searchResultSeller=null;
     }
-    public function deleteItem(int $id){
+    public function removeItem(int $id){
         if (in_array($id,$this->id_selected)) {
             if (($key = array_search($id, $this->id_selected)) !== false) {
                 unset($this->id_selected[$key]);
@@ -98,7 +103,7 @@ class Add extends Component
             }
         }
         }
-    public function addItem(int $id=null)
+    public function selectedItem(int $id=null)
     {
         $id_add=null;
         if (!is_null($id)){
@@ -119,28 +124,28 @@ class Add extends Component
                 ];
             }
         }
-    }  public function deleteItem2(int $id){
-        if (in_array($id,$this->id_selected2)) {
-            if (($key = array_search($id, $this->id_selected2)) !== false) {
-                unset($this->id_selected2[$key]);
-                unset($this->people_selected2[$key]);
+    }  public function removeItemSeller(int $id){
+        if (in_array($id,$this->id_selectedSeller)) {
+            if (($key = array_search($id, $this->id_selectedSeller)) !== false) {
+                unset($this->id_selectedSeller[$key]);
+                unset($this->people_selectedSeller[$key]);
             }
         }
     }
-    public function addItem2(int $id=null)
+    public function selectedItemSeller(int $id=null)
     {
         $id_add=null;
         if (!is_null($id)){
             $id_add=$id;
         }else{
-            $id_add=$this->selected2;
+            $id_add=$this->selectedSeller;
         }
 
         if (!empty($id_add)){
-            if (!in_array($id_add,$this->id_selected2)){
-                array_push($this->id_selected2,$id_add);
+            if (!in_array($id_add,$this->id_selectedSeller)){
+                array_push($this->id_selectedSeller,$id_add);
                 $p=Person::find($id_add);
-                $this->people_selected2[] = [
+                $this->people_selectedSeller[] = [
                     'id' => $p->id,
                     'firstname' => $p->firstname,
                     'lastname' => $p->lastname,

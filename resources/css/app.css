@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 @media (max-width: 640px){
-
+    .w-full-80 {
+        width: 100% !important;
+    }
+    .w-full-65 {
+        width: 100% !important;
+    }
     .w-full-45 {
         width: 100% !important;
     }
@@ -23,6 +28,9 @@
 }
 .w50{
     width: 50%;
+}
+.w60{
+    width: 60%;
 }
 
 
