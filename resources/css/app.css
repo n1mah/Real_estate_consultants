@@ -34,3 +34,19 @@
 }
 
 
+
+/*
+
+
+    */
+
+
+/*   @if($error)
+                         <div class="w50 mx-auto">
+                             <p class="text-red-100 bg-red-400 rounded-[10px] p-1 mx-1 my-3">{{$error}}</p>
+                         </div>
+                         @endif*/
+
+
+
+

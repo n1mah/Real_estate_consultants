@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire\ContractOfSales;
 
+use App\Models\ContractOfSale;
 use App\Models\Person;
 use Livewire\Component;
 class Add extends Component
 {
 
+    public $errorFileNumber;
+    public $fileNumber;
     public $level=0;
     public $addLawyer=false;
 
@@ -55,11 +58,24 @@ class Add extends Component
 
     public function level0()
     {
+
         $this->level=0;
     }
+
     public function level1()
     {
-            $this->level=1;
+        if ($this->searchFileNumber()){
+            if (!empty(trim($this->fileNumber))){
+                $this->errorFileNumber=null;
+                $this->level=1;
+            }
+            else
+                $this->errorFileNumber='!!!  لطفا کد یا شماره پرونده را وارد کنید  !!!';
+
+        }
+        else
+            $this->errorFileNumber='!!!  این شماره پرونده از قبل وجود دارد . لطفا شماره پرونده دیگری را امتحان کنید  !!!';
+
     }
     public function level2()
     {
@@ -92,7 +108,9 @@ class Add extends Component
     {
         $this->level=8;
     }
-
+    public function searchFileNumber(){
+        return ContractOfSale::find($this->fileNumber) == null ;
+    }
     public function searchPeople($value){
         if (!empty($value)){
             return Person::orderBy("lastname", "asc")
