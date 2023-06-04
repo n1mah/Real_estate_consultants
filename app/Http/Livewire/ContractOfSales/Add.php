@@ -8,17 +8,26 @@ class Add extends Component
 {
 
     public $level=0;
+    public $addLawyer=false;
+
     public $people;
+
+    public $idCusLawyer;
+    public $idCusLawyerStatus;
 
     public $selectedBuyer;
     public $selectedSeller;
+    public $selectedLawyer;
 
+    public $searchLawyer;
     public $searchBuyer;
     public $searchSeller;
     public $searchResultBuyer;
     public $searchResultSeller;
+    public $searchResultLawyer;
     public $people_selectedBuyer=[];
     public $people_selectedSeller=[];
+    public $id_selectedLawyer=[];
     public $id_selectedBuyer=[];
     public $id_selectedSeller=[];
 
@@ -27,6 +36,7 @@ class Add extends Component
         'removeItemBuyer',
         'selectedItemSeller',
         'removeItemSeller',
+        'selectedItemLawyer',
         'level0',
         'level1',
         'level2',
@@ -36,6 +46,8 @@ class Add extends Component
         'level6',
         'level7',
         'level8',
+        'showLawyerBox',
+        'hideLawyerBox',
         'level1Action'=>'level1',
         'level2Action'=>'level2',
         'level3Action'=>'level3'
@@ -91,6 +103,10 @@ class Add extends Component
             return null;
         }
     }
+    public function updatedSearchLawyer():void
+    {
+        $this->searchResultLawyer = $this->searchPeople($this->searchLawyer);
+    }
     public function updatedSearchBuyer():void
     {
         $this->searchResultBuyer = $this->searchPeople($this->searchBuyer);
@@ -108,6 +124,19 @@ class Add extends Component
         }
         return null;
     }
+    public function showLawyerBox(int $id,string $status='Buyer'){
+        $this->idCusLawyerStatus=$status;
+        $this->idCusLawyer=$id;
+        $this->addLawyer=true;
+        }
+    public function hideLawyerBox(){
+        $this->addLawyer=false;
+        $this->idCusLawyer=null;
+        $this->idCusLawyerStatus=0;
+        $this->searchResultLawyer=null;
+        $this->id_selectedLawyer=null;
+        $this->searchLawyer=null;
+        }
     public function removeItemBuyer(int $id){
             if (($key = $this->searchItemInArray($id,$this->id_selectedBuyer)) !== null) {
                 unset($this->id_selectedBuyer[$key]);
@@ -125,6 +154,30 @@ class Add extends Component
 
 
     }
+    public function selectedItemLawyer(int $id=null)
+    {
+        $id_add=(!is_null($id))?$id:$this->selectedLawyer;
+        if (!empty($id_add)) {
+//                array_push($this->id_selectedLawyer,$id_add);
+            $p = Person::find($id_add);
+            if ($this->idCusLawyerStatus == 'Buyer') {
+                $this->people_selectedBuyer[$this->idCusLawyer]['lawyer'] = [
+                    'id' => $p->id,
+                    'firstname' => $p->firstname,
+                    'lastname' => $p->lastname,
+                    'national_code' => $p->national_code,
+                ];
+            } elseif ($this->idCusLawyerStatus == 'Seller') {
+                $this->people_selectedSeller[$this->idCusLawyer]['lawyer'] = [
+                    'id' => $p->id,
+                    'firstname' => $p->firstname,
+                    'lastname' => $p->lastname,
+                    'national_code' => $p->national_code,
+                ];
+            }
+            $this->hideLawyerBox();
+        }
+    }
     public function selectedItemBuyer(int $id=null)
     {
         $id_add=(!is_null($id))?$id:$this->selectedBuyer;
@@ -137,6 +190,7 @@ class Add extends Component
                     'firstname' => $p->firstname,
                     'lastname' => $p->lastname,
                     'national_code' => $p->national_code,
+                    'lawyer'=>null
                 ];
             }
         }
@@ -144,7 +198,7 @@ class Add extends Component
 
     public function selectedItemSeller(int $id=null)
     {
-        $id_add=(!is_null($id))?$id:$this->selectedBuyer;
+        $id_add=(!is_null($id))?$id:$this->selectedSeller;
         if (!empty($id_add)){
             if (!in_array($id_add,$this->id_selectedSeller)){
                 array_push($this->id_selectedSeller,$id_add);
@@ -154,6 +208,7 @@ class Add extends Component
                     'firstname' => $p->firstname,
                     'lastname' => $p->lastname,
                     'national_code' => $p->national_code,
+                    'lawyer'=>null
                 ];
             }
         }
