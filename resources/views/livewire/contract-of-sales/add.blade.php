@@ -18,6 +18,7 @@
                      <div class="@if($level!=0) hidden @endif px-4 py-2">
                          <h2 class="font-medium p-3 text-gray-400">ایجاد یک قرارداد مبایعه جدید</h2>
                          <hr class="p-2 w-full">
+
                          <button wire:click="$emit('level1Action')" class="mt-2 w50 w-full mx-auto block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
                              افزودن قرارداد جدید
                          </button>
@@ -73,7 +74,7 @@
                                                          @else
                                                              <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                                          @endif
-                                                         <button wire:click="$emit('removeItemBuyer'}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
+                                                         <button wire:click="$emit('removeItemBuyer',{{$person_selected['id']}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
                                                      </div>
 
                                                  </div>
@@ -139,7 +140,7 @@
                                                      @else
                                                          <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                                      @endif
-                                                     <button wire:click="$emit('removeItemSeller')" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
+                                                     <button wire:click="$emit('removeItemSeller',{{$person_selected['id']}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
                                                  </div>
 
                                              </div>
