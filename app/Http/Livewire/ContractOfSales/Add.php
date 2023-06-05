@@ -53,7 +53,8 @@ class Add extends Component
         'hideLawyerBox',
         'level1Action'=>'level1',
         'level2Action'=>'level2',
-        'level3Action'=>'level3'
+        'level3Action'=>'level3',
+        'level4Action'=>'level4'
         ];
 
     public function level0()

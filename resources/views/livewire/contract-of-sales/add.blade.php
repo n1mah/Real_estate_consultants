@@ -160,6 +160,11 @@
                      <div class="@if($level!=3) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
                          <h2 class="font-medium p-3 text-gray-400">تایید نهایی طرفین قرارداد</h2>
                          <hr class="p-2 w-full">
+                         <p class="text-center text-gray-600"> شماره پرونده <span class="text-warning-700"> {{$fileNumber}}</span></p>
+                         <div class="w-full-45 flex justify-center">
+                             <button wire:click="level1" class="my-1 mx-1 text-primary-200 bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-500 font-medium rounded-lg text-sm px-3 py-1 text-center">بازگشت به خریداران</button>
+                             <button wire:click="level2" class="my-1 mx-1 text-primary-200 bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-500 font-medium rounded-lg text-sm px-3 py-1 text-center">بازگشت به فروشندگان</button>
+                         </div>
                          <div class="w-full flex flex-row flex-wrap justify-center">
                              @if($people_selectedBuyer)
                                  <hr>
@@ -210,7 +215,12 @@
                              </div>
                          @endif
                          </div>
-
+                         <br>
+                         <hr class="w-full-45 p-2">
+                         <br>
+                         <button wire:click="$emit('level4Action')" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
+                             ذخیره و تایید نهایی  @if(count($people_selectedBuyer)>1) خریداران @else خریدار @endif و  @if(count($people_selectedSeller)>1) فروشندگان @else فروشنده @endif
+                         </button>
                      </div>
                      {{--    level 3  End Page  --}}
 
