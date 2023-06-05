@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\ContractOfSales;
 
 use App\Models\ContractOfSale;
+use App\Models\Person;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -31,9 +32,28 @@ class Index extends Component
         10=>'تکمیل شده',
     ];
 
+    public function getContract()
+    {
+//        ->whereIn('place_of_birth', [...$this->places_filter])
+//        ->where(function($query) {
+//            $query->where("firstname","like","%$this->search%")
+//                ->orWhere("lastname","like","%$this->search%")
+//                ->orWhere("national_code","like","%$this->search%");
+//        });
+        return ContractOfSale::orderBy("created_at","desc")
+            ->where("file_number","like","%$this->search%");
+//            ->orWhere("lastname","like","%$this->search%")
+//            ->orWhere("national_code","like","%$this->search%");
+    }
+    public function gotoFirstPage($contracts)
+    {
+        if (ceil($contracts->count()/$this->perPage) < $this->page)
+            self::setPage(1);
+    }
     public function render()
     {
-        $contracts=ContractOfSale::orderBy('id', 'desc')->paginate($this->perPage);
+        $contracts= $this->getContract()->paginate($this->perPage);
+        $this->gotoFirstPage($contracts);
 //        $buyers=$contracts
         return view('livewire.contract-of-sales.index',
         [
