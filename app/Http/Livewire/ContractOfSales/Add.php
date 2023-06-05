@@ -124,7 +124,7 @@ class Add extends Component
             ];
         }
         ContractOfSalePerson::insert($customers);
-        redirect()->route('people');
+        redirect()->route('sales');
     }
 
     public function searchFileNumber(){
