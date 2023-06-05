@@ -3,7 +3,10 @@
 namespace App\Http\Livewire\ContractOfSales;
 
 use App\Models\ContractOfSale;
+use App\Models\ContractOfSalePerson;
 use App\Models\Person;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 class Add extends Component
 {
@@ -45,16 +48,12 @@ class Add extends Component
         'level2',
         'level3',
         'level4',
-        'level5',
-        'level6',
-        'level7',
-        'level8',
         'showLawyerBox',
         'hideLawyerBox',
         'level1Action'=>'level1',
         'level2Action'=>'level2',
         'level3Action'=>'level3',
-        'level4Action'=>'level4'
+        'finalAction'
         ];
 
     public function level0()
@@ -72,43 +71,62 @@ class Add extends Component
             }
             else
                 $this->errorFileNumber='!!!  لطفا کد یا شماره پرونده را وارد کنید  !!!';
-
         }
         else
             $this->errorFileNumber='!!!  این شماره پرونده از قبل وجود دارد . لطفا شماره پرونده دیگری را امتحان کنید  !!!';
-
     }
     public function level2()
     {
         if (count($this->people_selectedBuyer)>0)
             $this->level=2;
-
     }
     public function level3()
     {
         if (count($this->people_selectedSeller)>0)
         $this->level=3;
     }
-    public function level4()
+    public function finalAction()
     {
+        $now=[
+            'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s",'Asia/Tehran'),
+            'updated_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s",'Asia/Tehran')
+        ];
+
         $this->level=4;
+        $fileNumber= $this->fileNumber;
+        $contract_id=ContractOfSale::insertGetId([
+            'file_number'=>$fileNumber,
+            'level'=>2,
+            ...$now
+        ]);
+//        $contract_id=ContractOfSale::create([
+//            'file_number'=>$fileNumber,
+//            'level'=>2,
+//            ...$now
+//        ]);
+        $customers=[];
+        foreach ($this->people_selectedBuyer as $people){
+            $customers[]=[
+                'contract_of_sale_id' => $contract_id,
+                'person_id' =>  $people['id'],
+                'is_buyer' =>  true ,
+                'lawyer_id' =>  ($people['lawyer'])?$people['lawyer']['id']:$people['lawyer'],
+                ...$now
+            ];
+        }
+        foreach ($this->people_selectedSeller as $people){
+            $customers[]=[
+                'contract_of_sale_id' => $contract_id,
+                'person_id' =>  $people['id'],
+                'is_buyer' =>  false ,
+                'lawyer_id' =>  ($people['lawyer'])?$people['lawyer']['id']:$people['lawyer'],
+                ...$now
+            ];
+        }
+        ContractOfSalePerson::insert($customers);
+        redirect()->route('people');
     }
-    public function level5()
-    {
-        $this->level=5;
-    }
-    public function level6()
-    {
-        $this->level=6;
-    }
-    public function level7()
-    {
-        $this->level=7;
-    }
-    public function level8()
-    {
-        $this->level=8;
-    }
+
     public function searchFileNumber(){
         return ContractOfSale::find($this->fileNumber) == null ;
     }

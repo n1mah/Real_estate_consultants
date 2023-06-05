@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreign("person_id")->references("id")->on("people")->onUpdate("cascade")->onDelete("cascade");
             $table->unsignedBigInteger("lawyer_id")->nullable();;
             $table->foreign("lawyer_id")->references("id")->on("people")->onUpdate("cascade")->onDelete("cascade");
-            $table->unique(['contract_of_sale_id','person_id']);
             $table->boolean("is_buyer");
+            $table->unique(['contract_of_sale_id','person_id','is_buyer'],'my_unique');
             $table->timestamps();
         });
         $data=[
@@ -31,7 +31,7 @@ return new class extends Migration
             [2,3,false,null],
             [2,4,true,5],
         ];
-        for ($i = 0; $i < count($data); $i++) {
+      /*  for ($i = 0; $i < count($data); $i++) {
             DB::table('contract_of_sale_person')->insert(
                 [
                     'contract_of_sale_id' => $data[$i][0],
@@ -42,7 +42,7 @@ return new class extends Migration
                     'updated_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
                 ]
             );
-        }
+        }*/
     }
 
     /**

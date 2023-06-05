@@ -15,19 +15,21 @@ return new class extends Migration
     {
         Schema::create('contract_of_sales', function (Blueprint $table) {
             $table->id();
+            $table->string("file_number");
             $table->integer("level");
             $table->timestamp("confirm_date")->nullable();
             $table->timestamps();
         });
         $data=[
-            ["0","1685531870"],
-            ["8","1590923870"],
-            ["1","1433071070"],
+            ["0","1685531870",'a'],
+            ["8","1590923870",'b'],
+            ["1","1433071070",'c'],
         ];
         for ($i = 0; $i < count($data); $i++) {
             DB::table('contract_of_sales')->insert(
                 [
                     'level' => $data[$i][0],
+                    'file_number' => $data[$i][0],
                     'confirm_date' => Carbon::createFromTimestamp($data[$i][1])->format("Y/m/d H:i:s"),
                     'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
                     'updated_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),

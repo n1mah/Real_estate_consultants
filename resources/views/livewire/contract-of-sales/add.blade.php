@@ -218,7 +218,7 @@
                          <br>
                          <hr class="w-full-45 p-2">
                          <br>
-                         <button wire:click="$emit('level4Action')" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
+                         <button wire:click="$emit('finalAction')" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
                              ذخیره و تایید نهایی  @if(count($people_selectedBuyer)>1) خریداران @else خریدار @endif و  @if(count($people_selectedSeller)>1) فروشندگان @else فروشنده @endif
                          </button>
                      </div>
