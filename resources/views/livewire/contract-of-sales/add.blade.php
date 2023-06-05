@@ -19,7 +19,7 @@
                          <h2 class="font-medium p-3 text-gray-400">ایجاد یک قرارداد مبایعه جدید</h2>
                          <hr class="p-2 w-full">
 
-                         <input wire:model.lazy="fileNumber" autocomplete="off" type="text" id="fileNumber" class="mt-2 w50 w-full mx-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="شماره / کد پرونده را وارد کنید ...">
+                         <input wire:model.lazy="fileNumber" autocomplete="off" type="text" id="fileNumber" class="mt-2 w50 w-full mx-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="شماره پرونده را وارد کنید ...">
                          @if($errorFileNumber)
                              <div class="w50 mx-auto">
                                  <p class="text-red-100 bg-red-400 rounded-[10px] p-1 mx-1 my-3">{{$errorFileNumber}}</p>
@@ -33,7 +33,7 @@
 
                      {{--    level 1  Start page  --}}
                      <div class="@if($level!=1) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
-                             <h2 class="font-medium p-3 text-gray-400"> {{$fileNumber}} تعریف خریدار / خریداران</h2>
+                             <h2 class="font-medium p-3 text-gray-400">تعریف خریدار / خریداران</h2>
                              <hr class="p-2 w-full">
                              <div class="w-full flex flex-col items-center">
                                  <form class="py-2 w-full flex flex-col items-center">
@@ -77,7 +77,7 @@
 
                                                      <div>
                                                          @if($person_selected['lawyer']==null)
-                                                             <button wire:click="$emit('showLawyerBox',{{$c}},'Buyer')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                                             <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Buyer')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
                                                          @else
                                                              <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                                          @endif
@@ -127,7 +127,6 @@
                              </form>
                              <div class="w-full-65 mb-4  w-full sm:mb-5">
                                  @if($people_selectedSeller)
-                                     @php($c=0)
                                      <hr>
                                      <p class="sm:col-span-2 text-center my-2">
                                          @if(count($people_selectedSeller)>1) فروشندگان @else فروشنده @endif
@@ -138,14 +137,13 @@
                                                  {{$person_selected['firstname']}} {{$person_selected['lastname']}}
                                                  <div>
                                                      @if($person_selected['lawyer']==null)
-                                                         <button wire:click="$emit('showLawyerBox',{{$c}},'Seller')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                                         <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Seller')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
                                                      @else
                                                          <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                                      @endif
                                                      <button wire:click="$emit('removeItemSeller',{{$person_selected['id']}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
                                                  </div>
                                              </div>
-                                             @php($c++)
                                          @endforeach
                                      </div>
                                      <button wire:click="$emit('level3Action')" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
@@ -160,8 +158,59 @@
 
                      {{--    level 3  Start page --}}
                      <div class="@if($level!=3) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
-                         <h2 class="font-medium p-3 text-gray-400">تعریف s</h2>
+                         <h2 class="font-medium p-3 text-gray-400">تایید نهایی طرفین قرارداد</h2>
                          <hr class="p-2 w-full">
+                         <div class="w-full flex flex-row flex-wrap justify-center">
+                             @if($people_selectedBuyer)
+                                 <hr>
+                                 <p class="sm:col-span-2 text-center text-success-700 my-2">
+                                     @if(count($people_selectedBuyer)>1) خریداران @else خریدار @endif
+                                 </p>
+                                 <div class="w-full flex flex-row flex-wrap justify-center">
+                                     @foreach($people_selectedBuyer as $person_selected)
+                                         <div  class="w-full-30 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-800">
+                                             {{$person_selected['firstname']}} {{$person_selected['lastname']}}
+                                             <div>
+                                                 @if($person_selected['lawyer']==null)
+                                                     <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Buyer')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                                 @else
+                                                     <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
+                                                 @endif
+                                                 <button wire:click="$emit('removeItemBuyer',{{$person_selected['id']}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
+                                             </div>
+                                         </div>
+                                     @endforeach
+                                 </div>
+                             @endif
+                         </div>
+                         <br>
+                         <hr class="p-2 w-full">
+                         <div class="w-full flex flex-row flex-wrap justify-center">
+                         @if($people_selectedSeller)
+                             @php($c=0)
+                             <hr>
+                             <p class="sm:col-span-2 text-center my-2 text-red-700">
+                                 @if(count($people_selectedSeller)>1) فروشندگان @else فروشنده @endif
+                             </p>
+                             <div class="w-full flex flex-row flex-wrap justify-center">
+                                 @foreach($people_selectedSeller as $person_selected)
+                                     <div  class="w-full-30 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-800">
+                                         {{$person_selected['firstname']}} {{$person_selected['lastname']}}
+                                         <div>
+                                             @if($person_selected['lawyer']==null)
+                                                 <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Seller')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                             @else
+                                                 <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
+                                             @endif
+                                             <button wire:click="$emit('removeItemSeller',{{$person_selected['id']}})" class="inline-flex items-center justify-center w-9 h-5 cursor-pointer text-xs font-semibold text-red-100 bg-red-500 rounded-full">x</button>
+                                         </div>
+                                     </div>
+                                     @php($c++)
+                                 @endforeach
+                             </div>
+                         @endif
+                         </div>
+
                      </div>
                      {{--    level 3  End Page  --}}
 
