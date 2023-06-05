@@ -53,12 +53,13 @@
                             </svg>
                         </button>
                         <div wire:ignore.self id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
-                            <h6  class="mb-3 text-center text-sm font-medium text-gray-900 dark:text-white border-b pb-2">شهر را انتخاب کنید</h6>
+                            <h6 wire:init="loadLevels" class="mb-3 text-center text-sm font-medium text-gray-900 dark:text-white border-b pb-2">فیلتر :
+                                <br> مرحله مورد نظر را انتخاب کنید</h6>
                             <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
-                                @foreach($places=[] as $place)
+                                @foreach($levels as $level)
                                     <li class="flex items-center ">
-                                        <input id="place{{isset($i) ? ++$i : $i=0 }}"  wire:model="places_filter" checked type="checkbox" value="{{$place}}" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                        <label for="place{{$i}}" class="mr-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{$place}}</label>
+                                        <input id="level{{isset($i) ? ++$i : $i=0 }}"  wire:model="levels_filter" checked type="checkbox" value="{{$level}}" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                        <label for="level{{$i}}" class="mr-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{$statuslabel[$level]}}</label>
                                     </li>
                                 @endforeach
                             </ul>
