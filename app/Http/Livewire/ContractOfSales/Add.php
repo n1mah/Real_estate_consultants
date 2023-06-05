@@ -134,6 +134,7 @@ class Add extends Component
     {
         $this->searchResultSeller = $this->searchPeople($this->searchSeller);
     }
+
     public function searchItemInArray(int $id,array $array):null|int{
         if (in_array($id,$array)) {
             if (($key = array_search($id, $array)) !== false) {
@@ -157,7 +158,6 @@ class Add extends Component
         }
     public function removeItemBuyer(int $id){
             if (($key = $this->searchItemInArray($id,$this->id_selectedBuyer)) !== null) {
-//                dd($this->people_selectedBuyer);
                 unset($this->id_selectedBuyer[$key]);
                 unset($this->people_selectedBuyer[$id]);
             }
@@ -168,51 +168,57 @@ class Add extends Component
             unset($this->people_selectedSeller[$id]);
         }
     }
-    public function selectedItem(int $id=null,$selected){
-        $id_add = (!is_null($id))? $id : $selected;
 
-
+    public function createArrayLawyer($id,$firstname,$lastname,$national_code)
+    {
+        return [
+            'id' => $id,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'national_code' => $national_code,
+        ];
     }
     public function selectedItemLawyer(int $id=null)
     {
-//        dd($this->people_selectedBuyer);
         $id_add=(!is_null($id))?$id:$this->selectedLawyer;
         if (!empty($id_add)) {
-//                array_push($this->id_selectedLawyer,$id_add);
-            $p = Person::find($id_add);
+            $person = Person::find($id_add);
                 if ($this->idCusLawyerStatus == 'Buyer') {
-                $this->people_selectedBuyer[$this->idCusLawyer]['lawyer'] = [
-                    'id' => $p->id,
-                    'firstname' => $p->firstname,
-                    'lastname' => $p->lastname,
-                    'national_code' => $p->national_code,
-                ];
+                $this->people_selectedBuyer[$this->idCusLawyer]['lawyer'] = $this->createArrayLawyer(
+                    $person->id,$person->firstname,$person->lastname,$person->national_code,
+                );
             } elseif ($this->idCusLawyerStatus == 'Seller') {
-                $this->people_selectedSeller[$this->idCusLawyer]['lawyer'] = [
-                    'id' => $p->id,
-                    'firstname' => $p->firstname,
-                    'lastname' => $p->lastname,
-                    'national_code' => $p->national_code,
-                ];
-
+                $this->people_selectedSeller[$this->idCusLawyer]['lawyer'] =  $this->createArrayLawyer(
+                    $person->id,$person->firstname,$person->lastname,$person->national_code,
+                );
             }
             $this->hideLawyerBox();
         }
+    }
+
+    public function createArray($id,$firstname,$lastname,$national_code,$lawyer=null){
+        return [
+            'id' => $id,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'national_code' => $national_code,
+            'lawyer'=> $lawyer
+        ];
     }
     public function selectedItemBuyer(int $id=null)
     {
         $id_add=(!is_null($id))?$id:$this->selectedBuyer;
         if (!empty($id_add)){
             if (!in_array($id_add,$this->id_selectedBuyer)){
-                $p=Person::find($id_add);
-                array_push($this->id_selectedBuyer,$p->id);
-                $this->people_selectedBuyer[$p->id] = [
-                    'id' => $p->id,
-                    'firstname' => $p->firstname,
-                    'lastname' => $p->lastname,
-                    'national_code' => $p->national_code,
-                    'lawyer'=>null
-                ];
+                $person=Person::find($id_add);
+                array_push($this->id_selectedBuyer,$person->id);
+                $this->people_selectedBuyer[$person->id] = $this->createArray(
+                    $person->id,
+                    $person->firstname,
+                    $person->lastname,
+                    $person->national_code
+                );
+
             }
         }
     }
@@ -222,15 +228,14 @@ class Add extends Component
         $id_add=(!is_null($id))?$id:$this->selectedSeller;
         if (!empty($id_add)){
             if (!in_array($id_add,$this->id_selectedSeller)){
-                $p=Person::find($id_add);
-                 array_push($this->id_selectedSeller,$p->id);
-                $this->people_selectedSeller[$p->id] = [
-                    'id' => $p->id,
-                    'firstname' => $p->firstname,
-                    'lastname' => $p->lastname,
-                    'national_code' => $p->national_code,
-                    'lawyer'=>null
-                ];
+                $person=Person::find($id_add);
+                 array_push($this->id_selectedSeller,$person->id);
+                $this->people_selectedSeller[$person->id] =  $this->createArray(
+                    $person->id,
+                    $person->firstname,
+                    $person->lastname,
+                    $person->national_code
+                );
             }
         }
     }
