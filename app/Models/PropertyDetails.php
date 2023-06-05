@@ -13,4 +13,9 @@ class PropertyDetails extends Model
         'year_of_construction','part','registration_area','house_area','price_per_meter','parking',
         'warehouse','membership_right','telephone','title_deeds','title_deeds_number','address','postal_code'
     ];
+
+    public function contract_of_sale()
+    {
+        return $this->belongsTo(ContractOfSale::class);
+    }
 }
