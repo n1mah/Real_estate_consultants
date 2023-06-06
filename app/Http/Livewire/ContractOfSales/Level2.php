@@ -7,7 +7,60 @@ use Livewire\Component;
 
 class Level2 extends Component
 {
+    public $checkPhoneStatus=0;
+    public $gas_status;
+    public $phone_status;
+    public $shoo_status;
     public $contractOfSale;
+
+    public $properties=[];
+    public $membership_right=[];
+
+    public $title_deeds;
+    public $entirety;
+    public $arena_and_nobles;
+    public $house_number;
+    public $sub_part_address;
+    public $main_part_address;
+    public $year_of_construction;
+    public $part;
+    public $registration_area;
+    public $house_area;
+    public $price_per_meter;
+    public $parking;
+    public $warehouse;
+    public $title_deeds_number;
+    public $address;
+    public $postal_code;
+    public $phone;
+    public $title_deeds_check=false;
+
+    public function updatedTitleDeeds()
+    {
+        $this->title_deeds_check=($this->title_deeds=="دارا")?true:false;
+    }
+    protected $listeners = [
+        'checkPhone',
+        'aa'=>'myg'
+        ];
+
+    public function searchItemInArray(string $value,array $array):null|int{
+        if (in_array($value,$array)) {
+            if (($key = array_search($value, $array)) !== false) {
+                return $key;
+            }
+        }
+        return null;
+    }
+
+    public function myg()
+    {
+        dd(11);
+    }
+    public function checkPhone($status)
+    {
+        $this->phone_status=$status;
+    }
 
     public function mount(ContractOfSale $contractOfSale)
     {
