@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('financials', function (Blueprint $table) {
             $table->id();
+            $table->decimal("purchase_price",30,0);  //قیمت هر متر
+            $table->decimal("deposit",30,0);  //قیمت هر متر
+            $table->string("payment_type")->default('نقد'); //کدپستی
+            $table->string("bank")->nullable(); //کدپستی
+            $table->string("branch")->nullable(); //کدپستی
             $table->timestamps();
         });
     }
