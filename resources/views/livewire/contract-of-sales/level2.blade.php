@@ -5,7 +5,7 @@
             <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">افزودن ماده 2</span> <br> (موضوع و مشخصات)</h2>
             <hr class="p-2 w-full">
             <div class="w-full flex flex-col items-center">
-                <form class="py-2 w-full flex flex-col items-center">
+                <form class="py-2 w-full flex flex-col items-center" wire:submit.prevent="create">
                     <div class="w-full-80 mx-auto items-center mb-4 grid grid-cols-4 gap-4">
                         <div class="">
                             <div class="w-full flex flex-col mb-4">
@@ -22,8 +22,8 @@
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
-                                <label for="arena_and_nobles" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عرصه و ایان </label>
-                                <input autocomplete="off" id="arena_and_nobles" wire:model.defer="title_deeds" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <label for="arena_and_nobles" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عرصه و ایان <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
+                                <input autocomplete="off" id="arena_and_nobles" wire:model.defer="arena_and_nobles" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
@@ -49,7 +49,7 @@
                                 <label for="year_of_construction" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">سال ساخت<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <select wire:model.defer="year_of_construction" id="year_of_construction" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     @for($i=\Morilog\Jalali\Jalalian::now()->format('Y');$i>=1300;$i--)
-                                        <option value="{{$i}}">{{$i}}</option>
+                                        <option value="{{$i}}" @if($i==\Morilog\Jalali\Jalalian::now()->format('Y')) selected @endif>{{$i}}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -77,7 +77,7 @@
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
-                                <label for="price_per_meter" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">قبمت (هر متر مربع - ریال )<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
+                                <label for="price_per_meter" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">قیمت (هر متر مربع - ریال )<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <input autocomplete="off" type="number" min="0" wire:model="price_per_meter" id="price_per_meter" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{number_format($price_per_meter)}} ریال @else <span class="opacity-0"> - </span> @endif</label>
                                 <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{(new Number2Word)->numberToWords($price_per_meter/10)}} تومان @else <span class="opacity-0"> - </span> @endif</label>
@@ -114,8 +114,9 @@
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title_deeds" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">وضعیت سند ثبتی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <select id="title_deeds" wire:model="title_deeds" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected value="فاقد">فاقد سند ثبتی</option>
-                                    <option value="دارا">دارای سند ثبتی</option>
+                                    <option selected value="null">انتخاب کنید:</option>
+                                    <option value="0">فاقد سند ثبتی</option>
+                                    <option value="1">دارای سند ثبتی</option>
                                 </select>
                             </div>
                         </div>
@@ -191,12 +192,22 @@
 
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(!$phone_status) hidden @endif" >
-                                <label for="phone" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن</label>
-                                <input  autocomplete="off" wire:model.defer="phone" id="phone" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <label for="telephone" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن</label>
+                                <input  autocomplete="off" wire:model.defer="telephone" id="telephone" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                     </div>
-                    <button wire:click="$emit('save')" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
+                    <div class="w-full-80 mx-auto items-center mb-4 ">
+                        @if($errors)
+                            @foreach ($errors->all() as $error)
+                                <p class="text-red-700 text-right"> * {{ $error }}</p>
+                            @endforeach
+                        @endif
+                        @if($this->title_deeds=='null')
+                                <p class="text-red-700 text-right"> * وضعیت سند ثبتی را مشخص کنید </p>
+                        @endif
+                    </div>
+                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
                         ذخیره مشخصات و تایید نهایی
                     </button>
                 </form>
