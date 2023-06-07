@@ -16,6 +16,6 @@ class PropertyDetails extends Model
 
     public function contract_of_sale()
     {
-        return $this->belongsTo(ContractOfSale::class);
+        return $this->hasOne(ContractOfSale::class);
     }
 }
