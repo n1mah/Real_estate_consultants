@@ -33,15 +33,30 @@ class Level2 extends Component
     public $address;
     public $postal_code;
     public $phone;
+    public $total=0;
     public $title_deeds_check=false;
+    public function total()
+    {
+        if (!empty($this->house_area) && !empty($this->price_per_meter)){
+            $this->total =$this->house_area * $this->price_per_meter;
+        }else{
+            $this->total = 0;
+        }
+    }
+    public function updatedHouseArea(){
+        $this->total();
+    }
 
+    public function updatedPricePerMeter(){
+        $this->total();
+    }
     public function updatedTitleDeeds()
     {
         $this->title_deeds_check=($this->title_deeds=="دارا")?true:false;
     }
     protected $listeners = [
         'checkPhone',
-        'aa'=>'myg'
+        'save'
         ];
 
     public function searchItemInArray(string $value,array $array):null|int{
@@ -53,9 +68,10 @@ class Level2 extends Component
         return null;
     }
 
-    public function myg()
+
+    public function save()
     {
-        dd(11);
+        dd(1);
     }
     public function checkPhone($status)
     {

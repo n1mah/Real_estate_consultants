@@ -23,74 +23,88 @@
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="arena_and_nobles" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عرصه و ایان </label>
-                                <input id="arena_and_nobles" wire:model.defer="title_deeds" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input autocomplete="off" id="arena_and_nobles" wire:model.defer="title_deeds" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="house_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پلاک ثبتی</label>
-                                    <input id="house_number" wire:model.defer="house_number" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <input autocomplete="off" id="house_number" wire:model.defer="house_number" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="sub_part_address" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">فرعی</label>
-                                    <input id="sub_part_address" wire:model.defer="sub_part_address" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <input autocomplete="off" id="sub_part_address" wire:model.defer="sub_part_address" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="main_part_address" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">اصلی قطعه</label>
-                                <input id="main_part_address" wire:model.defer="main_part_address" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input autocomplete="off" id="main_part_address" wire:model.defer="main_part_address" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="year_of_construction" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">سال ساخت<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <select wire:model.defer="year_of_construction" id="year_of_construction" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    @for($i=1300;$i<\Morilog\Jalali\Jalalian::now()->format('Y');$i++)
-                                        <option selected value="{{$i}}">{{$i}}</option>
+                                    @for($i=\Morilog\Jalali\Jalalian::now()->format('Y');$i>=1300;$i--)
+                                        <option value="{{$i}}">{{$i}}</option>
                                     @endfor
-
                                 </select>
                             </div>
                         </div>
+
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="part" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">واقع در بخش</label>
-                                <input wire:model.defer="part" id="part" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input autocomplete="off" wire:model.defer="part" id="part" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="registration_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">حوزه ثبتی</label>
-                                <input wire:model.defer="registration_area" id="registration_area" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input autocomplete="off" wire:model.defer="registration_area" id="registration_area" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">مساحت (متر مربع)<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                                <input wire:model.defer="house_area" id="house_area" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input autocomplete="off" type="number" min="0" step="0.01" wire:model="house_area" id="house_area" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span class="opacity-0"> - </span></label>
+                                <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span class="opacity-0"> - </span></label>
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
-                                <label for="price_per_meter" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">قبمت (هر متر مربع)<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                                <input wire:model.defer="price_per_meter" id="price_per_meter" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <label for="price_per_meter" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">قبمت (هر متر مربع - ریال )<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
+                                <input autocomplete="off" type="number" min="0" wire:model="price_per_meter" id="price_per_meter" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{number_format($price_per_meter)}} ریال @else <span class="opacity-0"> - </span> @endif</label>
+                                <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{(new Number2Word)->numberToWords($price_per_meter/10)}} تومان @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
+                            <div class="w-full flex flex-row flex-wrap items-start justify-around">
+                                <div class="text-red-600 text-xl mx-2">مبلغ کل : </div>
+                                <div>
+                                    <div class="text-red-600 ">@if(is_numeric($total) && !empty($total)) {{number_format($total)}} ریال @else <span class="opacity-0"> - </span> @endif</div>
+                                    <div class="text-red-600 ">@if(!empty($total)) {{(new Number2Word)->numberToWords($total)}} ریال @else <span class="opacity-0"> - </span> @endif</div>
+                                    <div class="text-red-600 ">@if(!empty($total)) {{(new Number2Word)->numberToWords($total/10)}} تومان @else <span class="opacity-0"> - </span> @endif</div>
+                                </div>
+
+                                </div>
                         </div>
+
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="parking" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پارکینگ</label>
-                                <input  wire:model.defer="parking" id="parking" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input  autocomplete="off" wire:model.defer="parking" id="parking" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="warehouse" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">انباری</label>
-                                <input wire:model.debounce:2000ms="warehouse" id="warehouse" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input name="parking" wire:model.debounce:2000ms="warehouse" id="warehouse" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
 
@@ -108,7 +122,7 @@
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(!$title_deeds_check) hidden @endif ">
                                 <label for="title_deeds_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">شماره سند ثبتی</label>
-                                <input id="gray" wire:model.defer="title_deeds_number" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input  autocomplete="off" id="gray" wire:model.defer="title_deeds_number" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div class="sm:col-span-3">
@@ -121,7 +135,7 @@
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="postal_code" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">کدپستی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                                <input id="postal_code" wire:model.defer="postal_code" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input  autocomplete="off" id="postal_code" wire:model.defer="postal_code" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div class="sm:col-span-3">
@@ -163,15 +177,14 @@
                                     <input type="hidden">
                                     <div class="flex w-auto mx-1 items-center p-2 border border-gray-200 rounded dark:border-gray-700 flex-wrap">
                                         <div class="flex items-center pl-3">
-                                            <input id="phone_status1"  type="radio" name="rr" wire:model="phone_status" value="تلفن غیر دایر" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <input id="phone_status1"  type="radio"  wire:model="phone_status" value="تلفن غیر دایر" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="phone_status1" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">تلفن غیر دایر</label>
                                         </div>
                                         <div class="flex items-center pl-3">
-                                            <input id="phone_status2"  type="radio" name="rr" wire:model="phone_status" value="تلفن دایر" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <input id="phone_status2"  type="radio"  wire:model="phone_status" value="تلفن دایر" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="phone_status2" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">تلفن دایر</label>
                                         </div>
                                     </div>
-                                    <p wire:click="$emit('aa')">click</p>
                                 </div>
                             </div>
                         </div>
@@ -179,11 +192,11 @@
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(!$phone_status) hidden @endif" >
                                 <label for="phone" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن</label>
-                                <input wire:model.defer="phone" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input  autocomplete="off" wire:model.defer="phone" id="phone" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                     </div>
-                    <button class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
+                    <button wire:click="$emit('save')" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
                         ذخیره مشخصات و تایید نهایی
                     </button>
                 </form>
