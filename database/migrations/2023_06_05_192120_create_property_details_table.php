@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string("part")->nullable(); //بخش
             $table->string("registration_area")->nullable(); //حوزه ثبتی
             $table->float("house_area"); //مساحت-متراژ
-            $table->decimal("price_per_meter",22,0);  //قیمت هر متر
+            $table->decimal("price_per_meter",30,0);  //قیمت هر متر
             $table->string("parking")->nullable();  //پارکینگ
             $table->string("warehouse")->nullable(); //انباری
             $table->json("membership_right")->nullable();  //حق اشتراک
