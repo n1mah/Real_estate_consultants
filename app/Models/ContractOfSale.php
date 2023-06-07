@@ -28,4 +28,8 @@ class ContractOfSale extends Model
     {
         return $this->belongsToMany(PropertyDetails::class);
     }
+    public function financials()
+    {
+        return $this->belongsToMany(Financial::class);
+    }
 }
