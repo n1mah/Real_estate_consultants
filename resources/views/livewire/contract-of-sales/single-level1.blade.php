@@ -53,8 +53,6 @@
                 @endif
             </div>
         </div>
-
-
     <br>
     <hr class="w-full-45 p-2">
     <br>
