@@ -32,7 +32,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/numberToString.php"
+            "app/helpers/numberToString.php"
         ]
     },
     "autoload-dev": {

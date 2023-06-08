@@ -109,23 +109,33 @@ class Number2Word {
     }
 
     public function numberToWords($number) {
-        $formated = $this->number_format($number, 0, '.', ',');
-        $groups = explode(',', $formated);
 
-        $steps = count($groups);
+     if ($number>=0 && is_numeric($number)){
+         try {
+             $formated = $this->number_format($number, 0, '.', ',');
+             $groups = explode(',', $formated);
 
-        $parts = array();
-        foreach ($groups as $step => $group) {
-            $group_words = self::groupToWords($group);
-            if ($group_words) {
-                $part = implode(' ' . $this->t['and'] . ' ', $group_words);
-                if (isset($this->steps[$steps - $step - 1])) {
-                    $part .= ' ' . $this->steps[$steps - $step - 1];
-                }
-                $parts[] = $part;
-            }
-        }
-        return implode(' ' . $this->t['and'] . ' ', $parts);
+             $steps = count($groups);
+
+             $parts = array();
+             foreach ($groups as $step => $group) {
+                 $group_words = self::groupToWords($group);
+                 if ($group_words) {
+                     $part = implode(' ' . $this->t['and'] . ' ', $group_words);
+                     if (isset($this->steps[$steps - $step - 1])) {
+                         $part .= ' ' . $this->steps[$steps - $step - 1];
+                     }
+                     $parts[] = $part;
+                 }
+             }
+             return implode(' ' . $this->t['and'] . ' ', $parts);
+         }catch (Exception){
+             return  0 ;
+         }
+
+     }else{
+         return  0 ;
+     }
     }
 
 }
