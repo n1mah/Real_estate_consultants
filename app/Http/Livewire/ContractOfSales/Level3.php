@@ -10,6 +10,7 @@ class Level3 extends Component
     public ContractOfSale $contractOfSale;
     public $total;
     public $purchase_price;
+    public $debt_balance;
     public $deposit;
     public $payment_type='نقد';
 
@@ -19,11 +20,26 @@ class Level3 extends Component
        $this->payment_type='نقد';
     }
 
-    public function updatePurchasePrice()
+    public function updatedPurchasePrice()
     {
         if ($this->purchase_price=="" || $this->purchase_price==null  || empty($this->purchase_price)){
-            $this->purchase_price=0;
+            $this->purchase_price=null;
+        }else{
+            if (!($this->deposit=="" || $this->deposit==null  || empty($this->deposit))) {
+                $this->debt_balance=$this->purchase_price-$this->deposit;
+            }
         }
+    }
+    public function updatedDeposit()
+    {
+        if ($this->deposit=="" || $this->deposit==null  || empty($this->deposit)){
+            $this->deposit=null;
+        }else{
+            if (!($this->purchase_price=="" || $this->purchase_price==null  || empty($this->purchase_price))){
+                $this->debt_balance=$this->purchase_price-$this->deposit;
+            }
+        }
+
     }
 
     public function render()
