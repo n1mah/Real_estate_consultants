@@ -9,7 +9,7 @@ class Financial extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'purchase_price','deposit','payment_type','bank','branch'
+        'contract_of_sale_id','purchase_price','deposit','payment_type','bank','branch'
     ];
     public function contract_of_sale()
     {
