@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('contract_of_sales', function (Blueprint $table) {
-            $table->timestamp("signature_date")->nullable();
-            $table->integer("signature_hour")->nullable();
-            $table->integer("signature_minutes")->nullable();
+            $table->unsignedBigInteger("user_id")->nullable();
+            $table->foreign("user_id")->references("id")->on("users")->onUpdate("cascade")->onDelete("cascade");
         });
     }
 
@@ -24,9 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('contract_of_sales', function (Blueprint $table) {
-            $table->dropColumn('signature_date');
-            $table->dropColumn('signature_hour');
-            $table->dropColumn('signature_minutes');
+            $table->dropColumn('user_id');
         });
     }
 };
