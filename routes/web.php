@@ -7,6 +7,7 @@ use App\Http\Livewire\ContractOfSales\Add as Sale_Add;
 use \App\Http\Livewire\ContractOfSales\SingleLevel1;
 use App\Http\Livewire\ContractOfSales\Level2 as Sale_Add_Level2;
 use App\Http\Livewire\ContractOfSales\Level3 as Sale_Add_Level3;
+use App\Http\Livewire\ContractOfSales\Level4 as Sale_Add_Level4;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,5 +36,6 @@ Route::get('/sales/level1', Sale_Add::class)->name("sales.add");
 Route::get('/sales/level1/{contractOfSale}', SingleLevel1::class)->name("sales.level1.single");
 Route::get('/sales/level2/{contractOfSale}', Sale_Add_Level2::class)->name("sales.level2");
 Route::get('/sales/level3/{contractOfSale}', Sale_Add_Level3::class)->name("sales.level3");
+Route::get('/sales/level4/{contractOfSale}', Sale_Add_Level4::class)->name("sales.level4");
 //Route::post('/people', People_Index::class);
 
