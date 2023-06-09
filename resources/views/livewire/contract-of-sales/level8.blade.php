@@ -42,7 +42,7 @@
                         <div>
                             <div class="w-full-30 flex flex-col mb-4">
                                 <label for="tax" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">مالیات بر ارزش افزوده ٪ (درصد) <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                                <input autocomplete="off" id="tax" wire:model.defer="tax" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input autocomplete="off" type="number" id="tax" wire:model="tax" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 @if($errors->has('tax'))
                                     <span class="text-red-500 text-xs">{{ $errors->first('tax') }}</span>
                                 @endif
@@ -50,16 +50,19 @@
                         </div>
                         <hr class="my-3 p-2">
                         <div>
-                            <div class="w-full flex flex-col mb-4 p-2">
-                                <label for="total_received" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white font-extrabold text-xl text-orange-800">جمع دریافتی :</label>
-                                <input readonly autocomplete="off" type="number" min="0" wire:model="total_received" id="total_received" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <div class="w-full flex flex-col mb-4 p-5 bg-gray-200 rounded-xl ">
                                 @if($errors->has('total_received'))
                                     <span class="text-red-500 text-xs">{{ $errors->first('total_received') }}</span>
                                 @endif
-                                <label for="house_area" class="text-primary flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($total_received) && !empty($total_received)) <span>{{(new Number2Word)->numberToWords($total_received)}} <span class="font-extrabold text-primary-700">ریال</span> </span><span> {{number_format($total_received)}}  <span class="font-extrabold text-primary-700">ریال</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
-                                <label for="house_area" class="text-primary flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($total_received) && !empty($total_received)) <span>{{(new Number2Word)->numberToWords($total_received/10)}} <span class="font-extrabold text-primary-700">تومان</span> </span><span> {{number_format($total_received/10)}}  <span class="font-extrabold text-primary-700">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
+                                    <label for="total_received" class="text-right block mb-5 pb-3 text-sm font-medium text-gray-900 dark:text-white font-extrabold text-xl text-orange-800">جمع دریافتی :</label>
+                                <br>
+                                <input readonly autocomplete="off" type="number" min="0" wire:model="total_received" id="total_received" class="hidden bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <label for="house_area" class="text-red-700 flex flex-wrap flex-row justify-between  text-right block mb-2 text-medium font-medium text-gray-900 dark:text-white">@if(is_numeric($total_received) && !empty($total_received)) <span>{{(new Number2Word)->numberToWords($total_received)}} <span class="font-extrabold text-black">ریال</span> </span><span> {{number_format($total_received)}}  <span class="font-extrabold text-black">ریال</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
+                                <label for="house_area" class="text-red-700 flex flex-wrap flex-row justify-between  text-right block mb-2 text-medium font-medium text-gray-900 dark:text-white">@if(is_numeric($total_received) && !empty($total_received)) <span>{{(new Number2Word)->numberToWords($total_received/10)}} <span class="font-extrabold text-black">تومان</span> </span><span> {{number_format($total_received/10)}}  <span class="font-extrabold text-black">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
+                        <span class="text-red-500 text-xs">{{ $msg }}</span>
+
                     </div>
                     <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold ">
                         ثبت حق الزحمه مشاور املاک و تایید نهایی
