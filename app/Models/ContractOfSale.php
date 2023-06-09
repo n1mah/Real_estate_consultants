@@ -33,8 +33,8 @@ class ContractOfSale extends Model
     {
         return $this->hasOne(DetailsOfContracts::class);
     }
-    public function financials()
+    public function financial()
     {
-        return $this->belongsToMany(Financial::class);
+        return $this->hasOne(Financial::class);
     }
 }
