@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('state');
             $table->string('city');
             $table->integer('default_tax');
-            $table->integer('default_wage');
+            $table->decimal("default_wage",30,2)->nullable();
 //            $table->timestamp('email_verified_at')->nullable();
 //            $table->rememberToken();
             $table->timestamps();
