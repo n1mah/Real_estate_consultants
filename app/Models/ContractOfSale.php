@@ -28,6 +28,10 @@ class ContractOfSale extends Model
     {
         return $this->hasOne(PropertyDetails::class);
     }
+    public function details_of_contract()
+    {
+        return $this->hasOne(DetailsOfContracts::class);
+    }
     public function financials()
     {
         return $this->belongsToMany(Financial::class);
