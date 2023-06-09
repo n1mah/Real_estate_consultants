@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("contract_of_sale_id"); //کد قرارداد فروش
             $table->foreign("contract_of_sale_id")->references("id")->on("contract_of_sales")->onUpdate("cascade")->onDelete("cascade");
-            $table->timestamp('set_time')->nullable(); // زمان موقر برای حضور
-            $table->string('notary_public')->nullable(); //دفتراسنادرسمی
+            $table->timestamp('set_time'); // زمان موقر برای حضور
+            $table->string('notary_public'); //دفتراسنادرسمی
             $table->timestamp('delivery_time')->nullable(); // زمان تحویل
             $table->decimal("loss_of_no_sale",30,0)->nullable();  //خسارت عدم فروش (مشکل فروش) به خریدار
             $table->decimal("damages_for_non_fulfillment_of_obligations",30,0)->nullable();  //خسارت عدم انجام تعهدات  (به خریدار)
