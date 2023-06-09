@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class ContractOfSale extends Model
 {
@@ -28,7 +29,7 @@ class ContractOfSale extends Model
     {
         return $this->hasOne(PropertyDetails::class);
     }
-    public function details_of_contract()
+    public function details_of_contract(): HasOne
     {
         return $this->hasOne(DetailsOfContracts::class);
     }
