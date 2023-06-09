@@ -11,6 +11,9 @@
                             <div class="w-full flex flex-col mb-4">
                                 <label for="arena_and_nobles" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">دفتر اسناد رسمی <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <input autocomplete="off" id="arena_and_nobles" wire:model.defer="notary_public" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                @if($errors->has('notary_public'))
+                                    <span class="text-red-500 text-xs">{{ $errors->first('notary_public') }}</span>
+                                @endif
                             </div>
                         </div>
                         <x-persian-datepicker
@@ -19,12 +22,14 @@
                             showFormat="jYYYY/jMM/jDD"
                             returnFormat="X"
                             :required="true"
-                            :defaultDate="date('Y-m-d')"
-                            :setNullInput="true"
+                            :setNullInput="false"
                         >
                             <label for="date_of_birth" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-right">تاریخ حضور در دفترخانه<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
 
                         </x-persian-datepicker>
+                        @if($errors->has('notary_public'))
+                            <span class="text-red-500 text-xs">{{ $errors->first('set_time') }}</span>
+                        @endif
                     </div>
                          <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
                         شرایط مربوط به تنظیم سند و تایید نهایی
