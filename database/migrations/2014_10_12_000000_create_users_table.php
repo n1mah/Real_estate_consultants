@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -26,6 +27,19 @@ return new class extends Migration
 //            $table->rememberToken();
             $table->timestamps();
         });
+        DB::table('users')->insert(
+            [
+                'username' => 'admin',
+                'password' => 'admin',
+                'membership_number' => '123-213sa213',
+                'manager' => 'علی علیزاده اصلی مازندرانی',
+                'address' => 'همدان میدان جهاد خیابان طالقانی خیابان آرام جنوبی چهار راه امیرکبیر ساختمان مینا طبقه ۳ واحد ۵',
+                'state' =>'همدان',
+                'city' => 'همدان',
+                'default_tax' => '140000',
+                'default_wage' => 9
+            ]
+        );
     }
 
     /**
