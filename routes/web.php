@@ -9,6 +9,7 @@ use App\Http\Livewire\ContractOfSales\SingleLevel2;
 use App\Http\Livewire\ContractOfSales\SingleLevel3;
 use App\Http\Livewire\ContractOfSales\SingleLevel4;
 use App\Http\Livewire\ContractOfSales\SingleLevel5;
+use App\Http\Livewire\ContractOfSales\SingleLevel6;
 use App\Http\Livewire\ContractOfSales\Level2 as Sale_Add_Level2;
 use App\Http\Livewire\ContractOfSales\Level3 as Sale_Add_Level3;
 use App\Http\Livewire\ContractOfSales\Level4 as Sale_Add_Level4;
@@ -51,6 +52,7 @@ Route::get('/sales/level2/single/{contractOfSale}', SingleLevel2::class)->name("
 Route::get('/sales/level3/single/{contractOfSale}', SingleLevel3::class)->name("sales.level3.single");
 Route::get('/sales/level4/single/{contractOfSale}', SingleLevel4::class)->name("sales.level4.single");
 Route::get('/sales/level5/single/{contractOfSale}', SingleLevel5::class)->name("sales.level5.single");
+Route::get('/sales/level6/single/{contractOfSale}', SingleLevel6::class)->name("sales.level6.single");
 Route::get('/sales/level2/{contractOfSale}', Sale_Add_Level2::class)->name("sales.level2");
 Route::get('/sales/level3/{contractOfSale}', Sale_Add_Level3::class)->name("sales.level3");
 Route::get('/sales/level4/{contractOfSale}', Sale_Add_Level4::class)->name("sales.level4");
