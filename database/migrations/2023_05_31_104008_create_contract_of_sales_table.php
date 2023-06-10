@@ -21,9 +21,9 @@ return new class extends Migration
             $table->timestamps();
         });
         $data=[
-            ["0","1685531870",'a'],
-            ["8","1590923870",'b'],
-            ["1","1433071070",'c'],
+            ["133456-122","1685531870",'a'],
+            ["133456-123","1590923870",'b'],
+            ["133456-124","1433071070",'c'],
         ];
         for ($i = 0; $i < count($data); $i++) {
             DB::table('contract_of_sales')->insert(
