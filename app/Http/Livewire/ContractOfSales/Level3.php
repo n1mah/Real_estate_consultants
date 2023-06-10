@@ -14,6 +14,7 @@ class Level3 extends Component
     public $purchase_price;
     public $debt_balance;
     public $deposit;
+    public $cheque;
     public $msg;
     public $payment_type='نقد';
     public $bank;
@@ -76,6 +77,7 @@ class Level3 extends Component
                     'payment_type'=>$this->payment_type,
                     'bank'=>$this->bank,
                     'branch'=>$this->branch,
+                    'cheque'=>$this->cheque,
                 ]);
                 $this->contractOfSale->level=4;
                 $this->contractOfSale->save();

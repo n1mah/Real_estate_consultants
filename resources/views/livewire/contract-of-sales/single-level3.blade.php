@@ -50,6 +50,13 @@
                             </div>
                         </div>
 
+                        <div class=" sm:col-span-2 @if($payment_type=='نقد') hidden @endif">
+                            <div class="w-full flex flex-col mb-4">
+                                <label for="cheque" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white"> چک : </label>
+                                <input readonly id="cheque" value="{{$cheque}}" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                        </div>
+
                         <div class="@if($payment_type=='نقد')hidden @endif">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="bank" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">بانک</label>

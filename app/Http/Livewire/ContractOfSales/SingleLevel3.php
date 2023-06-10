@@ -19,6 +19,8 @@ class SingleLevel3 extends Component
     public $payment_type;
     public $bank;
     public $branch;
+    public $cheque;
+
     public function mount()
     {
         $PropertyDetails=PropertyDetails::where('contract_of_sale_id',$this->contractOfSale->id);
@@ -31,6 +33,7 @@ class SingleLevel3 extends Component
             $this->branch =$financialData->branch;
             $this->payment_type =$financialData->payment_type;
             $this->deposit =$financialData->deposit;
+            $this->cheque =$financialData->cheque;
             $this->purchase_price =$financialData->purchase_price;
             $this->debt_balance=$this->purchase_price-$this->deposit;
         }else{
