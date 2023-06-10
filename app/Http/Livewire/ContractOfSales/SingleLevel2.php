@@ -37,7 +37,7 @@ class SingleLevel2 extends Component
     {
 
         $PropertyDetails = PropertyDetails::where('contract_of_sale_id',$this->contractOfSale->id);
-        if ($PropertyDetails->count()==1){
+        if ($PropertyDetails->count()==1 && $this->contractOfSale->level>2){
             $this->year_of_construction =$PropertyDetails->first()->year_of_construction;
             $this->membership_right =json_decode($PropertyDetails->first()->membership_right) ;
             $this->title_deeds =$PropertyDetails->first()->title_deeds;

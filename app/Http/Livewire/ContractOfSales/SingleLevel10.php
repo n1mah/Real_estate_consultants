@@ -15,16 +15,16 @@ class SingleLevel10 extends Component
     public function mount(){
 
 
-//        if ($this->contractOfSale->count()==1){
+        if ($this->contractOfSale->level>10){
 
 
             $this->comment=$this->contractOfSale->comment;
 
 //            $total=(($this->amount_received_each*2)+$this->wage);
 //            $this->total_received=((($total*$this->tax)/100)+$total);
-//        }else{
-//            redirect()->route('sales');
-//        }
+        }else{
+            redirect()->route('sales');
+        }
 
     }
     public function render()

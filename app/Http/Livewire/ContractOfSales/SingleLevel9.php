@@ -22,8 +22,7 @@ class SingleLevel9 extends Component
         $this->signature_date=time();
         $user=auth()->user();
 
-
-//        if ($this->contractOfSale->count()==1){
+        if ($this->contractOfSale->level>9){
 
             $user=User::where('id',$this->contractOfSale->user_id)->first();
             $this->user_id=$user->id;
@@ -37,9 +36,9 @@ class SingleLevel9 extends Component
 
 //            $total=(($this->amount_received_each*2)+$this->wage);
 //            $this->total_received=((($total*$this->tax)/100)+$total);
-//        }else{
-//            redirect()->route('sales');
-//        }
+        }else{
+            redirect()->route('sales');
+        }
 
     }
     public function render()

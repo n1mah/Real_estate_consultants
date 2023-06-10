@@ -14,7 +14,7 @@ class SingleLevel5 extends Component
     public function mount()
     {
         $DetailsOfContracts=DetailsOfContracts::where('contract_of_sale_id',$this->contractOfSale->id);
-        if ($DetailsOfContracts->count()==1){
+        if ($DetailsOfContracts->count()==1 && $this->contractOfSale->level>5){
             $DetailsOfContractsData=$DetailsOfContracts->first();
             $this->delivery_time=$DetailsOfContractsData->set_time;
             $this->loss_of_no_sale=$DetailsOfContractsData->loss_of_no_sale;

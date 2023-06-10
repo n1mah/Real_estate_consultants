@@ -17,7 +17,7 @@ class SingleLevel4 extends Component
     public function mount()
     {
         $DetailsOfContracts=DetailsOfContracts::where('contract_of_sale_id',$this->contractOfSale->id);
-        if ($DetailsOfContracts->count()==1){
+        if ($DetailsOfContracts->count()==1 && $this->contractOfSale->level>4){
             $DetailsOfContractsData=$DetailsOfContracts->first();
             $this->set_time=$DetailsOfContractsData->set_time;
             $this->notary_public=$DetailsOfContractsData->notary_public;

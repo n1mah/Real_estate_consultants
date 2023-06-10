@@ -19,7 +19,7 @@ class SingleLevel8 extends Component
     public function mount(){
 
         $financial=Financial::where('contract_of_sale_id',$this->contractOfSale->id);
-        if ($financial->count()==1){
+        if ($financial->count()==1 && $this->contractOfSale->level>8){
             $financialData=$financial->first();
             $this->amount_received_each =$financialData->amount_received_each;
             $this->city=$financialData->city;

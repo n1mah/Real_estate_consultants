@@ -14,7 +14,7 @@ class SingleLevel7 extends Component
     public function mount()
     {
         $DetailsOfContracts=DetailsOfContracts::where('contract_of_sale_id',$this->contractOfSale->id);
-        if ($DetailsOfContracts->count()==1){
+        if ($DetailsOfContracts->count()==1 && $this->contractOfSale->level>7){
             $DetailsOfContractsData=$DetailsOfContracts->first();
             $this->arbitration=$DetailsOfContractsData->arbitration;
         }else{

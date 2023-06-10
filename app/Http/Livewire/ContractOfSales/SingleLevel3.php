@@ -23,7 +23,7 @@ class SingleLevel3 extends Component
     {
         $PropertyDetails=PropertyDetails::where('contract_of_sale_id',$this->contractOfSale->id);
         $financial=Financial::where('contract_of_sale_id',$this->contractOfSale->id);
-        if ($financial->count()==1 && $PropertyDetails->count()==1){
+        if ($financial->count()==1 && $PropertyDetails->count()==1 && $this->contractOfSale->level>3){
             $financialData=$financial->first();
             $PropertyDetailsData=$PropertyDetails->first();
             $this->total=$PropertyDetailsData->price_per_meter * $PropertyDetailsData->house_area;

@@ -15,6 +15,17 @@ class SingleLevel1 extends Component
         return Person::find($id);
     }
 
+    public function mount()
+    {
+        if ($this->contractOfSale->level>1){
+            //
+        }else{
+            redirect()->route('sales');
+
+        }
+
+    }
+
     public function render()
     {
         $fileNumber=$this->contractOfSale->file_number;

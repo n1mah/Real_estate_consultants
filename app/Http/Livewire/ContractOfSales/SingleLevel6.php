@@ -16,7 +16,7 @@ class SingleLevel6 extends Component
     public function mount()
     {
         $DetailsOfContracts=DetailsOfContracts::where('contract_of_sale_id',$this->contractOfSale->id);
-        if ($DetailsOfContracts->count()==1){
+        if ($DetailsOfContracts->count()==1 && $this->contractOfSale->level>6){
             $DetailsOfContractsData=$DetailsOfContracts->first();
             $this->damages_for_non_fulfillment_of_obligations=$DetailsOfContractsData->damages_for_non_fulfillment_of_obligations;
             $this->contract_costs=$DetailsOfContractsData->contract_costs;
