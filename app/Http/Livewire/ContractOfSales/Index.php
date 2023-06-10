@@ -30,7 +30,8 @@ class Index extends Component
         7=>'ماده 7',
         8=>'ماده 8',
         9=>'ماده 9',
-        10=>'تکمیل شده',
+        10=>'ماده 10',
+        11=>'تکمیل شده',
     ];
 
     public function loadLevels()
