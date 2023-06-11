@@ -128,7 +128,7 @@
 
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
-                                <label for="penalty_for_non_payment" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خسارت عدم پرداخت/وصول قرض الحسنه (رهن) (ریال) :<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
+                                <label for="penalty_for_non_payment" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خسارت عدم پرداخت/وصول مابقی قرض الحسنه (رهن) (ریال) :<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <input autocomplete="off" type="number" min="0" wire:model="penalty_for_non_payment" id="penalty_for_non_payment" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 @if($errors->has('penalty_for_non_payment'))
                                     <span class="text-red-500 text-xs">{{ $errors->first('penalty_for_non_payment') }}</span>
@@ -151,15 +151,15 @@
 
 
                     </div>
-                    <div class="w-full-80 mx-auto items-center mb-4 ">
-                        @if($errors)
-                            @foreach ($errors->all() as $error)
-                                <p class="text-red-700 text-right"> * {{ $error }}</p>
-                            @endforeach
-                        @endif
-                    </div>
+{{--                    <div class="w-full-80 mx-auto items-center mb-4 ">--}}
+{{--                        @if($errors)--}}
+{{--                            @foreach ($errors->all() as $error)--}}
+{{--                                <p class="text-red-700 text-right"> * {{ $error }}</p>--}}
+{{--                            @endforeach--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
                     <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
-                        ذخیره مدت اجاره و تایید نهایی
+                        ذخیره اجاره بها و نحوه پرداخت و تایید نهایی
                     </button>
                 </form>
 

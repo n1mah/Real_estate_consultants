@@ -28,6 +28,33 @@ class Level4 extends Component
     public $penalty_for_non_return;
 
 
+    protected $rules = [
+        'lease' => 'required',
+        'monthly_rental_amount' => 'required',
+        'at_first' => 'required',
+        'mortgage' => 'required',
+        'rent' => 'required',
+        'payment_type' => 'required',
+        'deposit' => 'required',
+        'deposit_return_date' => 'required',
+        'penalty_for_non_payment' => 'required',
+        'penalty_for_non_return' => 'required',
+    ];
+
+    protected $messages = [
+        'lease.required' => ' میزان اجاره بها را وارد کنید',
+        'monthly_rental_amount.required' => ' اجاره ماهیانه را وارد کنید',
+        'at_first.required' => ' زمان دریافت اجاره ماهیانه را مشخص کنید',
+        'mortgage.required' => ' مبلغ قرض الحسنه توافقی (رهن) را وارد کنید',
+        'rent.required' => ' بیعانه مبلغ قرض الحسنه توافقی (رهن) را وارد کنید',
+        'payment_type.required' => ' نوع پرداخت مابقی رهن را مشخص کنید',
+        'deposit.required' => ' باقیمانده را مشخص کنید',
+        'deposit_return_date.required' => ' تاریخ پرداخت باقیمانده مبلغ قرض الحسنه (رهن) را وارد کنید',
+        'penalty_for_non_payment.required' => ' خسارت عدم پرداخت/وصول باقیمانده مبلغ قرض الحسنه (رهن) را وارد کنید',
+        'penalty_for_non_return.required' => ' خسارت استنکاف موجر در استرداد رهن به طور روزانه را وارد کنید',
+    ];
+
+
     public function updatedMortgage()
     {
         if ($this->rent=="" || $this->rent==null  || empty($this->rent)){
@@ -62,6 +89,7 @@ class Level4 extends Component
     }
     public function create()
     {
+        $this->validate();
         if (!($this->mortgage=="" || $this->mortgage==null  || empty($this->mortgage))){
             $this->msg['mortgage']='';
             if (!($this->rent=="" || $this->rent==null  || empty($this->rent))){
@@ -79,7 +107,7 @@ class Level4 extends Component
                     'lease_agreement_id'=>$this->leaseAgreement->id,
                     'lease_amount'=>$this->lease,
                     'monthly_rental_amount'=>$this->monthly_rental_amount,
-                    'at_first'=>(bool)$this->at_first,
+                    'at_first'=>($this->at_first=='true')?true:false,
                     'mortgage'=>$this->mortgage,
                     'rent'=>$this->rent,
                     'payment_type'=>$this->payment_type,

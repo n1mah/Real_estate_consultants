@@ -39,7 +39,7 @@ class SingleLevel4 extends Component
             $this->lease =$FinancialLeaseData->lease_amount;
             $this->monthly_rental_amount =$FinancialLeaseData->monthly_rental_amount;
             $this->at_first =$FinancialLeaseData->at_first;
-            $this->at_first_string =((bool)$FinancialLeaseData->at_first)?'اول هر ماه':'آخر هر ماه';
+            $this->at_first_string =($FinancialLeaseData->at_first)?'اول هر ماه':'آخر هر ماه';
             $this->mortgage =$FinancialLeaseData->mortgage;
             $this->rent =$FinancialLeaseData->rent;
             $this->payment_type =$FinancialLeaseData->payment_type;

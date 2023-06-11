@@ -1,4 +1,4 @@
-<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white" style="min-height: 100vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">مشاهده اجاره نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <br>
-                        <label for="deposit_return_date" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">اجاره از تاریخ</label>
+                        <label for="deposit_return_date" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تاریخ پرداخت باقیمانده مبلغ قرض الحسنه (رهن)</label>
                         <div class="relative pdp-input-area">
                             <div class="w-full relative flex items-center mt-1">
                                 <input id="deposit_return_date" readonly value="{{\Morilog\Jalali\Jalalian::forge($deposit_return_date)->format('Y/m/d')}}" class="bg-gray-200 outline-none border border-gray-300 auto-go-to-next pdp-input block p-2.5 w-full text-sm text-gray-900 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
@@ -111,7 +111,7 @@
 
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
-                                <label for="penalty_for_non_payment" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خسارت عدم پرداخت/وصول قرض الحسنه (رهن) (ریال) :</label>
+                                <label for="penalty_for_non_payment" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خسارت عدم پرداخت/وصول مابقی قرض الحسنه (رهن) (ریال) :</label>
                                 <input readonly type="number" value="{{$penalty_for_non_payment}}" id="penalty_for_non_payment" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <label for="house_area" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($penalty_for_non_payment) && !empty($penalty_for_non_payment)) <span>{{(new Number2Word)->numberToWords($penalty_for_non_payment)}} <span class="font-extrabold text-gray-500">ریال</span> </span><span> {{number_format($penalty_for_non_payment)}}  <span class="font-extrabold text-gray-500">ریال</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                                 <label for="house_area" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($penalty_for_non_payment) && !empty($penalty_for_non_payment)) <span>{{(new Number2Word)->numberToWords($penalty_for_non_payment/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($penalty_for_non_payment/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
