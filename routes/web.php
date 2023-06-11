@@ -32,6 +32,7 @@ use App\Http\Livewire\LeaseAgreements\Level4 as Rent_Add_Level4;
 use App\Http\Livewire\LeaseAgreements\SingleLevel1 as Single1;
 use App\Http\Livewire\LeaseAgreements\SingleLevel2 as Single2;
 use App\Http\Livewire\LeaseAgreements\SingleLevel3 as Single3;
+use App\Http\Livewire\LeaseAgreements\SingleLevel4 as Single4;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -90,5 +91,6 @@ Route::get('/rents/level4/{leaseAgreement}', Rent_Add_Level4::class)->name("rent
 Route::get('/rents/level1/single/{leaseAgreement}', Single1::class)->name("rent.level1.single");
 Route::get('/rents/level2/single/{leaseAgreement}', Single2::class)->name("rent.level2.single");
 Route::get('/rents/level3/single/{leaseAgreement}', Single3::class)->name("rent.level3.single");
+Route::get('/rents/level4/single/{leaseAgreement}', Single4::class)->name("rent.level4.single");
 
 
