@@ -2,7 +2,7 @@
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">مشاهده اجاره نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
-            <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">مشاهده ماده 4</span> <br> (اجاره بها و نحوه پرداخت)</h2>
+            <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">مشاهده ماده 5</span> <br>(تسلیم مورد اجاره)</h2>
             <hr class="p-2 w-full">
             <div class="w-full flex flex-col items-center">
                 <form class="py-2 w-full flex flex-col items-center">
