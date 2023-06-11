@@ -10,6 +10,7 @@
             <!-- Navbar menu content here -->
             <li><a href="{{route("people")}}">مشتریان</a></li>
             <li><a href="{{route("sales")}}">مبایعه نامه</a></li>
+            <li><a href="{{route("rents")}}">اجاره نامه</a></li>
         </ul>
     </div>
 </div>
