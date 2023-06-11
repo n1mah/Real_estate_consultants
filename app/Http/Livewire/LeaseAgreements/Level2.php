@@ -15,9 +15,7 @@ class Level2 extends Component
     public $warehouse_status;
     public $parking_status;
     public $shoo_status;
-    public $contractOfSale;
 
-    public $properties=[];
     public $membership_right=[];
 
     public $entirety='شش';
@@ -37,9 +35,6 @@ class Level2 extends Component
     public $postal_code;
     public $telephone;
 
-    protected $listeners = [
-        'save'
-    ];
 
     protected $rules = [
         'entirety' => 'required',
