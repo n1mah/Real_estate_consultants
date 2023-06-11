@@ -21,7 +21,8 @@ return new class extends Migration
             $table->text('address');
             $table->string('state');
             $table->string('city');
-            $table->integer('default_tax');
+            $table->integer('default_tax')->default(9);
+            $table->integer('default_tax_rent')->default(9);
             $table->decimal("default_wage",30,2)->nullable();
 //            $table->timestamp('email_verified_at')->nullable();
 //            $table->rememberToken();

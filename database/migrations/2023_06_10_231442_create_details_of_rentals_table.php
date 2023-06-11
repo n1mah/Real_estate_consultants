@@ -24,8 +24,9 @@ return new class extends Migration
             $table->timestamp('delivery_time')->nullable(); // زمان تحویل
             $table->decimal("penalty_for_non_delivery",30,0)->nullable();  //خسارت عدم تحویل (مورداجاره)
             $table->string('others'); //غیر
-            $table->decimal("damages_for_non_fulfillment_of_obligations",30,0)->nullable();  //خسارت عدم انجام تعهدات مستاجر
+            $table->decimal("damages_for_non_fulfillment_of_obligations",30,0)->nullable();   //خسارت عدم انجام تعهدات مستاجر (تنفیذ مستاجر)
             $table->decimal("penalty_for_non_evacuation",30,0)->nullable();  //جریمه عدم تسلیم (مورداجاره) توسط مستاجر ( به صورت روزانه )
+            $table->boolean("arbitration")->default(false); //پذیرش شرط داوری
             $table->timestamps();
         });
     }

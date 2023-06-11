@@ -26,6 +26,10 @@ return new class extends Migration
             $table->string("cheque")->nullable(); //چک
             $table->decimal("deposit",30,0);  //باقیمانده مبلغ رهن
             $table->timestamp("deposit_return_date")->nullable(); //زمان استرداد رهن
+            $table->string("city")->nullable(); //شهرستان
+            $table->decimal("wage",30,0)->nullable();  //حق الزحمه مشاور املاک در شهرستان
+            $table->decimal("amount_received_each",30,0)->nullable();  //مبلغ دریافتی از هر طرف
+            $table->integer("tax")->nullable();  //درصد مالیات بر ارزش افزوده
             $table->timestamps();
         });
     }
