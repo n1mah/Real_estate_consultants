@@ -1,5 +1,5 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
-    <div class="text-center text-primary">
+    <div class="text-center text-purple">
         <h1 class="font-bold text-3xl p-3 text-purple-700">اجاره نامه ها </h1>
         <h2 class="font-medium text-xl p-1 mb-2 text-purple-700"> (قرارداد اجاره) </h2>
     </div>
@@ -16,16 +16,16 @@
                                 </svg>
                             </div>
                             {{--Search Implement--}}
-                            <input wire:model="search" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="جستجو شماره / کد پرونده ..." required="">
+                            <input wire:model="search" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="جستجو شماره / کد پرونده ..." required="">
 
                         </div>
                     </form>
                 </div>
                 <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end flex-shrink-0">
-                    <button wire:click="refreshPage" title="پاکسازی جدول و فیلتر" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-gray-800 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                    <button wire:click="refreshPage" title="پاکسازی جدول و فیلتر" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-gray-800 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
                         بروز رسانی
                     </button>
-                    <a href="{{route("rent.add")}}" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-purple-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                    <a href="{{route("rent.add")}}" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
                         <svg class="h-3.5 w-3.5 ml-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                         </svg>
@@ -43,7 +43,7 @@
                                 <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete all</a>
                             </div>
                         </div>
-                        <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown" class="w-full ml-2 mr-2 md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
+                        <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown" class="w-full ml-2 mr-2 md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-4 w-4 ml-2 text-gray-400" viewbox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
                             </svg>
@@ -58,7 +58,7 @@
                             <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
                                 @foreach($levels as $level)
                                     <li class="flex items-center ">
-                                        <input id="level{{isset($i) ? ++$i : $i=0 }}"  wire:model="levels_filter" checked type="checkbox" value="{{$level}}" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                        <input id="level{{isset($i) ? ++$i : $i=0 }}"  wire:model="levels_filter" checked type="checkbox" value="{{$level}}" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-purple-600 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                         <label for="level{{$i}}" class="mr-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{$statuslabel[$level]}}</label>
                                     </li>
                                 @endforeach

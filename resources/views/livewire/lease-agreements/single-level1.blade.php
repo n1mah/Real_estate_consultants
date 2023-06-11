@@ -12,11 +12,11 @@
                     </p>
                     <div class="w-full flex flex-col flex-wrap items-center justify-start">
                         @foreach($people_selectedTenant as $person_selected)
-                            <div  class="w-full flex flex-col items-center justify-center m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-green-600 rounded-lg focus:ring-4 focus:outline-none ">
+                            <div  class="w-full flex flex-col items-center justify-center m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-warning-500 rounded-lg focus:ring-4 focus:outline-none ">
                                 {{$person_selected['firstname']}} {{$person_selected['lastname']}}
                                 <div class="mt-4 w-full">
                                     @if($person_selected['lawyer']!=null)
-                                        <div class="flex flex-col items-center justify-center w-full  text-xs font-medium text-yellow-400 bg-yellow-900 rounded-[16px] px-3 py-2">
+                                        <div class="flex flex-col items-center justify-center w-full  text-xs font-medium text-black bg-gray-500 rounded-[16px] px-3 py-2">
                                             وکیل دارد:
                                             <div class="py-1"></div>
                                             <div>{{$person_selected['lawyer']['firstname']}} {{$person_selected['lawyer']['lastname']}}</div>
@@ -36,11 +36,11 @@
                     </p>
                     <div class="w-full flex flex-col flex-wrap items-center justify-start">
                         @foreach($people_selectedLessor as $person_selected)
-                            <div  class="w-full flex flex-col items-center justify-center m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-red-600 rounded-lg focus:ring-4 focus:outline-none ">
+                            <div  class="w-full flex flex-col items-center justify-center m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-pink-400 rounded-lg focus:ring-4 focus:outline-none ">
                                 {{$person_selected['firstname']}} {{$person_selected['lastname']}}
                                 <div class="mt-4 w-full">
                                     @if($person_selected['lawyer']!=null)
-                                        <div class="flex flex-col items-center justify-center w-full  text-xs font-medium text-yellow-400 bg-yellow-900 rounded-[16px] px-3 py-2">
+                                        <div class="flex flex-col items-center justify-center w-full  text-xs font-medium text-black bg-gray-500 rounded-[16px] px-3 py-2">
                                             وکیل دارد:
                                             <div class="py-1"></div>
                                             <div>{{$person_selected['lawyer']['firstname']}} {{$person_selected['lawyer']['lastname']}}</div>
@@ -56,6 +56,6 @@
         <br>
         <hr class="w-full-45 p-2">
         <br>
-        <a href="{{route('rents')}}" class="p-4 bg-primary-600 text-white rounded-[10px]"> بازگشت به صفحه اجاره نامه ها</a>
+        <a href="{{route('rents')}}" class="p-4 bg-purple-600 text-white rounded-[10px]"> بازگشت به صفحه اجاره نامه ها</a>
     </div>
 </section>

@@ -1,19 +1,19 @@
 <x-slot:zz>z-50-imp</x-slot:zz>
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
-    <div class="text-center text-primary">
-        <h1 class="font-bold text-3xl p-5">اجاره نامه جدید</h1>
+    <div class="text-center text-purple">
+        <h1 class="font-bold text-3xl p-5 text-purple-700">اجاره نامه جدید</h1>
         {{--    level 0  --}}
         <div class="@if($level!=0) hidden @endif px-4 py-2">
             <h2 class="font-medium p-3 text-gray-400">ایجاد یک قرارداد اجاره جدید</h2>
             <hr class="p-2 w-full">
 
-            <input wire:model.lazy="fileNumber" autocomplete="off" type="text" id="fileNumber" class="mt-2 w50 w-full mx-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="شماره پرونده را وارد کنید ...">
+            <input wire:model.lazy="fileNumber" autocomplete="off" type="text" id="fileNumber" class="mt-2 w50 w-full mx-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="شماره پرونده را وارد کنید ...">
             @if($errorFileNumber)
                 <div class="w50 mx-auto">
                     <p class="text-red-100 bg-red-400 rounded-[10px] p-1 mx-1 my-3">{{$errorFileNumber}}</p>
                 </div>
             @endif
-            <button wire:click="$emit('level1Action')" class="mt-2 w50 w-full mx-auto block text-white bg-primary-600 hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-900 dark:focus:ring-gray-800 font-bold" type="button">
+            <button wire:click="$emit('level1Action')" class="mt-2 w50 w-full mx-auto block text-white bg-purple-600 hover:bg-purple-900 focus:ring-4 focus:outline-none focus:ring-purple-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-900 dark:focus:ring-gray-800 font-bold" type="button">
                 افزودن قرارداد جدید
             </button>
 
@@ -32,7 +32,7 @@
                         </p>
                         <div class="w-full flex flex-col">
                             <label for="selected" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">مستاجر <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                            <select  wire:model="selectedTenant" wire:change="$emit('selectedItemTenant')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select  wire:model="selectedTenant" wire:change="$emit('selectedItemTenant')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500">
                                 <option selected value="">مستاجر را انتخاب کنید</option>
                                 @foreach($people as $person)
                                     <option value="{{$person->id}}">{{$person->firstname}} {{$person->lastname}}</option>
@@ -59,13 +59,13 @@
 
                         <div class="w-full flex flex-row flex-wrap justify-center">
                             @foreach($people_selectedTenant as $person_selected)
-                                <div  class="w-full-45 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-400 dark:hover:bg-blue-600 dark:focus:ring-blue-600">
+                                <div  class="w-full-45 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-purple-400 rounded-lg hover:bg-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-400 dark:hover:bg-purple-600 dark:focus:ring-purple-600">
 
                                     {{$person_selected['firstname']}} {{$person_selected['lastname']}}
 
                                     <div>
                                         @if($person_selected['lawyer']==null)
-                                            <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Tenant')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                            <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Tenant')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-purple-100 bg-purple-900 rounded-full px-4">افزودن وکیل</button>
                                         @else
                                             <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                         @endif
@@ -98,7 +98,7 @@
                         </p>
                         <div class="w-full flex flex-col">
                             <label for="selected" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">موجر <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                            <select  wire:model="selectedLessor" wire:change="$emit('selectedItemLessor')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select  wire:model="selectedLessor" wire:change="$emit('selectedItemLessor')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500">
                                 <option selected value="">موجر را انتخاب کنید</option>
                                 @foreach($people as $person)
                                     <option value="{{$person->id}}">{{$person->firstname}} {{$person->lastname}}</option>
@@ -121,11 +121,11 @@
                         </p>
                         <div class="w-full flex flex-row flex-wrap justify-center">
                             @foreach($people_selectedLessor as $person_selected)
-                                <div  class="w-full-45 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-400 dark:hover:bg-blue-600 dark:focus:ring-blue-600">
+                                <div  class="w-full-45 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-purple-400 rounded-lg hover:bg-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-400 dark:hover:bg-purple-600 dark:focus:ring-purple-600">
                                     {{$person_selected['firstname']}} {{$person_selected['lastname']}}
                                     <div>
                                         @if($person_selected['lawyer']==null)
-                                            <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Lessor')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                            <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Lessor')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-purple-100 bg-purple-900 rounded-full px-4">افزودن وکیل</button>
                                         @else
                                             <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                         @endif
@@ -150,22 +150,22 @@
             <hr class="p-2 w-full">
             <p class="text-center text-gray-600"> شماره پرونده <span class="text-warning-700"> {{$fileNumber}}</span></p>
             <div class="w-full-45 flex justify-center">
-                <button wire:click="level1" class="my-1 mx-1 text-primary-200 bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-500 font-medium rounded-lg text-sm px-3 py-1 text-center">بازگشت به مستاجران</button>
-                <button wire:click="level2" class="my-1 mx-1 text-primary-200 bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-500 font-medium rounded-lg text-sm px-3 py-1 text-center">بازگشت به موجران</button>
+                <button wire:click="level1" class="my-1 mx-1 text-purple-200 bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-500 font-medium rounded-lg text-sm px-3 py-1 text-center">بازگشت به مستاجران</button>
+                <button wire:click="level2" class="my-1 mx-1 text-purple-200 bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-500 font-medium rounded-lg text-sm px-3 py-1 text-center">بازگشت به موجران</button>
             </div>
             <div class="w-full flex flex-row flex-wrap justify-center">
                 @if($people_selectedTenant)
                     <hr>
-                    <p class="sm:col-span-2 text-center text-success-700 my-2">
+                    <p class="sm:col-span-2 text-center text-warning-700 my-2">
                         @if(count($people_selectedTenant)>1) مستاجران @else مستاجر @endif
                     </p>
                     <div class="w-full flex flex-row flex-wrap justify-center">
                         @foreach($people_selectedTenant as $person_selected)
-                            <div  class="w-full-30 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-800">
+                            <div  class="w-full-30 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-warning-400 rounded-lg hover:bg-warning-900 focus:ring-4 focus:outline-none focus:ring-warning-800">
                                 {{$person_selected['firstname']}} {{$person_selected['lastname']}}
                                 <div>
                                     @if($person_selected['lawyer']==null)
-                                        <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Tenant')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                        <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Tenant')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-purple-100 bg-purple-900 rounded-full px-4">افزودن وکیل</button>
                                     @else
                                         <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                     @endif
@@ -182,16 +182,16 @@
                 @if($people_selectedLessor)
                     @php($c=0)
                     <hr>
-                    <p class="sm:col-span-2 text-center my-2 text-red-700">
+                    <p class="sm:col-span-2 text-center my-2 text-pink-700">
                         @if(count($people_selectedLessor)>1) موجران @else موجر @endif
                     </p>
                     <div class="w-full flex flex-row flex-wrap justify-center">
                         @foreach($people_selectedLessor as $person_selected)
-                            <div  class="w-full-30 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-800">
+                            <div  class="w-full-30 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-pink-400 rounded-lg hover:bg-pink-900 focus:ring-4 focus:outline-none focus:ring-pink-800">
                                 {{$person_selected['firstname']}} {{$person_selected['lastname']}}
                                 <div>
                                     @if($person_selected['lawyer']==null)
-                                        <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Lessor')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-blue-100 bg-blue-900 rounded-full px-4">افزودن وکیل</button>
+                                        <button wire:click="$emit('showLawyerBox',{{$person_selected['id']}},'Lessor')" class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-purple-100 bg-purple-900 rounded-full px-4">افزودن وکیل</button>
                                     @else
                                         <button class="inline-flex items-center justify-center h-5 cursor-pointer text-xs font-medium text-yellow-400 bg-yellow-900 rounded-full px-4">وکالت:{{$person_selected['lawyer']['lastname']}}</button>
                                     @endif
@@ -234,7 +234,7 @@
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2 px-4 py-2">
                         <label for="search"  class="block  text-sm font-medium text-gray-900 dark:text-white p-2"> <span class="font-bold mx-2">نام</span>,<span class="font-bold mx-2">نام خانوادگی</span>یا<span class="font-bold mx-2">کد ملی</span>مورد نظر را جستجو کنید</label>
-                        <input wire:model.debounce.200ms="searchTenant" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
+                        <input wire:model.debounce.200ms="searchTenant" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
 
                     </div>
 
@@ -246,15 +246,15 @@
                         @foreach($searchResultTenant as $item)
                             <div class="flex justify-between p-2 bg-gray-100 m-1 mb-2 rounded-[16px]">
                                 <div class="pr-3">{{$item->firstname}} &nbsp; {{$item->lastname}} &nbsp;-&nbsp; {{$item->national_code}} </div>
-                                <div><button wire:click="$emit('selectedItemTenant',{{$item->id}})"  class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-xs">افزودن</button></div>
+                                <div><button wire:click="$emit('selectedItemTenant',{{$item->id}})"  class="mx-2 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 text-xs">افزودن</button></div>
                             </div>
                         @endforeach
                     @endif
 
                 </div>
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="tenantModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">بستن</button>
-                    <a href="{{route("people.add")}}" target="_blank" data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">افزودن مشتری جدید در صفحه دیگر</a>
+                    <button data-modal-hide="tenantModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-purple-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">بستن</button>
+                    <a href="{{route("people.add")}}" target="_blank" data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-purple-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">افزودن مشتری جدید در صفحه دیگر</a>
                 </div>
             </div>
         </div>
@@ -278,7 +278,7 @@
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2 px-4 py-2">
                         <label for="searchLessor"  class="block text-sm font-medium text-gray-900 dark:text-white p-2"> <span class="font-bold mx-2">نام</span>,<span class="font-bold mx-2">نام خانوادگی</span>یا<span class="font-bold mx-2">کد ملی</span>مورد نظر را جستجو کنید</label>
-                        <input wire:model.debounce.200ms="searchLessor" autocomplete="off" type="text" id="searchLessor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
+                        <input wire:model.debounce.200ms="searchLessor" autocomplete="off" type="text" id="searchLessor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
 
                     </div>
 
@@ -290,7 +290,7 @@
                         @foreach($searchResultLessor as $item)
                             <div class="flex justify-between p-2 bg-gray-100 m-1 mb-2 rounded-[16px]">
                                 <div class="pr-3">{{$item->firstname}} &nbsp; {{$item->lastname}} &nbsp;-&nbsp; {{$item->national_code}} </div>
-                                <div><button wire:click="$emit('selectedItemLessor',{{$item->id}})"  class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-xs">افزودن</button></div>
+                                <div><button wire:click="$emit('selectedItemLessor',{{$item->id}})"  class="mx-2 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 text-xs">افزودن</button></div>
                             </div>
                         @endforeach
                     @endif
@@ -298,8 +298,8 @@
                 </div>
 
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">بستن</button>
-                    <a href="{{route("people.add")}}" target="_blank" data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">افزودن مشتری جدید در صفحه دیگر</a>
+                    <button data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-purple-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">بستن</button>
+                    <a href="{{route("people.add")}}" target="_blank" data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-purple-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">افزودن مشتری جدید در صفحه دیگر</a>
                 </div>
             </div>
         </div>
@@ -321,7 +321,7 @@
                 <p><span class="text-red-600 font-bold">توجه : </span> اطلاعات وکیل باید در بین مشتریان باشد </p>
                 <div class="sm:col-span-2 px-4 py-2">
                     <label for="search"  class="block  text-sm font-medium text-gray-900 dark:text-white p-2"> <span class="font-bold mx-2">نام</span>,<span class="font-bold mx-2">نام خانوادگی</span>یا<span class="font-bold mx-2">کد ملی</span>مورد نظر را جستجو کنید</label>
-                    <input wire:model.debounce.200ms="searchLawyer" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
+                    <input wire:model.debounce.200ms="searchLawyer" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
                 </div>
 
                 <div class="my-1 py-1 px-5 sm:col-span-2">
