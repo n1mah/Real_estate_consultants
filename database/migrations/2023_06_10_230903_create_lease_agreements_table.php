@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer("signature_minutes")->nullable();
             $table->unsignedBigInteger("user_id")->nullable();
             $table->foreign("user_id")->references("id")->on("users")->onUpdate("cascade")->onDelete("cascade");
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
         $data=[
@@ -32,9 +32,9 @@ return new class extends Migration
             ["22256-124","1463071070",'c'],
         ];
         for ($i = 0; $i < count($data); $i++) {
-            DB::table('contract_of_sales')->insert(
+            DB::table('lease_agreements')->insert(
                 [
-                    'level' => $data[$i][0],
+                    'level' => 0,
                     'file_number' => $data[$i][0],
                     'confirm_date' => Carbon::createFromTimestamp($data[$i][1])->format("Y/m/d H:i:s"),
                     'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),

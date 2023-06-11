@@ -25,8 +25,8 @@ use App\Http\Livewire\ContractOfSales\Level9 as Sale_Add_Level9;
 use App\Http\Livewire\ContractOfSales\Level10 as Sale_Add_Level10;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-$user=\App\Models\User::findOrFail(1);
-Auth::login($user);
+//$user=\App\Models\User::findOrFail(1);
+//Auth::login($user);
 
 /*
 |--------------------------------------------------------------------------

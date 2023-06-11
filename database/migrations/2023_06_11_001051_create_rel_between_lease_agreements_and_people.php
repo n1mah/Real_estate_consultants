@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rel_between_lease_agreements_and_people', function (Blueprint $table) {
+        Schema::create('lease_agreement_person', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("lease_agreement_id");
             $table->foreign("lease_agreement_id")->references("id")->on("lease_agreements")->onUpdate("cascade")->onDelete("cascade");

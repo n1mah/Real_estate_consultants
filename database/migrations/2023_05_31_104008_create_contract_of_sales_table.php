@@ -28,7 +28,7 @@ return new class extends Migration
         for ($i = 0; $i < count($data); $i++) {
             DB::table('contract_of_sales')->insert(
                 [
-                    'level' => $data[$i][0],
+                    'level' => 0,
                     'file_number' => $data[$i][0],
                     'confirm_date' => Carbon::createFromTimestamp($data[$i][1])->format("Y/m/d H:i:s"),
                     'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
