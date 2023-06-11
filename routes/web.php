@@ -25,6 +25,7 @@ use App\Http\Livewire\ContractOfSales\Level9 as Sale_Add_Level9;
 use App\Http\Livewire\ContractOfSales\Level10 as Sale_Add_Level10;
 
 use App\Http\Livewire\LeaseAgreements\Index as Rent_Index;
+use App\Http\Livewire\LeaseAgreements\Add as Rent_Add;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -76,5 +77,6 @@ Route::get('/sales/level10/{contractOfSale}', Sale_Add_Level10::class)->name("sa
 //Route::post('/people', People_Index::class);
 
 Route::get('/rents', Rent_Index::class)->name("rents");
+Route::get('/rents/level1', Rent_Add::class)->name("rent.add");
 
 

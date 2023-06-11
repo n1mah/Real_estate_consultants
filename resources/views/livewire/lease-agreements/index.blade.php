@@ -1,7 +1,7 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
     <div class="text-center text-primary">
-        <h1 class="font-bold text-3xl p-3">اجاره نامه ها </h1>
-        <h2 class="font-medium text-xl p-1 mb-2"> (قرارداد اجاره) </h2>
+        <h1 class="font-bold text-3xl p-3 text-purple-700">اجاره نامه ها </h1>
+        <h2 class="font-medium text-xl p-1 mb-2 text-purple-700"> (قرارداد اجاره) </h2>
     </div>
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden" style="min-height: 50vh">
@@ -25,7 +25,7 @@
                     <button wire:click="refreshPage" title="پاکسازی جدول و فیلتر" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-gray-800 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                         بروز رسانی
                     </button>
-                    <a href="{{route("sales.add")}}" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                    <a href="{{route("rent.add")}}" type="button" class="flex ml-2 mr-2 items-center justify-center text-white bg-purple-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                         <svg class="h-3.5 w-3.5 ml-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                         </svg>
@@ -87,7 +87,7 @@
                             <td class="px-4 py-3 ">
                                 <div class="w-full flex justify-center flex-wrap">
                                     @foreach($lease_agreement->peopleTenants as $person)
-                                        <span class="text-sm inline-flex items-center justify-center font-medium p-1 m-1 rounded-md bg-green-500 text-white">{{$person->firstname}} {{$person->lastname}}</span>
+                                        <span class="text-sm inline-flex items-center justify-center font-medium p-1 m-1 rounded-md bg-warning-400 text-white">{{$person->firstname}} {{$person->lastname}}</span>
                                     @endforeach
                                 </div>
                             </td>
@@ -95,7 +95,7 @@
                             <td class="px-4 py-3">
                                 <div class="w-full flex justify-center flex-wrap">
                                     @foreach($lease_agreement->peopleLessors as $person)
-                                        <span class="text-sm inline-flex items-center justify-center font-medium p-1 m-1 rounded-md bg-red-500 text-white">{{$person->firstname}} {{$person->lastname}}</span>
+                                        <span class="text-sm inline-flex items-center justify-center font-medium p-1 m-1 rounded-md bg-pink-400 text-white">{{$person->firstname}} {{$person->lastname}}</span>
                                     @endforeach
                                 </div>
                             </td>
