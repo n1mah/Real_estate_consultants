@@ -31,6 +31,7 @@ use App\Http\Livewire\LeaseAgreements\Level3 as Rent_Add_Level3;
 use App\Http\Livewire\LeaseAgreements\Level4 as Rent_Add_Level4;
 use App\Http\Livewire\LeaseAgreements\Level5 as Rent_Add_Level5;
 use App\Http\Livewire\LeaseAgreements\Level6 as Rent_Add_Level6;
+use App\Http\Livewire\LeaseAgreements\Level7 as Rent_Add_Level7;
 use App\Http\Livewire\LeaseAgreements\SingleLevel1 as Single1;
 use App\Http\Livewire\LeaseAgreements\SingleLevel2 as Single2;
 use App\Http\Livewire\LeaseAgreements\SingleLevel3 as Single3;
@@ -94,6 +95,7 @@ Route::get('/rents/level3/{leaseAgreement}', Rent_Add_Level3::class)->name("rent
 Route::get('/rents/level4/{leaseAgreement}', Rent_Add_Level4::class)->name("rent.level4");
 Route::get('/rents/level5/{leaseAgreement}', Rent_Add_Level5::class)->name("rent.level5");
 Route::get('/rents/level6/{leaseAgreement}', Rent_Add_Level6::class)->name("rent.level6");
+Route::get('/rents/level7/{leaseAgreement}', Rent_Add_Level7::class)->name("rent.level7");
 Route::get('/rents/level1/single/{leaseAgreement}', Single1::class)->name("rent.level1.single");
 Route::get('/rents/level2/single/{leaseAgreement}', Single2::class)->name("rent.level2.single");
 Route::get('/rents/level3/single/{leaseAgreement}', Single3::class)->name("rent.level3.single");
