@@ -87,6 +87,14 @@ class Level4 extends Component
             }
         }
     }
+
+    public function mount()
+    {
+        $DetailsOfRental=DetailsOfRental::where('lease_agreement_id',$this->leaseAgreement->id);
+        if ($DetailsOfRental->count()!=1) {
+            redirect()->route("rents");
+        }
+    }
     public function create()
     {
         $this->validate();
