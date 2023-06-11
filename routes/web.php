@@ -34,6 +34,7 @@ use App\Http\Livewire\LeaseAgreements\Level6 as Rent_Add_Level6;
 use App\Http\Livewire\LeaseAgreements\Level7 as Rent_Add_Level7;
 use App\Http\Livewire\LeaseAgreements\Level8 as Rent_Add_Level8;
 use App\Http\Livewire\LeaseAgreements\Level9 as Rent_Add_Level9;
+use App\Http\Livewire\LeaseAgreements\Level10 as Rent_Add_Level10;
 use App\Http\Livewire\LeaseAgreements\SingleLevel1 as Single1;
 use App\Http\Livewire\LeaseAgreements\SingleLevel2 as Single2;
 use App\Http\Livewire\LeaseAgreements\SingleLevel3 as Single3;
@@ -43,6 +44,7 @@ use App\Http\Livewire\LeaseAgreements\SingleLevel6 as Single6;
 use App\Http\Livewire\LeaseAgreements\SingleLevel7 as Single7;
 use App\Http\Livewire\LeaseAgreements\SingleLevel8 as Single8;
 use App\Http\Livewire\LeaseAgreements\SingleLevel9 as Single9;
+use App\Http\Livewire\LeaseAgreements\SingleLevel10 as Single10;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -103,6 +105,7 @@ Route::get('/rents/level6/{leaseAgreement}', Rent_Add_Level6::class)->name("rent
 Route::get('/rents/level7/{leaseAgreement}', Rent_Add_Level7::class)->name("rent.level7");
 Route::get('/rents/level8/{leaseAgreement}', Rent_Add_Level8::class)->name("rent.level8");
 Route::get('/rents/level9/{leaseAgreement}', Rent_Add_Level9::class)->name("rent.level9");
+Route::get('/rents/level10/{leaseAgreement}', Rent_Add_Level10::class)->name("rent.level10");
 Route::get('/rents/level1/single/{leaseAgreement}', Single1::class)->name("rent.level1.single");
 Route::get('/rents/level2/single/{leaseAgreement}', Single2::class)->name("rent.level2.single");
 Route::get('/rents/level3/single/{leaseAgreement}', Single3::class)->name("rent.level3.single");
@@ -112,5 +115,6 @@ Route::get('/rents/level6/single/{leaseAgreement}', Single6::class)->name("rent.
 Route::get('/rents/level7/single/{leaseAgreement}', Single7::class)->name("rent.level7.single");
 Route::get('/rents/level8/single/{leaseAgreement}', Single8::class)->name("rent.level8.single");
 Route::get('/rents/level9/single/{leaseAgreement}', Single9::class)->name("rent.level9.single");
+Route::get('/rents/level10/single/{leaseAgreement}', Single10::class)->name("rent.level10.single");
 
 
