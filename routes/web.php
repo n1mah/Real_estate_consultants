@@ -27,6 +27,7 @@ use App\Http\Livewire\ContractOfSales\Level10 as Sale_Add_Level10;
 use App\Http\Livewire\LeaseAgreements\Index as Rent_Index;
 use App\Http\Livewire\LeaseAgreements\Add as Rent_Add;
 use App\Http\Livewire\LeaseAgreements\Level2 as Rent_Add_Level2;
+use App\Http\Livewire\LeaseAgreements\Level3 as Rent_Add_Level3;
 use App\Http\Livewire\LeaseAgreements\SingleLevel1 as Single1;
 use App\Http\Livewire\LeaseAgreements\SingleLevel2 as Single2;
 
@@ -82,6 +83,7 @@ Route::get('/sales/level10/{contractOfSale}', Sale_Add_Level10::class)->name("sa
 Route::get('/rents', Rent_Index::class)->name("rents");
 Route::get('/rents/level1', Rent_Add::class)->name("rent.add");
 Route::get('/rents/level2/{leaseAgreement}', Rent_Add_Level2::class)->name("rent.level2");
+Route::get('/rents/level3/{leaseAgreement}', Rent_Add_Level3::class)->name("rent.level3");
 Route::get('/rents/level1/single/{leaseAgreement}', Single1::class)->name("rent.level1.single");
 Route::get('/rents/level2/single/{leaseAgreement}', Single2::class)->name("rent.level2.single");
 
