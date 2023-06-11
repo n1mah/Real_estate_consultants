@@ -15,4 +15,8 @@ class DetailsOfRental extends Model
         'penalty_for_non_delivery','others','damages_for_non_fulfillment_of_obligations',
         'penalty_for_non_evacuation'
     ];
+    public function lease_agreement()
+    {
+        return $this->belongsTo(LeaseAgreement::class);
+    }
 }

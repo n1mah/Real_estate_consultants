@@ -13,4 +13,8 @@ class RentalPropertyDetails extends Model
         'main_part_address', 'part','house_area','title_deeds_number','name',
         'bedroom','membership_right','parking','warehouse','telephone','postal_code'
     ];
+    public function lease_agreement()
+    {
+        return $this->hasOne(LeaseAgreement::class);
+    }
 }

@@ -12,4 +12,8 @@ class FinancialLease extends Model
         'lease_agreement_id','lease_amount','monthly_rental_amount','at_first','mortgage','rent'
         ,'payment_type','bank','branch','cheque','deposit','deposit_return_date'
     ];
+    public function lease_agreement()
+    {
+        return $this->belongsTo(LeaseAgreement::class);
+    }
 }
