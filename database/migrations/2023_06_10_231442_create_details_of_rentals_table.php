@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('details_of_rentals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("lease_agreement_id"); //کد قرارداد اجاره
+            $table->unsignedBigInteger("lease_agreement_id")->unique(); //کد قرارداد اجاره
             $table->foreign("lease_agreement_id")->references("id")->on("lease_agreements")->onUpdate("cascade")->onDelete("cascade");
             $table->string('rental_period'); //مدت زمان اجاره
             $table->string('rental_period_type'); //نوع مورد اجاره //سال/ماه

@@ -1,7 +1,9 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -24,6 +26,22 @@ return new class extends Migration
             $table->text('comment');
             $table->timestamps();
         });
+        $data=[
+            ["22256-122","1611531870",'a'],
+            ["22256-123","1590999870",'b'],
+            ["22256-124","1463071070",'c'],
+        ];
+        for ($i = 0; $i < count($data); $i++) {
+            DB::table('contract_of_sales')->insert(
+                [
+                    'level' => $data[$i][0],
+                    'file_number' => $data[$i][0],
+                    'confirm_date' => Carbon::createFromTimestamp($data[$i][1])->format("Y/m/d H:i:s"),
+                    'created_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
+                    'updated_at' => Carbon::createFromTimestamp(time())->format("Y/m/d H:i:s"),
+                ]
+            );
+        }
     }
 
     /**

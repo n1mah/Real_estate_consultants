@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('financial_leases', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("lease_agreement_id"); //کد قرارداد اجاره
+            $table->unsignedBigInteger("lease_agreement_id")->unique(); //کد قرارداد اجاره
             $table->foreign("lease_agreement_id")->references("id")->on("lease_agreements")->onUpdate("cascade")->onDelete("cascade");
             $table->decimal("lease_amount",30,0);  //مبلغ جمعا اجاره نامه
             $table->decimal("monthly_rental_amount",30,0);  //مبلغ اجاره نامه ماهیانه

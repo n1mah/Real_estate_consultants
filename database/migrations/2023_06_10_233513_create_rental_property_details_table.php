@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rental_property_details', function (Blueprint $table) {
 
             $table->id();
-            $table->unsignedBigInteger("lease_agreement_id"); //کد قرارداد اجاره
+            $table->unsignedBigInteger("lease_agreement_id")->unique(); //کد قرارداد اجاره
             $table->foreign("lease_agreement_id")->references("id")->on("lease_agreements")->onUpdate("cascade")->onDelete("cascade");
             $table->string("entirety")->default('شش');  // تملیک منافع
             $table->string("type_of_lease")->default('دانگ');  // نوع مورد اجاره
