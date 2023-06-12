@@ -19,12 +19,11 @@ class Level9 extends Component
     {
         $this->leaseAgreement->level=10;
         $this->leaseAgreement->save();
-        redirect()->route("rents");
+        redirect()->route('rent.level10',['leaseAgreement'=>$this->leaseAgreement]);
     }
     public function render()
     {
         return view('livewire.lease-agreements.level9')
             ->layout('components.layouts.app');
-
     }
 }

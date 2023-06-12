@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">اجاره نامه جدید</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -13,7 +13,7 @@
                                 <input autocomplete="off" id="entirety" wire:model.defer="entirety" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-                        <div class="">
+                        <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="type_of_lease" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">نوع مورد اجاره : <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <select id="type_of_lease" wire:model.defer="type_of_lease" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -23,7 +23,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عنوان یا موضوع اجاره <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -37,7 +36,6 @@
                                 </textarea>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="house_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پلاک ثبتی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -68,7 +66,6 @@
                                 <input autocomplete="off" type="number" min="0" step="0.01" wire:model="house_area" id="house_area" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title_deeds_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">شماره سند ثبتی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -87,22 +84,14 @@
                                 <input autocomplete="off" id="bedroom" wire:model.defer="bedroom" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="postal_code" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">کدپستی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <input  autocomplete="off" id="postal_code" wire:model.defer="postal_code" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
-                        <div class="sm:col-span-2">
-                        </div>
-
-
-                        <div class="sm:col-span-2">
-                        </div>
-
-
+                        <div class="sm:col-span-2"></div>
+                        <div class="sm:col-span-2"></div>
                         <div class="sm:col-span-3">
                             <div class="w-full flex flex-row mb-4 flex-wrap">
                                 <label for="" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">حق اشتراک<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -165,7 +154,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(!$phone_status) hidden @endif" >
                                 <label for="telephone" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن</label>
@@ -195,14 +183,12 @@
                                             <label for="parking_status2" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">پارکینگ ندارد</label>
                                         </div>
                                     </div>
-
                                     <div class="mx-2">
                                         <div class="w-full flex flex-col mb-4 @if(!$warehouse_status) hidden @endif" >
                                             <label for="warehouse" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">انباری به متراژ (متر مربع)</label>
                                             <input autocomplete="off" name="warehouse" wire:model.debounce:2000ms="warehouse" id="warehouse" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         </div>
                                     </div>
-
                                     <div class="mx-2">
                                         <div class="w-full flex flex-col mb-4 @if(!$parking_status) hidden @endif" >
                                             <label for="parking" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پارکینگ به شماره</label>
@@ -220,11 +206,8 @@
                             @endforeach
                         @endif
                     </div>
-                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
-                        ذخیره مشخصات و تایید نهایی
-                    </button>
+                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">ذخیره مشخصات و تایید نهایی</button>
                 </form>
-
             </div>
         </div>
     </div>

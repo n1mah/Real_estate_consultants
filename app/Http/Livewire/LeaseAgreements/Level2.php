@@ -132,11 +132,8 @@ class Level2 extends Component
             ]);
             $this->leaseAgreement->level=3;
             $this->leaseAgreement->save();
-            redirect()->route('rents');
+            redirect()->route('rent.level3',['leaseAgreement'=>$this->leaseAgreement]);
     }
-
-
-
 
     public function render()
     {

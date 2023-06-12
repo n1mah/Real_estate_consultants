@@ -1,5 +1,5 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
-    <div class="text-center text-primary">
+<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white min-h-100-vh">
+<div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">مشاهده اجاره نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">مشاهده ماده 3</span> <br> (مدت اجاره)</h2>
@@ -47,9 +47,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{route('rents')}}" class="p-4 bg-purple-600 text-white rounded-[10px]"> بازگشت به صفحه اجاره نامه ها</a>
+                    <a href="{{route('rent.show',['leaseAgreement'=>$leaseAgreement])}}" class="p-4 bg-purple-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد اجاره نامه</a>
                 </form>
-
             </div>
         </div>
     </div>

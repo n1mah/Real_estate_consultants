@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\LeaseAgreements;
 
-use App\Models\DetailsOfRental;
 use App\Models\LeaseAgreement;
 use Livewire\Component;
 
@@ -21,7 +20,7 @@ class Level7 extends Component
     {
             $this->leaseAgreement->level=8;
             $this->leaseAgreement->save();
-            redirect()->route("rents");
+            redirect()->route('rent.level8',['leaseAgreement'=>$this->leaseAgreement]);
     }
 
     public function render()

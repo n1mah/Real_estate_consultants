@@ -93,22 +93,20 @@ class Level11 extends Component
     public function create()
     {
         $this->validate();
-        if (
-            $this->CheckerTwo($this->amount_received_each) &&
+        if ($this->CheckerTwo($this->amount_received_each) &&
             $this->CheckerTwo($this->wage) &&
             $this->CheckerTwo($this->tax) &&
             $this->CheckerTwo($this->city) &&
-            $this->CheckerTwo($this->total_received)
-        ){
-            $financial=FinancialLease::where('lease_agreement_id',$this->leaseAgreement->id)->first();
-            $financial->city=$this->city;
-            $financial->wage=$this->wage;
-            $financial->amount_received_each=$this->amount_received_each;
-            $financial->tax=$this->tax;
-            $financial->save();
-            $this->leaseAgreement->level=12;
-            $this->leaseAgreement->save();
-            redirect()->route("rents");
+            $this->CheckerTwo($this->total_received)){
+                $financial=FinancialLease::where('lease_agreement_id',$this->leaseAgreement->id)->first();
+                $financial->city=$this->city;
+                $financial->wage=$this->wage;
+                $financial->amount_received_each=$this->amount_received_each;
+                $financial->tax=$this->tax;
+                $financial->save();
+                $this->leaseAgreement->level=12;
+                $this->leaseAgreement->save();
+                redirect()->route('rent.level12',['leaseAgreement'=>$this->leaseAgreement]);
         }else{
             $this->msg='داده ها را با دقت وارد کنید';
         }

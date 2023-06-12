@@ -31,11 +31,10 @@ class SingleLevel12 extends Component
         }else{
             redirect()->route('rents');
         }
-
     }
     public function render()
     {
-        return view('livewire.lease-agreements.single-level12')
+        return view('livewire.lease-agreements.single-level12',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
     }
 }

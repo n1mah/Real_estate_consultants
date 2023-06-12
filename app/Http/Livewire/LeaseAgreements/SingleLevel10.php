@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\LeaseAgreements;
 
-use App\Models\DetailsOfRental;
 use App\Models\LeaseAgreement;
 use Livewire\Component;
 
@@ -15,7 +14,6 @@ class SingleLevel10 extends Component
 
     public function mount()
     {
-        $DetailsOfRental = DetailsOfRental::where('lease_agreement_id',$this->leaseAgreement->id)->first();
         if ($this->leaseAgreement->level>10){
             $this->arbitration=true;
         }else{
@@ -24,7 +22,7 @@ class SingleLevel10 extends Component
     }
     public function render()
     {
-        return view('livewire.lease-agreements.single-level10')
+        return view('livewire.lease-agreements.single-level10',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
     }
 }

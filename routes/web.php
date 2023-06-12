@@ -51,6 +51,7 @@ use App\Http\Livewire\LeaseAgreements\SingleLevel10 as Single10;
 use App\Http\Livewire\LeaseAgreements\SingleLevel11 as Single11;
 use App\Http\Livewire\LeaseAgreements\SingleLevel12 as Single12;
 use App\Http\Livewire\LeaseAgreements\SingleLevel13 as Single13;
+use App\Http\Livewire\LeaseAgreements\Show;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -128,5 +129,6 @@ Route::get('/rents/level10/single/{leaseAgreement}', Single10::class)->name("ren
 Route::get('/rents/level11/single/{leaseAgreement}', Single11::class)->name("rent.level11.single");
 Route::get('/rents/level12/single/{leaseAgreement}', Single12::class)->name("rent.level12.single");
 Route::get('/rents/level13/single/{leaseAgreement}', Single13::class)->name("rent.level13.single");
+Route::get('/rents/show/{leaseAgreement}', Show::class)->name("rent.show");
 
 

@@ -19,7 +19,7 @@ class SingleLevel7 extends Component
     }
     public function render()
     {
-        return view('livewire.lease-agreements.single-level7')
+        return view('livewire.lease-agreements.single-level7',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
 
     }

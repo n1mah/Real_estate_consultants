@@ -45,7 +45,7 @@ class Level6 extends Component
             $DetailsOfRentalData->save();
             $this->leaseAgreement->level=7;
             $this->leaseAgreement->save();
-            redirect()->route("rents");
+            redirect()->route('rent.level7',['leaseAgreement'=>$this->leaseAgreement]);
         }else{
             redirect()->route("rents");
         }

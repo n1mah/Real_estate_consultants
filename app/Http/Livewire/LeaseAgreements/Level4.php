@@ -127,7 +127,7 @@ class Level4 extends Component
                 ]);
                 $this->leaseAgreement->level=5;
                 $this->leaseAgreement->save();
-                redirect()->route("rents");
+                redirect()->route('rent.level5',['leaseAgreement'=>$this->leaseAgreement]);
             }else{
                 $this->msg['rent']='بیعانه رهن  را وارد کنید';
             }

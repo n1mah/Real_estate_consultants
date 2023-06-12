@@ -6,11 +6,9 @@ use App\Models\LeaseAgreement;
 use App\Models\LeaseAgreementPerson;
 use App\Models\Person;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 class Add extends Component
 {
-
     public $errorFileNumber;
     public $fileNumber;
     public $level=0;
@@ -93,7 +91,7 @@ class Add extends Component
         ];
         $this->level=4;
         $fileNumber= $this->fileNumber;
-        $contract_id=LeaseAgreement::insertGetId([
+        $lease_id=LeaseAgreement::insertGetId([
             'file_number'=>$fileNumber,
             'level'=>2,
             ...$now
@@ -102,7 +100,7 @@ class Add extends Component
         $customers=[];
         foreach ($this->people_selectedTenant as $people){
             $customers[]=[
-                'lease_agreement_id' => $contract_id,
+                'lease_agreement_id' => $lease_id,
                 'person_id' =>  $people['id'],
                 'is_tenant' =>  true ,
                 'lawyer_id' =>  ($people['lawyer'])?$people['lawyer']['id']:$people['lawyer'],
@@ -111,7 +109,7 @@ class Add extends Component
         }
         foreach ($this->people_selectedLessor as $people){
             $customers[]=[
-                'lease_agreement_id' => $contract_id,
+                'lease_agreement_id' => $lease_id,
                 'person_id' =>  $people['id'],
                 'is_tenant' =>  false ,
                 'lawyer_id' =>  ($people['lawyer'])?$people['lawyer']['id']:$people['lawyer'],
@@ -120,7 +118,7 @@ class Add extends Component
         }
 
         LeaseAgreementPerson::insert($customers);
-        redirect()->route('rents');
+        redirect()->route('rent.level2',['leaseAgreement'=>$lease_id]);
     }
 
     public function searchFileNumber(){

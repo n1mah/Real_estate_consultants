@@ -9,7 +9,6 @@ use Livewire\Component;
 class SingleLevel5 extends Component
 {
     public LeaseAgreement $leaseAgreement;
-
     public $delivery_time;
     public $penalty_for_non_delivery;
 
@@ -20,14 +19,13 @@ class SingleLevel5 extends Component
             $DetailsOfRentalData=$DetailsOfRental->first();
             $this->delivery_time=$DetailsOfRentalData->delivery_time;
             $this->penalty_for_non_delivery =$DetailsOfRentalData->penalty_for_non_delivery;
-
         }else{
             redirect()->route('rents');
         }
     }
     public function render()
     {
-        return view('livewire.lease-agreements.single-level5')
+        return view('livewire.lease-agreements.single-level5',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
     }
 }

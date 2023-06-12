@@ -46,18 +46,16 @@ class Level12 extends Component
     public function create()
     {
         $this->validate();
-        if (
-            $this->Checker($this->signature_date) &&
+        if ($this->Checker($this->signature_date) &&
             $this->Checker($this->signature_hour) &&
-            $this->Checker($this->user_id)
-        ){
-            $this->leaseAgreement->signature_date=(Carbon::createFromTimestamp($this->signature_date, 'Asia/Tehran')->format('y/m/d').' 12:00:00');
-            $this->leaseAgreement->signature_hour=$this->signature_hour;
-            $this->leaseAgreement->signature_minutes=$this->signature_minutes;
-            $this->leaseAgreement->user_id=$this->user_id;
-            $this->leaseAgreement->level=13;
-            $this->leaseAgreement->save();
-            redirect()->route("rents");
+            $this->Checker($this->user_id)){
+                $this->leaseAgreement->signature_date=(Carbon::createFromTimestamp($this->signature_date, 'Asia/Tehran')->format('y/m/d').' 12:00:00');
+                $this->leaseAgreement->signature_hour=$this->signature_hour;
+                $this->leaseAgreement->signature_minutes=$this->signature_minutes;
+                $this->leaseAgreement->user_id=$this->user_id;
+                $this->leaseAgreement->level=13;
+                $this->leaseAgreement->save();
+                redirect()->route('rent.level13',['leaseAgreement'=>$this->leaseAgreement]);
         }else{
             $this->msg='داده ها را با دقت وارد کنید';
         }

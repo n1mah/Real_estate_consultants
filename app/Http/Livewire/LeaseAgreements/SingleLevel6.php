@@ -21,14 +21,13 @@ class SingleLevel6 extends Component
             $this->others=$DetailsOfRentalData->others;
             $this->damages_for_non_fulfillment_of_obligations=$DetailsOfRentalData->damages_for_non_fulfillment_of_obligations;
             $this->penalty_for_non_evacuation =$DetailsOfRentalData->penalty_for_non_evacuation;
-
         }else{
             redirect()->route('rents');
         }
     }
     public function render()
     {
-        return view('livewire.lease-agreements.single-level6')
+        return view('livewire.lease-agreements.single-level6',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
     }
 }

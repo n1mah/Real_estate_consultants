@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">اجاره نامه جدید</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -7,7 +7,6 @@
             <div class="w-full flex flex-col items-center">
                 <form class="py-2 w-full flex flex-col items-center" wire:submit.prevent="create">
                     <div class="w-full-80 mx-auto items-center mb-4">
-
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
                                 <label for="lease" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">میزان اجاره بها جمعا (ریال) :<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -40,11 +39,7 @@
                                 </select>
                             </div>
                         </div>
-
-                        <br>
-                        <hr>
-                        <br>
-
+                        <br><hr><br>
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
                                 <label for="mortgage" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">مبلغ قرض الحسنه توافقی (رهن) (ریال) :<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -56,11 +51,7 @@
                                 <label for="mortgage" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($mortgage) && !empty($mortgage)) <span>{{(new Number2Word)->numberToWords($mortgage/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($mortgage/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
-                        <br>
-                        <hr>
-                        <br>
-
+                        <br><hr><br>
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
                                 <label for="rent" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">بیعانه مبلغ قرض الحسنه توافقی (رهن) (ریال) :<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -72,8 +63,6 @@
                                 <label for="rent" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium">@if(is_numeric($rent) && !empty($rent)) <span>{{(new Number2Word)->numberToWords($rent/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($rent/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title_deeds" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">نوع پرداخت<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -83,14 +72,12 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="@if($payment_type=='نقد') hidden @endif">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="cheque" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">چک : <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <input autocomplete="off" id="cheque" wire:model.defer="cheque" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div class="@if($payment_type=='نقد')hidden @endif">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="bank" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">بانک<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -103,7 +90,6 @@
                                 <input autocomplete="off" wire:model.defer="branch" id="branch" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div class="sm:col-span-2 bg-gray-200 p-5 rounded-xl">
                             <div class="w-full flex flex-col mb-4">
                                 <h4 class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white font-extrabold text-xl"> باقیمانده : </h4>
@@ -118,14 +104,10 @@
                             showFormat="jYYYY/jMM/jDD"
                             returnFormat="X"
                             :required="true"
-                            :setNullInput="false"
-                        >
+                            :setNullInput="false">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-right">تاریخ پرداخت باقیمانده مبلغ قرض الحسنه (رهن)<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-
                         </x-persian-datepicker>
-                        <br>
-                        <br>
-
+                        <br><br>
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
                                 <label for="penalty_for_non_payment" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خسارت عدم پرداخت/وصول مابقی قرض الحسنه (رهن) (ریال) :<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -148,21 +130,9 @@
                                 <label for="house_area" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($penalty_for_non_return) && !empty($penalty_for_non_return)) <span>{{(new Number2Word)->numberToWords($penalty_for_non_return/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($penalty_for_non_return/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
-
                     </div>
-{{--                    <div class="w-full-80 mx-auto items-center mb-4 ">--}}
-{{--                        @if($errors)--}}
-{{--                            @foreach ($errors->all() as $error)--}}
-{{--                                <p class="text-red-700 text-right"> * {{ $error }}</p>--}}
-{{--                            @endforeach--}}
-{{--                        @endif--}}
-{{--                    </div>--}}
-                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
-                        ذخیره اجاره بها و نحوه پرداخت و تایید نهایی
-                    </button>
+                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">ذخیره اجاره بها و نحوه پرداخت و تایید نهایی</button>
                 </form>
-
             </div>
         </div>
     </div>

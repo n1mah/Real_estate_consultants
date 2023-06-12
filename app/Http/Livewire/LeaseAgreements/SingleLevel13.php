@@ -15,12 +15,12 @@ class SingleLevel13 extends Component
         if ($this->leaseAgreement->level>13){
             $this->comment=$this->leaseAgreement->comment;
         }else{
-            redirect()->route('sales');
+            redirect()->route('rents');
         }
     }
     public function render()
     {
-        return view('livewire.lease-agreements.single-level13')
+        return view('livewire.lease-agreements.single-level13',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
     }
 }

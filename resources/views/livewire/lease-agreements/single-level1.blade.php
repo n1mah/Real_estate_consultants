@@ -1,5 +1,5 @@
-<section class="w-full mx-auto bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
-    <div class="w-full-65 px-4 py-2 mx-auto flex-col flex items-center justify-center">
+<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white min-h-100-vh">
+<div class="w-full-65 px-4 py-2 mx-auto flex-col flex items-center justify-center">
         <h2 class="font-medium p-3 text-gray-400">مشاهده ماده 1 - طرفین قرارداد</h2>
         <hr class="p-2 w-full">
         <p class="text-center text-gray-600"> شماره پرونده <span class="text-warning-700"> {{$fileNumber}}</span></p>
@@ -53,9 +53,7 @@
                 @endif
             </div>
         </div>
-        <br>
-        <hr class="w-full-45 p-2">
-        <br>
-        <a href="{{route('rents')}}" class="p-4 bg-purple-600 text-white rounded-[10px]"> بازگشت به صفحه اجاره نامه ها</a>
+        <br><hr class="w-full-45 p-2"><br>
+        <a href="{{route('rent.show',['leaseAgreement'=>$leaseAgreement])}}" class="p-4 bg-purple-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد اجاره نامه</a>
     </div>
 </section>

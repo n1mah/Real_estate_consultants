@@ -1,5 +1,5 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
-    <div class="text-center text-primary">
+<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white min-h-100-vh">
+<div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">مشاهده اجاره نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">مشاهده ماده 2</span> <br>(موضوع قرارداد و مشخصات مورد اجاره)</h2>
@@ -21,7 +21,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">عنوان یا موضوع اجاره </label>
@@ -34,7 +33,6 @@
                                 <textarea id="address" readonly rows="1" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{$address}}</textarea>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="house_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پلاک ثبتی</label>
@@ -65,7 +63,6 @@
                                 <input readonly type="number" min="0" step="0.01" value="{{$house_area}}" id="house_area" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title_deeds_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">شماره سند ثبتی</label>
@@ -84,7 +81,6 @@
                                 <input readonly id="bedroom" value="{{$bedroom}}" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="postal_code" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">کدپستی</label>
@@ -97,14 +93,12 @@
                                 <input readonly name="warehouse" value="warehouse" id="warehouse" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(empty($parking)) hidden @endif" >
                                 <label for="parking" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پارکینگ به شماره</label>
                                 <input readonly value="parking" id="parking" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(empty($telephone)) hidden @endif" >
                                 <label for="telephone" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن</label>
@@ -113,8 +107,6 @@
                         </div>
                         <div class="sm:col-span-2">
                         </div>
-
-
                         <div class="sm:col-span-3">
                             <div class="w-full flex flex-row mb-4 flex-wrap">
                                 <label for="" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">حق اشتراک</label>
@@ -125,13 +117,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-                    <a href="{{route('rents')}}" class="p-4 bg-purple-600 text-white rounded-[10px]"> بازگشت به صفحه اجاره نامه ها</a>
-
+                    <a href="{{route('rent.show',['leaseAgreement'=>$leaseAgreement])}}" class="p-4 bg-purple-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد اجاره نامه</a>
                 </form>
-
             </div>
         </div>
     </div>

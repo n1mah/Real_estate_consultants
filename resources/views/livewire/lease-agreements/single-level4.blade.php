@@ -1,5 +1,5 @@
-<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white" style="min-height: 100vh">
-    <div class="text-center text-primary">
+<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white min-h-100-vh">
+<div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">مشاهده اجاره نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">مشاهده ماده 4</span> <br> (اجاره بها و نحوه پرداخت)</h2>
@@ -23,7 +23,6 @@
                                 <label for="monthly_rental_amount" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($monthly_rental_amount) && !empty($monthly_rental_amount)) <span>{{(new Number2Word)->numberToWords($monthly_rental_amount/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($monthly_rental_amount/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
                         <div class="">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="type_of_lease" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">در : </label>
@@ -32,8 +31,7 @@
                                 </select>
                             </div>
                         </div>
-                        <br>
-                        <hr>
+                        <br><hr>
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
                                 <label for="mortgage" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">مبلغ قرض الحسنه توافقی (رهن) (ریال) :</label>
@@ -42,11 +40,7 @@
                                 <label for="mortgage" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($mortgage) && !empty($mortgage)) <span>{{(new Number2Word)->numberToWords($mortgage/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($mortgage/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
-                        <br>
-                        <hr>
-                        <br>
-
+                        <br><hr><br>
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
                                 <label for="rent" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">بیعانه مبلغ قرض الحسنه توافقی (رهن) (ریال) :</label>
@@ -55,8 +49,6 @@
                                 <label for="rent" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium">@if(is_numeric($rent) && !empty($rent)) <span>{{(new Number2Word)->numberToWords($rent/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($rent/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title_deeds" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">نوع پرداخت</label>
@@ -65,14 +57,12 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="@if($payment_type=='نقد') hidden @endif">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="cheque" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">چک : </label>
                                 <input readonly id="cheque" value="{{$cheque}}" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div class="@if($payment_type=='نقد')hidden @endif">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="bank" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">بانک</label>
@@ -85,7 +75,6 @@
                                 <input readonly value="{{$branch}}" id="branch" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div class="sm:col-span-2 bg-gray-200 p-5 rounded-xl">
                             <div class="w-full flex flex-col mb-4">
                                 <h4 class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white font-extrabold text-xl"> باقیمانده : </h4>
@@ -106,9 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <br>
-
+                        <br><br>
                         <div>
                             <div class="w-full flex flex-col mb-4 p-2">
                                 <label for="penalty_for_non_payment" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">خسارت عدم پرداخت/وصول مابقی قرض الحسنه (رهن) (ریال) :</label>
@@ -125,8 +112,7 @@
                                 <label for="house_area" class="text-purple-500 flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($penalty_for_non_return) && !empty($penalty_for_non_return)) <span>{{(new Number2Word)->numberToWords($penalty_for_non_return/10)}} <span class="font-extrabold text-gray-500">تومان</span> </span><span> {{number_format($penalty_for_non_return/10)}}  <span class="font-extrabold text-gray-500">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
-                        <a href="{{route('rents')}}" class="p-4 bg-purple-600 text-white rounded-[10px]"> بازگشت به صفحه اجاره نامه ها</a>
+                        <a href="{{route('rent.show',['leaseAgreement'=>$leaseAgreement])}}" class="p-4 bg-purple-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد اجاره نامه</a>
                     </div>
                 </form>
             </div>

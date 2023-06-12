@@ -1,12 +1,11 @@
 <x-slot:zz>z-50-imp</x-slot:zz>
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-purple">
         <h1 class="font-bold text-3xl p-5 text-purple-700">اجاره نامه جدید</h1>
         {{--    level 0  --}}
         <div class="@if($level!=0) hidden @endif px-4 py-2">
             <h2 class="font-medium p-3 text-gray-400">ایجاد یک قرارداد اجاره جدید</h2>
             <hr class="p-2 w-full">
-
             <input wire:model.lazy="fileNumber" autocomplete="off" type="text" id="fileNumber" class="mt-2 w50 w-full mx-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="شماره پرونده را وارد کنید ...">
             @if($errorFileNumber)
                 <div class="w50 mx-auto">
@@ -16,9 +15,7 @@
             <button wire:click="$emit('level1Action')" class="mt-2 w50 w-full mx-auto block text-white bg-purple-600 hover:bg-purple-900 focus:ring-4 focus:outline-none focus:ring-purple-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-900 dark:focus:ring-gray-800 font-bold" type="button">
                 افزودن قرارداد جدید
             </button>
-
         </div>
-
         {{--    level 1  Start page  --}}
         <div class="@if($level!=1) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400">تعریف مستاجر / مستاجران</h2>
@@ -26,7 +23,6 @@
             <div class="w-full flex flex-col items-center">
                 <form class="py-2 w-full flex flex-col items-center">
                     <div class="w-full-45 flex flex-col items-center mb-4 sm:mb-5">
-
                         <p class="sm:col-span-2 text-gray-600 text-right">
                             از لیست پایین مستاجران خود را انتخاب کنید یا در بین مشتریان جستجو کنید
                         </p>
@@ -47,16 +43,13 @@
                         </div>
                     </div>
                 </form>
-
                 <div class="w-full-65 mb-4 mt-2 w-full sm:mb-5">
                     @if($people_selectedTenant)
                         @php($c=0)
                         <hr>
-
                         <p class="sm:col-span-2 text-center my-2">
                             @if(count($people_selectedTenant)>1) مستاجران @else مستاجر @endif
                         </p>
-
                         <div class="w-full flex flex-row flex-wrap justify-center">
                             @foreach($people_selectedTenant as $person_selected)
                                 <div  class="w-full-45 flex items-center justify-between m-1 px-5 py-2.5 text-sm font-medium text-center text-white bg-purple-400 rounded-lg hover:bg-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-400 dark:hover:bg-purple-600 dark:focus:ring-purple-600">
@@ -74,7 +67,6 @@
 
                                 </div>
                                 @php($c++)
-
                             @endforeach
                         </div>
                         <button wire:click="$emit('level2Action')" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
@@ -85,7 +77,6 @@
             </div>
         </div>
         {{--    level 1  End Page --}}
-
         {{--    level 2  Start page  --}}
         <div class="@if($level!=2) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400">تعریف موجر / موجران</h2>
@@ -142,8 +133,6 @@
             </div>
         </div>
         {{--    level 2  End Page  --}}
-
-
         {{--    level 3  Start page --}}
         <div class="@if($level!=3) hidden @endif px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400">تایید نهایی طرفین قرارداد</h2>
@@ -211,17 +200,11 @@
             </button>
         </div>
         {{--    level 3  End Page  --}}
-
-
-
-
     </div>
     {{--                <!-- tenant modal - level 1 - search  -->--}}
     <div id="tenantModal" wire:ignore.self tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
                 <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                         جستجو
@@ -235,14 +218,10 @@
                     <div class="sm:col-span-2 px-4 py-2">
                         <label for="search"  class="block  text-sm font-medium text-gray-900 dark:text-white p-2"> <span class="font-bold mx-2">نام</span>,<span class="font-bold mx-2">نام خانوادگی</span>یا<span class="font-bold mx-2">کد ملی</span>مورد نظر را جستجو کنید</label>
                         <input wire:model.debounce.200ms="searchTenant" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
-
                     </div>
-
-
                 </div>
                 <div class="my-1 py-1 px-5">
                     @if($searchResultTenant)
-
                         @foreach($searchResultTenant as $item)
                             <div class="flex justify-between p-2 bg-gray-100 m-1 mb-2 rounded-[16px]">
                                 <div class="pr-3">{{$item->firstname}} &nbsp; {{$item->lastname}} &nbsp;-&nbsp; {{$item->national_code}} </div>
@@ -250,7 +229,6 @@
                             </div>
                         @endforeach
                     @endif
-
                 </div>
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                     <button data-modal-hide="tenantModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-purple-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">بستن</button>
@@ -259,13 +237,10 @@
             </div>
         </div>
     </div>
-
     {{--                <!-- lessor modal - level 2 -->--}}
     <div id="lessorModal" wire:ignore.self tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
                 <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                         جستجو
@@ -279,14 +254,10 @@
                     <div class="sm:col-span-2 px-4 py-2">
                         <label for="searchLessor"  class="block text-sm font-medium text-gray-900 dark:text-white p-2"> <span class="font-bold mx-2">نام</span>,<span class="font-bold mx-2">نام خانوادگی</span>یا<span class="font-bold mx-2">کد ملی</span>مورد نظر را جستجو کنید</label>
                         <input wire:model.debounce.200ms="searchLessor" autocomplete="off" type="text" id="searchLessor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
-
                     </div>
-
-
                 </div>
                 <div class="my-1 py-1 px-5">
                     @if($searchResultLessor)
-
                         @foreach($searchResultLessor as $item)
                             <div class="flex justify-between p-2 bg-gray-100 m-1 mb-2 rounded-[16px]">
                                 <div class="pr-3">{{$item->firstname}} &nbsp; {{$item->lastname}} &nbsp;-&nbsp; {{$item->national_code}} </div>
@@ -294,9 +265,7 @@
                             </div>
                         @endforeach
                     @endif
-
                 </div>
-
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                     <button data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-purple-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">بستن</button>
                     <a href="{{route("people.add")}}" target="_blank" data-modal-hide="lessorModal" type="button" class="mx-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-purple-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">افزودن مشتری جدید در صفحه دیگر</a>
@@ -304,7 +273,6 @@
             </div>
         </div>
     </div>
-
     {{--    Lawyer   Box    --}}
     <div id="addLawyer" class="@if(!$addLawyer) hidden @endif mx-auto flex-col flex items-center justify-center w-full fixed bg-gray-100 top-0 left-0 bg-opacity-80" onclick="if(event.target === event.currentTarget){Livewire.emit('hideLawyerBox')}" style="height: 100vh;z-index: 9999">
         <div class="box w50 mx-auto my-auto p-5 bg-white" style="min-height: 50vh">
@@ -323,10 +291,8 @@
                     <label for="search"  class="block  text-sm font-medium text-gray-900 dark:text-white p-2"> <span class="font-bold mx-2">نام</span>,<span class="font-bold mx-2">نام خانوادگی</span>یا<span class="font-bold mx-2">کد ملی</span>مورد نظر را جستجو کنید</label>
                     <input wire:model.debounce.200ms="searchLawyer" autocomplete="off" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" value="" placeholder="دربین موارد بالا جستجو کنید ...">
                 </div>
-
                 <div class="my-1 py-1 px-5 sm:col-span-2">
                     @if($searchResultLawyer)
-
                         @foreach($searchResultLawyer as $item)
                             <div class="flex justify-between p-2 bg-gray-100 m-1 mb-2 rounded-[16px]">
                                 <div class="pr-3">{{$item->firstname}} &nbsp; {{$item->lastname}} &nbsp;-&nbsp; {{$item->national_code}} </div>
@@ -335,9 +301,7 @@
                         @endforeach
                     @endif
                 </div>
-
             </div>
         </div>
     </div>
-
 </section>

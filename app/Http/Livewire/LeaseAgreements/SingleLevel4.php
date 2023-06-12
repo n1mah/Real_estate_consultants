@@ -48,7 +48,6 @@ class SingleLevel4 extends Component
             $this->cheque =$FinancialLeaseData->cheque;
             $this->deposit_return_date =$FinancialLeaseData->deposit_return_date;
             $this->deposit =$FinancialLeaseData->deposit;
-
         }else{
             redirect()->route('rents');
         }
@@ -56,7 +55,7 @@ class SingleLevel4 extends Component
 
     public function render()
     {
-        return view('livewire.lease-agreements.single-level4')
+        return view('livewire.lease-agreements.single-level4',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
     }
 }

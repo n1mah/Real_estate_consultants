@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-purple">
         <h1 class="font-bold text-3xl p-3 text-purple-700">اجاره نامه ها </h1>
         <h2 class="font-medium text-xl p-1 mb-2 text-purple-700"> (قرارداد اجاره) </h2>
@@ -17,7 +17,6 @@
                             </div>
                             {{--Search Implement--}}
                             <input wire:model="search" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="جستجو شماره / کد پرونده ..." required="">
-
                         </div>
                     </form>
                 </div>
@@ -32,7 +31,6 @@
                         افزودن اجاره نامه
                     </a>
                     <div class="flex items-center w-full md:w-auto">
-
                         <div id="actionsDropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="actionsDropdownButton">
                                 <li>
@@ -83,7 +81,6 @@
                         <tr class="border-b dark:border-gray-700">
                             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$lease_agreement->file_number}}</th>
                             <td class="px-4 py-3 text-white @if($lease_agreement->level<14) bg-red-700 @else bg-green-900 @endif">{{$statuslabel[$lease_agreement->level]}}</td>
-                            {{--                            <td class="px-4 py-3 " dir="ltr">{{\Morilog\Jalali\Jalalian::forge($person->date_of_birth)->format('Y/m/d') }}</td>--}}
                             <td class="px-4 py-3 ">
                                 <div class="w-full flex justify-center flex-wrap">
                                     @foreach($lease_agreement->peopleTenants as $person)
@@ -91,7 +88,6 @@
                                     @endforeach
                                 </div>
                             </td>
-
                             <td class="px-4 py-3">
                                 <div class="w-full flex justify-center flex-wrap">
                                     @foreach($lease_agreement->peopleLessors as $person)
@@ -99,28 +95,14 @@
                                     @endforeach
                                 </div>
                             </td>
-
                             <td class="px-4 py-3 flex items-center justify-center flex-wrap">
-                                <a href="{{route('rent.level1.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 1</a>
-                                <a href="{{route('rent.level2.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 2</a>
-                                <a href="{{route('rent.level3.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 3</a>
-                                <a href="{{route('rent.level4.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 4</a>
-                                <a href="{{route('rent.level5.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 5</a>
-                                <a href="{{route('rent.level6.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 6</a>
-                                <a href="{{route('rent.level7.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 7</a>
-                                <a href="{{route('rent.level8.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 8</a>
-                                <a href="{{route('rent.level9.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 9</a>
-                                <a href="{{route('rent.level10.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 10</a>
-                                <a href="{{route('rent.level11.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 11</a>
-                                <a href="{{route('rent.level12.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده ماده 12</a>
-                                <a href="{{route('rent.level13.single',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده توضیحات</a>
+                                <a href="{{route('rent.show',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده مواد</a>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
-
             {{ $lease_agreements->links() }}
         </div>
     </div>

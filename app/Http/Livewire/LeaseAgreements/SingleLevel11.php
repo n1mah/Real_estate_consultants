@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\LeaseAgreements;
 
-use App\Models\DetailsOfRental;
 use App\Models\FinancialLease;
 use App\Models\LeaseAgreement;
 use Livewire\Component;
@@ -15,9 +14,6 @@ class SingleLevel11 extends Component
     public $amount_received_each;
     public $tax;
     public $total_received;
-
-
-
 
     public function CalcTotal(): void
     {
@@ -37,7 +33,6 @@ class SingleLevel11 extends Component
             $this->tax=$financialData->tax;
             $total=(($this->amount_received_each*2)+$this->wage);
             $this->total_received=((($total*$this->tax)/100)+$total);
-
         }else{
             redirect()->route('rents');
         }
@@ -46,7 +41,7 @@ class SingleLevel11 extends Component
 
     public function render()
     {
-        return view('livewire.lease-agreements.single-level11')
+        return view('livewire.lease-agreements.single-level11',['leaseAgreement'=>$this->leaseAgreement])
             ->layout('components.layouts.app');
     }
 }

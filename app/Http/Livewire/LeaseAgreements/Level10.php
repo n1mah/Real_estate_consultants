@@ -29,7 +29,7 @@ class Level10 extends Component
             $DetailsOfRental->save();
             $this->leaseAgreement->level=11;
             $this->leaseAgreement->save();
-            redirect()->route("rents");
+            redirect()->route('rent.level11',['leaseAgreement'=>$this->leaseAgreement]);
         } else {
             $this->msg = 'برای تکمیل قرارداد اجاره باید شرط داوری پذیرفته شود';
         }

@@ -71,7 +71,6 @@ class Index extends Component
         $this->gotoFirstPage($lease_agreements);
         $levels = $this->getExistLevel()->sort();
 
-//        $buyers=$contracts
         return view('livewire.lease-agreements.index',
             [
                 ...compact('levels'),

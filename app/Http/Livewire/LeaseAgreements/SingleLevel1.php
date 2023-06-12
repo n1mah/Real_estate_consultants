@@ -18,10 +18,9 @@ class SingleLevel1 extends Component
     public function mount()
     {
         if ($this->leaseAgreement->level>1){
-            //
+
         }else{
             redirect()->route('rents');
-
         }
 
     }
@@ -45,8 +44,7 @@ class SingleLevel1 extends Component
             'fileNumber'=>$fileNumber,
             'people_selectedTenant'=>$people_selectedTenant,
             'people_selectedLessor'=>$people_selectedLessor,
-        ])
-            ->layout('components.layouts.app');
-
+            'leaseAgreement'=>$this->leaseAgreement
+        ])->layout('components.layouts.app');
     }
 }

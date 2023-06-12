@@ -8,8 +8,8 @@ use Livewire\Component;
 class Level13 extends Component
 {
     public LeaseAgreement $leaseAgreement;
-
     public $comment;
+
     public function create()
     {
         $this->leaseAgreement->comment=$this->comment;

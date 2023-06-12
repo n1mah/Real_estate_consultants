@@ -1,11 +1,11 @@
-<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white" style="min-height: 100vh">
-    <div class="text-center text-primary">
+<section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white min-h-100-vh">
+<div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5 text-purple-700">مشاهده اجاره نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">مشاهده ماده 12</span></h2>
             <hr class="p-2 w-full">
             <div class="w-full flex flex-col items-center">
-                <form class="py-2 w-full flex flex-col items-center" wire:submit.prevent="create">
+                <form class="py-2 w-full flex flex-col items-center">
                     <div class="w-full-80 mx-auto items-center mb-4 ">
                         <label for="delivery_time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-right">تاریخ تعیین شده جهت حضور در دفتر خانه</label>
                         <div class="relative pdp-input-area">
@@ -48,7 +48,7 @@
                         </p>
                         <br>
                     </div>
-                    <a href="{{route('rents')}}" class="p-4 bg-purple-600 text-white rounded-[10px]"> بازگشت به صفحه اجاره نامه ها</a>
+                    <a href="{{route('rent.show',['leaseAgreement'=>$leaseAgreement])}}" class="p-4 bg-purple-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد اجاره نامه</a>
                 </form>
             </div>
         </div>

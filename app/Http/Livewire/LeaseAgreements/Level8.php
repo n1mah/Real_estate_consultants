@@ -19,7 +19,7 @@ class Level8 extends Component
     {
         $this->leaseAgreement->level=9;
         $this->leaseAgreement->save();
-        redirect()->route("rents");
+        redirect()->route('rent.level9',['leaseAgreement'=>$this->leaseAgreement]);
     }
 
     public function render()
