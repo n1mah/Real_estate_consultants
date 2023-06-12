@@ -55,7 +55,7 @@ use App\Http\Livewire\LeaseAgreements\SingleLevel11 as Single11;
 use App\Http\Livewire\LeaseAgreements\SingleLevel12 as Single12;
 use App\Http\Livewire\LeaseAgreements\SingleLevel13 as Single13;
 use App\Http\Livewire\LeaseAgreements\Show as RentShow;
-//use App\Http\Livewire\LeaseAgreements\Delete as RentShow;
+use App\Http\Livewire\LeaseAgreements\Delete as RentDelete;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -74,11 +74,7 @@ Auth::login($user);
 */
 Route::get('/', function () {
     return view('welcome');
-//    $people= \App\Models\Person::find(5);
-//    dd($people);
 
-//    $people= \App\Models\Person::find(4)->contract_of_sales()->get();
-//    echo ($people->first()->pivot->created_at);
 
 });
 Route::get('/people', People_Index::class)->name("people");
@@ -137,5 +133,6 @@ Route::get('/rents/level11/single/{leaseAgreement}', Single11::class)->name("ren
 Route::get('/rents/level12/single/{leaseAgreement}', Single12::class)->name("rent.level12.single");
 Route::get('/rents/level13/single/{leaseAgreement}', Single13::class)->name("rent.level13.single");
 Route::get('/rents/show/{leaseAgreement}', RentShow::class)->name("rent.show");
+Route::get('/rents/delete/{leaseAgreement}', RentDelete::class)->name("rent.delete");
 
 

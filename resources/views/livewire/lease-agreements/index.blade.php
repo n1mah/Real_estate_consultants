@@ -80,7 +80,7 @@
                     @foreach($lease_agreements as $lease_agreement)
                         <tr class="border-b dark:border-gray-700">
                             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$lease_agreement->file_number}}</th>
-                            <td class="px-4 py-3 text-white @if($lease_agreement->level<14) bg-red-700 @else bg-green-900 @endif">{{$statuslabel[$lease_agreement->level]}}</td>
+                            <td class="px-4 py-3 text-white @if($lease_agreement->level<10) bg-warning-500 @elseif($lease_agreement->level==66) bg-red-700 @else bg-green-900 @endif">{{$statuslabel[$lease_agreement->level]}}</td>
                             <td class="px-4 py-3 ">
                                 <div class="w-full flex justify-center flex-wrap">
                                     @foreach($lease_agreement->peopleTenants as $person)
@@ -97,6 +97,7 @@
                             </td>
                             <td class="px-4 py-3 flex items-center justify-center flex-wrap">
                                 <a href="{{route('rent.show',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده مواد</a>
+                                @if($lease_agreement->level!=66)<a href="{{route('rent.delete',$lease_agreement->id)}}" type="button" class="inline-flex mx-2 px-2 py-1.5 text-xs font-medium text-center focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">کنسل کردن</a>@endif
                             </td>
                         </tr>
                     @endforeach

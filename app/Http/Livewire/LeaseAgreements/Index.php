@@ -14,10 +14,11 @@ class Index extends Component
     }
 
     public $search = "";
-    public $perPage = 2;
+    public $perPage = 10;
     public $levels_filter = [];
 
     public $statuslabel = [
+        66=>'کنسل شده',
         0 => 'پیش انتظار',
         1 => 'درانتظار ثبت',
         2 => 'ماده 2',
