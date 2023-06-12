@@ -1,6 +1,6 @@
 <section class="bg-gray-200 dark:bg-gray-900 p-3 sm:p-5 bg-white" style="min-height: 100vh">
     <div class="text-center text-primary">
-        <h1 class="font-bold text-3xl p-5 text-purple-700">اجاره نامه جدید</h1>
+        <h1 class="font-bold text-3xl p-5 text-purple-700">مشاهده اجاره نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
             <h2 class="font-medium p-3 text-gray-400"> <span class="font-bold">مشاهده ماده 11</span> <br>(حق الزحمه مشاور املاک)</h2>
             <hr class="p-2 w-full">
