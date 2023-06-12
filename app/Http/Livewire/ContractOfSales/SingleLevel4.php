@@ -4,8 +4,6 @@ namespace App\Http\Livewire\ContractOfSales;
 
 use App\Models\ContractOfSale;
 use App\Models\DetailsOfContracts;
-use App\Models\Financial;
-use App\Models\PropertyDetails;
 use Livewire\Component;
 
 class SingleLevel4 extends Component
@@ -27,7 +25,7 @@ class SingleLevel4 extends Component
     }
     public function render()
     {
-        return view('livewire.contract-of-sales.single-level4')
+        return view('livewire.contract-of-sales.single-level4',['contractOfSale'=>$this->contractOfSale])
             ->layout('components.layouts.app');
     }
 }

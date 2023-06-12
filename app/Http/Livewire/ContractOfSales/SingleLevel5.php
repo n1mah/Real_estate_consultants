@@ -16,7 +16,7 @@ class SingleLevel5 extends Component
         $DetailsOfContracts=DetailsOfContracts::where('contract_of_sale_id',$this->contractOfSale->id);
         if ($DetailsOfContracts->count()==1 && $this->contractOfSale->level>5){
             $DetailsOfContractsData=$DetailsOfContracts->first();
-            $this->delivery_time=$DetailsOfContractsData->set_time;
+            $this->delivery_time=$DetailsOfContractsData->delivery_time;
             $this->loss_of_no_sale=$DetailsOfContractsData->loss_of_no_sale;
         }else{
             redirect()->route('sales');
@@ -24,7 +24,7 @@ class SingleLevel5 extends Component
     }
     public function render()
     {
-        return view('livewire.contract-of-sales.single-level5')
+        return view('livewire.contract-of-sales.single-level5',['contractOfSale'=>$this->contractOfSale])
             ->layout('components.layouts.app');
 
     }

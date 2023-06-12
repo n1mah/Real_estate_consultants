@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">مبایعه نامه جدید</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">

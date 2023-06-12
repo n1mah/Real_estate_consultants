@@ -31,8 +31,6 @@ class SingleLevel2 extends Component
     public $telephone;
     public $total;
 
-
-
     public function mount()
     {
 
@@ -67,7 +65,7 @@ class SingleLevel2 extends Component
     }
     public function render()
     {
-        return view('livewire.contract-of-sales.single-level2')
+        return view('livewire.contract-of-sales.single-level2',['contractOfSale'=>$this->contractOfSale])
             ->layout('components.layouts.app');
     }
 }

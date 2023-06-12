@@ -46,18 +46,16 @@ class Level9 extends Component
     public function create()
     {
         $this->validate();
-        if (
-            $this->Checker($this->signature_date) &&
+        if ($this->Checker($this->signature_date) &&
             $this->Checker($this->signature_hour) &&
-            $this->Checker($this->user_id)
-        ){
-            $this->contractOfSale->signature_date=(Carbon::createFromTimestamp($this->signature_date, 'Asia/Tehran')->format('y/m/d').' 12:00:00');
-            $this->contractOfSale->signature_hour=$this->signature_hour;
-            $this->contractOfSale->signature_minutes=$this->signature_minutes;
-            $this->contractOfSale->user_id=$this->user_id;
-            $this->contractOfSale->level=10;
-            $this->contractOfSale->save();
-            redirect()->route("sales");
+            $this->Checker($this->user_id)){
+                $this->contractOfSale->signature_date=(Carbon::createFromTimestamp($this->signature_date, 'Asia/Tehran')->format('y/m/d').' 12:00:00');
+                $this->contractOfSale->signature_hour=$this->signature_hour;
+                $this->contractOfSale->signature_minutes=$this->signature_minutes;
+                $this->contractOfSale->user_id=$this->user_id;
+                $this->contractOfSale->level=10;
+                $this->contractOfSale->save();
+            redirect()->route('sales.level10',['contractOfSale'=>$this->contractOfSale]);
         }else{
             $this->msg='داده ها را با دقت وارد کنید';
         }

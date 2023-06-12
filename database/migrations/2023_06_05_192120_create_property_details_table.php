@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('property_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("contract_of_sale_id"); //کد قرارداد فروش
+            $table->unsignedBigInteger("contract_of_sale_id")->unique(); //کد قرارداد فروش
             $table->foreign("contract_of_sale_id")->references("id")->on("contract_of_sales")->onUpdate("cascade")->onDelete("cascade");
             $table->string("entirety")->default('شش');  // دانگ
             $table->string("arena_and_nobles")->nullable(); //عرصه و اعیان

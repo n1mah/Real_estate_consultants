@@ -1,4 +1,4 @@
-<section class="w-full mx-auto bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="w-full mx-auto bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="w-full-65 px-4 py-2 mx-auto flex-col flex items-center justify-center">
     <h2 class="font-medium p-3 text-gray-400">مشاهده ماده 1 - طرفین قرارداد</h2>
     <hr class="p-2 w-full">
@@ -53,9 +53,7 @@
                 @endif
             </div>
         </div>
-    <br>
-    <hr class="w-full-45 p-2">
-    <br>
-        <a href="{{route('sales')}}" class="p-4 bg-primary-600 text-white rounded-[10px]"> بازگشت به صفحه مبایعه نامه ها</a>
+    <br><hr class="w-full-45 p-2"><br>
+        <a href="{{route('sale.show',['contractOfSale'=>$contractOfSale])}}" class="p-4 bg-primary-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد مبایعه نامه</a>
 </div>
 </section>

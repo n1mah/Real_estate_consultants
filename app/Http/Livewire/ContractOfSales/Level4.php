@@ -9,10 +9,10 @@ use Livewire\Component;
 
 class Level4 extends Component
 {
-
     public ContractOfSale $contractOfSale;
     public $set_time=null;
     public $notary_public;
+
     protected $rules = [
         'notary_public' => 'required|min:3|max:200',
         'set_time' => 'required|max:55',
@@ -44,7 +44,7 @@ class Level4 extends Component
             );
             $this->contractOfSale->level=5;
             $this->contractOfSale->save();
-            redirect()->route("sales");
+            redirect()->route('sales.level5',['contractOfSale'=>$this->contractOfSale]);
         }
     }
 
@@ -52,6 +52,5 @@ class Level4 extends Component
     {
         return view('livewire.contract-of-sales.level4')
             ->layout('components.layouts.app');
-
     }
 }

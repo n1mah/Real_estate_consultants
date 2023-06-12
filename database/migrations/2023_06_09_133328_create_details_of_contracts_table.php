@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('details_of_contracts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("contract_of_sale_id"); //کد قرارداد فروش
+            $table->unsignedBigInteger("contract_of_sale_id")->unique(); //کد قرارداد فروش
             $table->foreign("contract_of_sale_id")->references("id")->on("contract_of_sales")->onUpdate("cascade")->onDelete("cascade");
             $table->timestamp('set_time'); // زمان موقر برای حضور
             $table->string('notary_public'); //دفتراسنادرسمی

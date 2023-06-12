@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">مشاهده مبایعه نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -27,17 +27,10 @@
                                 <label for="house_area" class="text-primary flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($loss_of_no_sale) && !empty($loss_of_no_sale)) <span>{{(new Number2Word)->numberToWords($loss_of_no_sale/10)}} <span class="font-extrabold text-primary-700">تومان</span> </span><span> {{number_format($loss_of_no_sale/10)}}  <span class="font-extrabold text-primary-700">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
                     </div>
-                    <a href="{{route('sales')}}" class="mt-2 w-full block text-white bg-primary-600 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">
-                        بازگشت به لیست مبایعه نامه ها
-                    </a>
+                    <a href="{{route('sale.show',['contractOfSale'=>$contractOfSale])}}" class="p-4 bg-primary-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد مبایعه نامه</a>
                 </form>
-
             </div>
         </div>
-
-
-
     </div>
 </section>

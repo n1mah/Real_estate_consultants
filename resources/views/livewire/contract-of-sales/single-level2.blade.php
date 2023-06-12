@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">مشاهده مبایعه نامه</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -48,7 +48,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="part" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">واقع در بخش</label>
@@ -88,7 +87,6 @@
 
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="parking" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پارکینگ</label>
@@ -101,7 +99,6 @@
                                 <input name="parking" value="{{$warehouse}}" id="warehouse" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                         <div class="sm:col-span-2">
                         </div>
                         <div>
@@ -121,9 +118,7 @@
                         <div class="sm:col-span-3">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="address" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">نشانی</label>
-                                <textarea id="address" rows="1" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                {{$address}}
-                                </textarea>
+                                <textarea id="address" rows="1" class="bg-gray-200 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{$address}}</textarea>
                             </div>
                         </div>
                         <div>
@@ -142,7 +137,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4" >
                                 <label for="telephone" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن</label>
@@ -150,12 +144,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <a href="{{route('sales')}}" class="mt-2 w-full block text-white bg-primary-600 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">
-                        بازگشت به لیست مبایعه نامه ها
-                    </a>
+                    <a href="{{route('sale.show',['contractOfSale'=>$contractOfSale])}}" class="p-4 bg-primary-600 text-white rounded-[10px]">بازگشت به صفحه مشاهدات مواد مبایعه نامه</a>
                 </form>
-
             </div>
         </div>
     </div>

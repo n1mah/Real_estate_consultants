@@ -17,7 +17,6 @@ class SingleLevel8 extends Component
     public $total_received;
 
     public function mount(){
-
         $financial=Financial::where('contract_of_sale_id',$this->contractOfSale->id);
         if ($financial->count()==1 && $this->contractOfSale->level>8){
             $financialData=$financial->first();
@@ -30,11 +29,10 @@ class SingleLevel8 extends Component
         }else{
             redirect()->route('sales');
         }
-
     }
     public function render()
     {
-        return view('livewire.contract-of-sales.single-level8')
+        return view('livewire.contract-of-sales.single-level8',['contractOfSale'=>$this->contractOfSale])
             ->layout('components.layouts.app');
     }
 }

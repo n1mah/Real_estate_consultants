@@ -6,11 +6,9 @@ use App\Models\ContractOfSale;
 use App\Models\ContractOfSalePerson;
 use App\Models\Person;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 class Add extends Component
 {
-
     public $errorFileNumber;
     public $fileNumber;
     public $level=0;
@@ -99,11 +97,6 @@ class Add extends Component
             'level'=>2,
             ...$now
         ]);
-//        $contract_id=ContractOfSale::create([
-//            'file_number'=>$fileNumber,
-//            'level'=>2,
-//            ...$now
-//        ]);
         $customers=[];
         foreach ($this->people_selectedBuyer as $people){
             $customers[]=[
@@ -124,7 +117,7 @@ class Add extends Component
             ];
         }
         ContractOfSalePerson::insert($customers);
-        redirect()->route('sales');
+        redirect()->route('sales.level2',['contractOfSale'=>$contract_id]);
     }
 
     public function searchFileNumber(){

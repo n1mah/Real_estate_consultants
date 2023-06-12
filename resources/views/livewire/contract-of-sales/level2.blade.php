@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">مبایعه نامه جدید</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -54,7 +54,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="part" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">واقع در بخش</label>
@@ -79,8 +78,8 @@
                             <div class="w-full flex flex-col mb-4">
                                 <label for="price_per_meter" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">قیمت (هر متر مربع - ریال )<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <input autocomplete="off" type="number" min="0" wire:model="price_per_meter" id="price_per_meter" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{number_format($price_per_meter)}} ریال @else <span class="opacity-0"> - </span> @endif</label>
-                                <label for="house_area" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{(new Number2Word)->numberToWords($price_per_meter/10)}} تومان @else <span class="opacity-0"> - </span> @endif</label>
+                                <label for="price_per_meter" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{number_format($price_per_meter)}} ریال @else <span class="opacity-0"> - </span> @endif</label>
+                                <label for="price_per_meter" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($price_per_meter)) {{(new Number2Word)->numberToWords($price_per_meter/10)}} تومان @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
@@ -91,10 +90,8 @@
                                     <div class="text-red-600 ">@if(!empty($total)) {{(new Number2Word)->numberToWords($total)}} ریال @else <span class="opacity-0"> - </span> @endif</div>
                                     <div class="text-red-600 ">@if(!empty($total)) {{(new Number2Word)->numberToWords($total/10)}} تومان @else <span class="opacity-0"> - </span> @endif</div>
                                 </div>
-
-                                </div>
+                            </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="parking" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">پارکینگ</label>
@@ -107,9 +104,7 @@
                                 <input name="parking" wire:model.debounce:2000ms="warehouse" id="warehouse" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
-                        <div class="sm:col-span-2">
-                        </div>
+                        <div class="sm:col-span-2"></div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="title_deeds" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">وضعیت سند ثبتی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
@@ -123,14 +118,13 @@
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(!$title_deeds_check) hidden @endif ">
                                 <label for="title_deeds_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">شماره سند ثبتی</label>
-                                <input  autocomplete="off" id="gray" wire:model.defer="title_deeds_number" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input autocomplete="off" id="title_deeds_number" wire:model.defer="title_deeds_number" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                         <div class="sm:col-span-3">
                             <div class="w-full flex flex-col mb-4">
                                 <label for="address" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">نشانی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-                                <textarea id="address" wire:model.defer="address" rows="1" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                </textarea>
+                                <textarea id="address" wire:model.defer="address" rows="1" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                             </div>
                         </div>
                         <div>
@@ -151,8 +145,8 @@
                                         <input id="elect"  wire:model="membership_right" type="checkbox" value="برق" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                         <label for="elect" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">برق</label>
                                     </div>
-                                    <div class="flex w-auto mx-1 items-center p-2 border border-gray-200 rounded dark:border-gray-700 flex-wrap">
-                                        <div class="flex items-center pl-3">
+                                    <div class="flex w-auto mx-1 flex-col items-start  p-2 border border-gray-200 rounded dark:border-gray-700 flex-wrap">
+                                        <div class="flex items-center  pl-3">
                                             <input id="gas_status1" wire:model="gas_status" type="radio" value="گاز اختصاصی" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="gas_status1" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">گاز اختصاصی</label>
                                         </div>
@@ -160,8 +154,12 @@
                                             <input id="gas_status2" wire:model="gas_status" type="radio" value="گاز اشتراکی" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="gas_status2" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">گاز اشتراکی</label>
                                         </div>
+                                        <div class="flex items-center pl-3">
+                                            <input id="gas_status3" wire:model="gas_status" type="radio" value="گاز ندارد" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="gas_status3" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">گاز ندارد</label>
+                                        </div>
                                     </div>
-                                    <div class="flex w-auto mx-1 items-center p-2 border border-gray-200 rounded dark:border-gray-700 flex-wrap">
+                                    <div class="flex w-auto mx-1 flex-col items-start p-2 border border-gray-200 rounded dark:border-gray-700 flex-wrap">
                                         <div class="flex items-center pl-3">
                                             <input id="shoo_status1"  wire:model="shoo_status" type="radio" value="شوفاژ روشن" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="shoo_status1" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">شوفاژ روشن</label>
@@ -170,13 +168,17 @@
                                             <input id="shoo_status2"  wire:model="shoo_status" type="radio" value="شوفاژ غیر روشن" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="shoo_status2" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">شوفاژ غیر روشن</label>
                                         </div>
+                                        <div class="flex items-center pl-3">
+                                            <input id="shoo_status2"  wire:model="shoo_status" type="radio" value="شوفاژ ندارد" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="shoo_status2" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">شوفاژ ندارد</label>
+                                        </div>
                                     </div>
-                                    <div class="flex items-center pl-3">
+                                    <div class="flex items-center pl-3 mr-2">
                                         <input id="cool" wire:model="membership_right" type="checkbox" value="کولر" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                         <label for="cool" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">کولر</label>
                                     </div>
                                     <input type="hidden">
-                                    <div class="flex w-auto mx-1 items-center p-2 border border-gray-200 rounded dark:border-gray-700 flex-wrap">
+                                    <div class="flex w-auto flex-col mx-1 items-start p-2 border border-gray-200 rounded dark:border-gray-700 flex-wrap">
                                         <div class="flex items-center pl-3">
                                             <input id="phone_status1"  type="radio"  wire:model="phone_status" value="تلفن غیر دایر" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="phone_status1" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">تلفن غیر دایر</label>
@@ -185,11 +187,14 @@
                                             <input id="phone_status2"  type="radio"  wire:model="phone_status" value="تلفن دایر" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="phone_status2" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">تلفن دایر</label>
                                         </div>
+                                        <div class="flex items-center pl-3">
+                                            <input id="phone_status3"  type="radio" wire:model="phone_status" value="تلفن ندارد" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="phone_status3" class="w-full py-3 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">تلفن ندارد</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="w-full flex flex-col mb-4 @if(!$phone_status) hidden @endif" >
                                 <label for="telephone" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن</label>
@@ -207,11 +212,8 @@
                                 <p class="text-red-700 text-right"> * وضعیت سند ثبتی را مشخص کنید </p>
                         @endif
                     </div>
-                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
-                        ذخیره مشخصات و تایید نهایی
-                    </button>
+                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">ذخیره مشخصات و تایید نهایی</button>
                 </form>
-
             </div>
         </div>
     </div>

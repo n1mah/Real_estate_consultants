@@ -46,22 +46,16 @@ class Index extends Component
     }
     public function getContract()
     {
-//        ->whereIn('place_of_birth', [...$this->places_filter])
-//        ->where(function($query) {
-//            $query->where("firstname","like","%$this->search%")
-//                ->orWhere("lastname","like","%$this->search%")
-//                ->orWhere("national_code","like","%$this->search%");
-//        });
         return ContractOfSale::orderBy("created_at","desc")
             ->where("file_number","like","%$this->search%")
              ->whereIn('level', [...$this->levels_filter]);
-//            ->orWhere("lastname","like","%$this->search%")
-//            ->orWhere("national_code","like","%$this->search%");
     }
+
     public function getExistLevel()
     {
         return ContractOfSale::pluck('level')->unique();
     }
+
     public function gotoFirstPage($contracts)
     {
         if (ceil($contracts->count()/$this->perPage) < $this->page)
@@ -72,13 +66,10 @@ class Index extends Component
         $contracts= $this->getContract()->paginate($this->perPage);
         $this->gotoFirstPage($contracts);
         $levels = $this->getExistLevel()->sort();
-
-//        $buyers=$contracts
         return view('livewire.contract-of-sales.index',
         [
             ...compact('levels'),
             ...compact('contracts')
-        ])
-            ->layout('components.layouts.app');
+        ])->layout('components.layouts.app');
     }
 }

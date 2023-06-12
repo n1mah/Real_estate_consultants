@@ -9,10 +9,10 @@ use Livewire\Component;
 
 class Level2 extends Component
 {
+    public ContractOfSale $contractOfSale;
     public $gas_status;
     public $phone_status;
     public $shoo_status;
-    public $contractOfSale;
 
     public $properties=[];
     public $membership_right=[];
@@ -37,14 +37,13 @@ class Level2 extends Component
     public $total=0;
     public $title_deeds_check=false;
 
-    protected $listeners = [
-        'save'
-    ];
+    public function mount()
+    {
+        $this->year_of_construction =\Morilog\Jalali\Jalalian::now()->format('Y');
+    }
 
     protected $rules = [
         'title_deeds' => 'required',
-//        'entirety' => 'required',
-//        'year_of_construction' => 'required|digits:4',
         'house_area' => 'required',
         'price_per_meter' => 'required|min_digits:1',
         'arena_and_nobles' => 'required',
@@ -54,14 +53,11 @@ class Level2 extends Component
 
     protected $messages = [
         'title_deeds.required' => 'وضعیت سند ثبتی را مشخص کنید',
-//        'entirety.required' => 'دانگ را انتخاب کنید',
-//        'year_of_construction.required' => 'سال ساخت را انتخاب کنید',
         'house_area.required' => 'مساحت را وارد کنید',
         'price_per_meter.required' => 'قیمت هر متر مربع به ریال را وارد کنید',
         'arena_and_nobles.required' => 'عرصه و ایان را وارد کنید',
         'address.required' => 'آدرس/نشانی را وارد کنید',
         'price_per_meter.min_digits' => ' قیمت هر متر مربع باید عدد صحیح به ریال باشد (حداقل یک کارکتر)',
-//        'year_of_construction.digits' => 'سال ساخت را با سال چهار رقمی مشخص کنید',
         'postal_code.required' => 'کدپستی را وارد کنید',
         'address.min' => 'آدرس باید حداقل 5 کارکتر باشد',
         'postal_code.min' => 'کدپستی باید حداقل 5 کارکتر باشد',
@@ -71,7 +67,15 @@ class Level2 extends Component
     {
         $this->validate();
         if ($this->title_deeds!='null'){
-            $membership_right=[...$this->membership_right,$this->phone_status,$this->shoo_status,$this->gas_status];
+
+            $membership_right=[...$this->membership_right];
+            if ($this->phone_status)
+                $membership_right[]=$this->phone_status;
+            if ($this->shoo_status)
+                $membership_right[]=$this->shoo_status;
+            if ($this->gas_status)
+                $membership_right[]=$this->gas_status;
+
             $PropertyDetails=PropertyDetails::create([
                 'contract_of_sale_id'=>$this->contractOfSale->id,
                 'entirety'=>$this->entirety,
@@ -95,7 +99,7 @@ class Level2 extends Component
             ]);
             $this->contractOfSale->level=3;
             $this->contractOfSale->save();
-            redirect()->route('sales');
+            redirect()->route('sales.level3',['contractOfSale'=>$this->contractOfSale]);
         }
     }
     public function total()
@@ -110,7 +114,6 @@ class Level2 extends Component
         $this->total();
     }
 
-
     public function updatedPricePerMeter(){
         $this->total();
     }
@@ -118,15 +121,25 @@ class Level2 extends Component
     {
         $this->title_deeds_check=($this->title_deeds==1)?true:false;
     }
-
-
-
-
-    public function mount(ContractOfSale $contractOfSale)
+    public function updatedPhoneStatus()
     {
-        $this->contractOfSale = $contractOfSale;
-        $this->year_of_construction =\Morilog\Jalali\Jalalian::now()->format('Y');
+        if ($this->phone_status=='تلفن ندارد'){
+            $this->phone_status=null;
+        }
     }
+    public function updatedGasStatus()
+    {
+        if ($this->gas_status=='گاز ندارد'){
+            $this->gas_status=null;
+        }
+    }
+    public function updatedShooStatus()
+    {
+        if ($this->shoo_status=='شوفاژ ندارد'){
+            $this->shoo_status=null;
+        }
+    }
+
     public function render()
     {
         return view('livewire.contract-of-sales.level2')

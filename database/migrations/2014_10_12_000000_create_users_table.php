@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('city');
             $table->integer('default_tax')->default(9);
             $table->integer('default_tax_rent')->default(9);
-            $table->decimal("default_wage",30,2)->nullable();
+            $table->decimal("default_wage",30,0)->nullable();
 //            $table->timestamp('email_verified_at')->nullable();
 //            $table->rememberToken();
             $table->timestamps();

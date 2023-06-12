@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">مبایعه نامه جدید</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -22,24 +22,16 @@
                             showFormat="jYYYY/jMM/jDD"
                             returnFormat="X"
                             :required="true"
-                            :setNullInput="false"
-                        >
+                            :setNullInput="false">
                             <label for="date_of_birth" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-right">تاریخ حضور در دفترخانه<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-
                         </x-persian-datepicker>
                         @if($errors->has('notary_public'))
                             <span class="text-red-500 text-xs">{{ $errors->first('set_time') }}</span>
                         @endif
                     </div>
-                         <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
-                        شرایط مربوط به تنظیم سند و تایید نهایی
-                    </button>
+                         <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">شرایط مربوط به تنظیم سند و تایید نهایی</button>
                 </form>
-
             </div>
         </div>
-
-
-
     </div>
 </section>

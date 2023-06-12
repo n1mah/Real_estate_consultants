@@ -29,7 +29,6 @@ class Level3 extends Component
         }else{
             redirect()->route('sales');
         }
-
     }
 
     public function updatedPurchasePrice()
@@ -42,9 +41,7 @@ class Level3 extends Component
             }
         }
     }
-    public function updatingDeposit(){
 
-    }
     public function updatedDeposit()
     {
         if ($this->deposit=="" || $this->deposit==null  || empty($this->deposit)){
@@ -52,13 +49,10 @@ class Level3 extends Component
         }else{
             if (!($this->purchase_price=="" || $this->purchase_price==null  || empty($this->purchase_price))){
                 if ($this->deposit>$this->purchase_price){
-//                    $this->debt_balance=0;
                     $this->deposit=(int)($this->deposit/10);
                     $this->debt_balance=$this->purchase_price-$this->deposit;
-
                 }else{
                     $this->debt_balance=$this->purchase_price-$this->deposit;
-
                 }
             }
         }
@@ -81,7 +75,7 @@ class Level3 extends Component
                 ]);
                 $this->contractOfSale->level=4;
                 $this->contractOfSale->save();
-                redirect()->route("sales");
+                redirect()->route('sales.level4',['contractOfSale'=>$this->contractOfSale]);
             }else{
                 $this->msg['purchase_price']='ثمن معامله را وارد کنید';
             }

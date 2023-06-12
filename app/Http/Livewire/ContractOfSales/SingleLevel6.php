@@ -28,7 +28,7 @@ class SingleLevel6 extends Component
     }
     public function render()
     {
-        return view('livewire.contract-of-sales.single-level6')
+        return view('livewire.contract-of-sales.single-level6',['contractOfSale'=>$this->contractOfSale])
             ->layout('components.layouts.app');
     }
 }

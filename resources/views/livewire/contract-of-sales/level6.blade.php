@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">مبایعه نامه جدید</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -18,8 +18,7 @@
                                 <label for="house_area" class="text-primary flex flex-wrap flex-row justify-between  text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">@if(is_numeric($damages_for_non_fulfillment_of_obligations) && !empty($damages_for_non_fulfillment_of_obligations)) <span>{{(new Number2Word)->numberToWords($damages_for_non_fulfillment_of_obligations/10)}} <span class="font-extrabold text-primary-700">تومان</span> </span><span> {{number_format($damages_for_non_fulfillment_of_obligations/10)}}  <span class="font-extrabold text-primary-700">تومان</span> </span> @else <span class="opacity-0"> - </span> @endif</label>
                             </div>
                         </div>
-
-                        <div class="">
+                        <div>
                             <div class="w-full flex flex-col mb-4">
                                 <label for="entirety" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">هزینه حق الثبت و حق التحریر بر عهده : <span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <select id="entirety" wire:model.defer="contract_costs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -57,15 +56,9 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">
-                        ثبت آثار قرارداد و تایید نهایی
-                    </button>
+                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">ثبت آثار قرارداد و تایید نهایی</button>
                 </form>
-
             </div>
         </div>
-
-
-
     </div>
 </section>

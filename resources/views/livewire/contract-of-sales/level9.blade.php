@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5" style="min-height: 100vh">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-100-vh">
     <div class="text-center text-primary">
         <h1 class="font-bold text-3xl p-5">مبایعه نامه جدید</h1>
         <div class="px-4 py-2 mx-auto flex-col flex items-center justify-center">
@@ -14,15 +14,12 @@
                             returnFormat="X"
                             :defaultDate="date('Y-m-d')"
                             :required="true"
-                            :setNullInput="false"
-                        >
+                            :setNullInput="false">
                             <label for="date_of_birth" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-right">تاریخ امضا و مبادله قرارداد<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
-
                         </x-persian-datepicker>
                         @if($errors->has('signature_date'))
                             <span class="text-red-500 text-xs">{{ $errors->first('signature_date') }}</span>
                         @endif
-
                             <div class="w-full-20 flex flex-col mb-4">
                                 <label for="signature_hour" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">ساعت امضا و مبادله قرارداد<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <select id="signature_hour" wire:model="signature_hour" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -47,7 +44,7 @@
                             </div>
                         <br>
                         <p class="text-right text-green-800">
-                            این قرارداد در تاریخ  <span class="font-bold text-primary-700">{{\Morilog\Jalali\Jalalian::forge($signature_date)->format('Y/m/d')}}</span>
+                            این قرارداد در تاریخ  <span class="font-bold text-primary-700">{{\Morilog\Jalali\Jalalian::forge($signature_date+(60*60*4))->format('Y/m/d')}}</span>
                             و ساعت <span class="font-bold text-primary-700">{{$signature_hour}}</span>
                             <br>
                             در دفتر مشاور املاک به شماره عضویت <span class="font-bold text-primary-700">{{$user_membership_number}}</span>
@@ -60,15 +57,9 @@
                         </p>
                         <br>
                     </div>
-                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold" type="button">
-                        ثبت و تایید نهایی
-                    </button>
+                    <button type="submit" class="mt-2 w-full block text-green-400 bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-900 dark:focus:ring-gray-800 font-bold">ثبت و تایید نهایی</button>
                 </form>
-
             </div>
         </div>
-
-
-
     </div>
 </section>
