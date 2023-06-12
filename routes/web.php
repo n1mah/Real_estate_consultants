@@ -24,6 +24,8 @@ use App\Http\Livewire\ContractOfSales\Level8 as Sale_Add_Level8;
 use App\Http\Livewire\ContractOfSales\Level9 as Sale_Add_Level9;
 use App\Http\Livewire\ContractOfSales\Level10 as Sale_Add_Level10;
 use App\Http\Livewire\ContractOfSales\Show as SaleShow;
+use App\Http\Livewire\ContractOfSales\Delete as SaleDelete;
+
 
 use App\Http\Livewire\LeaseAgreements\Index as Rent_Index;
 use App\Http\Livewire\LeaseAgreements\Add as Rent_Add;
@@ -53,6 +55,7 @@ use App\Http\Livewire\LeaseAgreements\SingleLevel11 as Single11;
 use App\Http\Livewire\LeaseAgreements\SingleLevel12 as Single12;
 use App\Http\Livewire\LeaseAgreements\SingleLevel13 as Single13;
 use App\Http\Livewire\LeaseAgreements\Show as RentShow;
+//use App\Http\Livewire\LeaseAgreements\Delete as RentShow;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -102,6 +105,7 @@ Route::get('/sales/level8/{contractOfSale}', Sale_Add_Level8::class)->name("sale
 Route::get('/sales/level9/{contractOfSale}', Sale_Add_Level9::class)->name("sales.level9");
 Route::get('/sales/level10/{contractOfSale}', Sale_Add_Level10::class)->name("sales.level10");
 Route::get('/sales/show/{contractOfSale}', SaleShow::class)->name("sale.show");
+Route::get('/sale/delete/{contractOfSale}', SaleDelete::class)->name("sale.delete");
 
 //Route::post('/people', People_Index::class);
 
