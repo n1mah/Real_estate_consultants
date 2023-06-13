@@ -98,7 +98,8 @@
                             <td class="px-4 py-3 flex items-center justify-center flex-wrap">
                                 <a href="{{route('rent.show',$lease_agreement->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده مواد</a>
                                 @if($lease_agreement->level!=66)<a href="{{route('rent.delete',$lease_agreement->id)}}" type="button" class="inline-flex mx-2 px-2 py-1.5 text-xs font-medium text-center focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">کنسل کردن</a>@endif
-                            </td>
+                                @if($lease_agreement->level>1 && $lease_agreement->level<14)<a href="{{route("rent.level{$lease_agreement->level}",$lease_agreement->id)}}" type="button" class="inline-flex mx-2 my-2 px-2 py-1.5 text-xs font-medium text-center focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 rounded-lg dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">تکمیل قرارداد
+                                    <br>( شروع مجدد از ماده {{$lease_agreement->level}} )</a>@endif                            </td>
                         </tr>
                     @endforeach
                     </tbody>

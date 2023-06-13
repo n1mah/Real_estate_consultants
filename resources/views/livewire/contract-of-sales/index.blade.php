@@ -97,6 +97,8 @@
                             <td class="px-4 py-3 flex items-center justify-center flex-wrap">
                                 <a href="{{route('sale.show',$contract->id)}}" type="button" class="inline-flex px-2 py-2 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده مواد</a>
                                 @if($contract->level!=66)<a href="{{route('sale.delete',$contract->id)}}" type="button" class="inline-flex mx-2 px-2 py-1.5 text-xs font-medium text-center focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">کنسل کردن</a>@endif
+                                @if($contract->level>1 && $contract->level<11)<a href="{{route("sales.level{$contract->level}",$contract->id)}}" type="button" class="inline-flex mx-2 my-2 px-2 py-1.5 text-xs font-medium text-center focus:outline-none text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 rounded-lg dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-900">تکمیل قرارداد
+                                    <br>( شروع مجدد از ماده {{$contract->level}} )</a>@endif
                             </td>
                         </tr>
                     @endforeach
