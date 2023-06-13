@@ -15,7 +15,7 @@ class Index extends Component
 //        'deleteCustomer' => '$refresh'
     ];
     public $search="";
-    public $perPage=2;
+    public $perPage=10;
     public $places_filter=[];
 
 
