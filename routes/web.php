@@ -60,6 +60,7 @@ use App\Http\Livewire\LeaseAgreements\Show as RentShow;
 use App\Http\Livewire\LeaseAgreements\Delete as RentDelete;
 use Illuminate\Support\Facades\Route;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -138,3 +139,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rents/delete/{leaseAgreement}', RentDelete::class)->name("rent.delete");
 });
 
+
+Route::get('/pdf', function (){
+    return view('pdf');
+});
+
+Route::get('/pdf/p',function (){
+    $pdf = PDF::loadView('pdf')->setPaper('a3');
+//    $pdf->loadHTML('<h1>Test</h1>');
+    return $pdf->stream();
+});
