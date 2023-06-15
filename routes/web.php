@@ -58,6 +58,11 @@ use App\Http\Livewire\LeaseAgreements\SingleLevel12 as Single12;
 use App\Http\Livewire\LeaseAgreements\SingleLevel13 as Single13;
 use App\Http\Livewire\LeaseAgreements\Show as RentShow;
 use App\Http\Livewire\LeaseAgreements\Delete as RentDelete;
+use App\Models\DetailsOfRental;
+use App\Models\FinancialLease;
+use App\Models\LeaseAgreement;
+use App\Models\LeaseAgreementPerson;
+use App\Models\RentalPropertyDetails;
 use Illuminate\Support\Facades\Route;
 
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -140,12 +145,47 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::get('/pdf', function (){
-    return view('pdf');
+Route::get('/pdf/{leaseAgreement}', function (LeaseAgreement $leaseAgreement){
+    $financial=FinancialLease::where('lease_agreement_id',$leaseAgreement->id);
+    $DetailsOfRental=DetailsOfRental::where('lease_agreement_id',$leaseAgreement->id);
+    $LeaseAgreementPerson=LeaseAgreementPerson::where('lease_agreement_id',$leaseAgreement->id);
+    $RentalPropertyDetails=RentalPropertyDetails::where('lease_agreement_id',$leaseAgreement->id);
+
+    $st="no";
+    if ($financial->count()==1 &&$DetailsOfRental->count()==1 &&$LeaseAgreementPerson->count()==1 &&$RentalPropertyDetails->count()==1){
+        $st="yes";
+    }
+
+    return view('pdf',
+        [
+            'leaseAgreement'=>$leaseAgreement,
+            'financial'=>$financial->first(),
+            'DetailsOfRental'=>$DetailsOfRental->first(),
+            'LeaseAgreementPerson'=>$LeaseAgreementPerson->first(),
+            'RentalPropertyDetails'=>$RentalPropertyDetails->first(),
+            'st'=>$st,
+        ]);
 });
 
-Route::get('/pdf/p',function (){
-    $pdf = PDF::loadView('pdf')->setPaper('a3');
+Route::get('/pdf/p/{leaseAgreement}',function (LeaseAgreement $leaseAgreement){
+    $financial=FinancialLease::where('lease_agreement_id',$leaseAgreement->id);
+    $DetailsOfRental=DetailsOfRental::where('lease_agreement_id',$leaseAgreement->id);
+    $LeaseAgreementPerson=LeaseAgreementPerson::where('lease_agreement_id',$leaseAgreement->id);
+    $RentalPropertyDetails=RentalPropertyDetails::where('lease_agreement_id',$leaseAgreement->id);
+
+    $st="no";
+    if ($financial->count()==1 &&$DetailsOfRental->count()==1 &&$LeaseAgreementPerson->count()==1 &&$RentalPropertyDetails->count()==1){
+        $st="yes";
+    }
+
+    $pdf = PDF::loadView('pdf',[
+        'leaseAgreement'=>$leaseAgreement,
+        'financial'=>$financial->first(),
+        'DetailsOfRental'=>$DetailsOfRental->first(),
+        'LeaseAgreementPerson'=>$LeaseAgreementPerson->first(),
+        'RentalPropertyDetails'=>$RentalPropertyDetails->first(),
+        'st'=>$st,
+    ])->setPaper('a3');
 //    $pdf->loadHTML('<h1>Test</h1>');
     return $pdf->stream();
 });

@@ -183,7 +183,7 @@
 </head>
 <body>
 <h1>
-    assad
+    {{$financial->lease_amount}}
 </h1>
 <h2>
     ssadasd
