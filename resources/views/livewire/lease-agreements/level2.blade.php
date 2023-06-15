@@ -68,7 +68,7 @@
                         </div>
                         <div>
                             <div class="w-full flex flex-col mb-4">
-                                <label for="title_deeds_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">شماره سند ثبتی<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
+                                <label for="title_deeds_number" class="text-right block mb-2 text-sm font-medium text-gray-900 dark:text-white">شماره سند مالکیت به سریال<span class="text-red-600 text-xl relative top-1.5 leading-none">*</span></label>
                                 <input autocomplete="off" id="title_deeds_number" wire:model.defer="title_deeds_number" class="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
