@@ -1,5 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="fa">
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Document</title>
+
 <head>
     @php
 
@@ -7,457 +14,472 @@
             $DefaultY=0;
             $a='';
 
+            $line1_1=6.5;
+            $line1_2=7.0;
+            $line1_3=7.55;
+            $line1_4=8.0;
+            $line1_5=8.5;
+            $line1_6=9.0;
+            $line1_7=9.5;
+            $line1_8=10.0;
+            $line2_1=11.0;
+            $line2_2=11.45;
+            $line2_3=11.85;
+            $line2_4=12.3;
+            $line3_1=13.2;
+            $line4_1=14.2;
+            $line4_2=14.65;
+            $line4_3=15.1;
+            $line4_4=15.65;
+            $line4_5=16.1;
+            $line4_6=17.05;
+            $line5_1=18.90;
+            $line6_1=20.85;
+            $line6_2=21.9;
+            $line6_3=27.1;
+            $line10_1=32.75;
+            $line11_1=33.7;
+            $line11_2=34.35;
+            $line12_1=35.35;
+            $line13_1=36.6;
+            $line13_2=37.2;
+
 //                    ماده ۲
             $entirety=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-                ];
+                'data'=>$RentalPropertyDetails->entirety,
+                'x'=>4.5+$DefaultX,
+                'y'=>$line2_1+$DefaultY
+            ];
             $type_of_lease=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-                ];
+                'data'=>$RentalPropertyDetails->type_of_lease,
+                'x'=>6.6+$DefaultX,
+                'y'=>$line2_1+$DefaultY
+            ];
             $title=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-                ];
+                'data'=>$RentalPropertyDetails->title,
+                'x'=>8.85+$DefaultX,
+                'y'=>$line2_1+$DefaultY
+            ];
             $address=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->address,
+                'x'=>12.95+$DefaultX,
+                'y'=>$line2_1+$DefaultY
+            ];
             $house_number=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->house_number,
+                'x'=>22.85+$DefaultX,
+                'y'=>$line2_1+$DefaultY
+            ];
             $sub_part_address=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->sub_part_address,
+                'x'=>25.7+$DefaultX,
+                'y'=>$line2_1+$DefaultY
+            ];
             $main_part_address=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->main_part_address,
+                'x'=>2.6+$DefaultX,
+                'y'=>$line2_2+$DefaultY
+            ];
             $part=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->part,
+                'x'=>4.55+$DefaultX,
+                'y'=>$line2_2+$DefaultY
+            ];
             $house_area=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->house_area,
+                'x'=>7.7+$DefaultX,
+                'y'=>$line2_2+$DefaultY
+            ];
             $title_deeds_number=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->title_deeds_number,
+                'x'=>14.8+$DefaultX,
+                'y'=>$line2_2+$DefaultY
+            ];
             $name=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->name,
+                'x'=>18.85+$DefaultX,
+                'y'=>$line2_2+$DefaultY
+            ];
             $bedroom=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->bedroom,
+                'x'=>23.7+$DefaultX,
+                'y'=>$line2_2+$DefaultY
+            ];
+            $membership_right=$RentalPropertyDetails->membership_right;
             $membership_right_electricity=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_water=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_gas=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_gas_private=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_gas_public=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_shoo=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_shoo_on=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_shoo_off=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_cooling=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_parking=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_parking_number=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->parking,
+                'x'=>12.8+$DefaultX,
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_warehouse=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_warehouse_number=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->warehouse,
+                'x'=>15.2+$DefaultX,
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_phone_in=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_phone_out=[
-                'data'=>$a,
+                'data'=>$membership_right,
                 'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'y'=>$line2_3+$DefaultY
+            ];
             $membership_right_phone_number=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->telephone,
+                'x'=>20.3+$DefaultX,
+                'y'=>$line2_3+$DefaultY
+            ];
             $postal_code=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$RentalPropertyDetails->postal_code,
+                'x'=>3.45+$DefaultX,
+                'y'=>$line2_4+$DefaultY
+            ];
 
 //                    ماده ۳
             $rental_period=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$DetailsOfRental->rental_period,
+                'x'=>3.0+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
             $rental_period_type=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$DetailsOfRental->rental_period_type,
+                'x'=>6.8+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
+            $f=$DetailsOfRental->from;
             $from=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$f,
+                'x'=>9.4+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
             $from_day=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$f,
+                'x'=>9.4+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
             $from_month=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$f,
+                'x'=>9.4+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
             $from_year=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$f,
+                'x'=>9.4+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
+            $u=$DetailsOfRental->until;
             $until=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$u,
+                'x'=>11.5+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
             $until_day=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$u,
+                'x'=>11.5+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
             $until_month=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$u,
+                'x'=>11.5+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
             $until_year=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$u,
+                'x'=>11.5+$DefaultX,
+                'y'=>$line3_1+$DefaultY
+            ];
 
 //                    ماده 4
-            $lease=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+
             $lease_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
-            $monthly_rental_amount=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$financial->lease_amount,
+                'x'=>4.4+$DefaultX,
+                'y'=>$line4_1+$DefaultY
+            ];
             $monthly_rental_amount_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+                'data'=>$financial->monthly_rental_amount,
+                'x'=>12.1+$DefaultX,
+                'y'=>$line4_1+$DefaultY
+             ];
+            $at_first_data=$financial->at_first;
             $at_first=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$at_first_data,
+                'x'=>21.08+$DefaultX,
+                'y'=>$line4_1+$DefaultY
+            ];
             $at_first_first=[
-                'data'=>$a,
-                'x'=>0+$DefaultX,
-                'y'=>0+$DefaultY
-    ];
+                'data'=>$at_first_data,
+                'x'=>21.08+$DefaultX,
+                'y'=>$line4_1+$DefaultY
+            ];
             $at_first_last=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
-            $mortgage=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$at_first_data,
+                'x'=>21.08+$DefaultX,
+                'y'=>$line4_1+$DefaultY
     ];
             $mortgage_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->mortgage,
+                'x'=>3.0+$DefaultX,
+                'y'=>$line4_2+$DefaultY
     ];
             $mortgage_rial_word=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->mortgage,
+                'x'=>10.1+$DefaultX,
+                'y'=>$line4_2+$DefaultY
     ];
-            $rent=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+
             $rent_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->rent,
+                'x'=>4.95+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
             $rent_tooman=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->rent,
+                'x'=>10.9+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
+            $payment_type_data=$financial->payment_type;
             $payment_type=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$payment_type_data,
+                'x'=>14.95+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
             $payment_type_cash=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$payment_type_data,
+                'x'=>14.95+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
             $payment_type_cheque=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$payment_type_data,
+                'x'=>14.95+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
             $cheque=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->cheque,
+                'x'=>16.3+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
             $bank=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->bank,
+                'x'=>18.45+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
             $branch=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->branch,
+                'x'=>20.2+$DefaultX,
+                'y'=>$line4_3+$DefaultY
     ];
-            $deposit=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
+
             $deposit_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->deposit,
+                'x'=>3.78+$DefaultX,
+                'y'=>$line4_4+$DefaultY
     ];
             $deposit_return_date=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->deposit_return_date,
+                'x'=>8.15+$DefaultX,
+                'y'=>$line4_4+$DefaultY
     ];
             $penalty_for_non_payment_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$DetailsOfRental->penalty_for_non_payment,
+                'x'=>19.75+$DefaultX,
+                'y'=>$line4_5+$DefaultY
     ];
             $penalty_for_non_return_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$DetailsOfRental->penalty_for_non_return,
+                'x'=>3.7+$DefaultX,
+                'y'=>$line4_6+$DefaultY
     ];
 
 //                    ماده 5
             $delivery_time=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$DetailsOfRental->delivery_time,
+                'x'=>4.55+$DefaultX,
+                'y'=>$line5_1+$DefaultY
     ];
             $penalty_for_non_delivery_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$DetailsOfRental->penalty_for_non_delivery,
+                'x'=>22.75+$DefaultX,
+                'y'=>$line5_1+$DefaultY
     ];
 
 //                    ماده 6
             $others=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$DetailsOfRental->others,
+                'x'=>18.2+$DefaultX,
+                'y'=>$line6_1+$DefaultY
     ];
             $damages_for_non_fulfillment_of_obligations_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$DetailsOfRental->damages_for_non_fulfillment_of_obligations,
+                'x'=>2.1+$DefaultX,
+                'y'=>$line6_2+$DefaultY
     ];
             $penalty_for_non_evacuation_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$DetailsOfRental->penalty_for_non_evacuation,
+                'x'=>3.25+$DefaultX,
+                'y'=>$line6_3+$DefaultY
     ];
 
 //                    ماده 7
-//            $others=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
-    ];
-
 //                    ماده 8
 //                    ماده 9
 //                    ماده 10
+            $arbitration_data=$DetailsOfRental->arbitration;
             $arbitration=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$arbitration_data,
+                'x'=>24.4+$DefaultX,
+                'y'=>$line10_1+$DefaultY
     ];
             $arbitration_yes=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$arbitration_data,
+                'x'=>24.4+$DefaultX,
+                'y'=>$line10_1+$DefaultY
     ];
             $arbitration_no=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$arbitration_data,
+                'x'=>24.4+$DefaultX,
+                'y'=>$line10_1+$DefaultY
     ];
 
 //                    ماده 11
             $city=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->city,
+                'x'=>6.1+$DefaultX,
+                'y'=>$line11_1+$DefaultY
     ];
             $wage_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->wage,
+                'x'=>11.12+$DefaultX,
+                'y'=>$line11_1+$DefaultY
     ];
             $amount_received_each_rial=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->amount_received_each,
+                'x'=>22.85+$DefaultX,
+                'y'=>$line11_1+$DefaultY
     ];
             $tax_percent=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$financial->tax,
+                'x'=>9.78+$DefaultX,
+                'y'=>$line11_2+$DefaultY
     ];
 
-//                    ماده 11
+//                    ماده 12
             $signature_date=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$leaseAgreement->signature_date,
+                'x'=>4.2+$DefaultX,
+                'y'=>$line12_1+$DefaultY
     ];
             $signature_hour=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$leaseAgreement->signature_hour,
+                'x'=>6.4+$DefaultX,
+                'y'=>$line12_1+$DefaultY
     ];
             $user_membership_number=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$leaseAgreement->user_id,
+                'x'=>9.78+$DefaultX,
+                'y'=>$line12_1+$DefaultY
     ];
             $user_manager=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$leaseAgreement->user_id,
+                'x'=>12.25+$DefaultX,
+                'y'=>$line12_1+$DefaultY
     ];
             $user_address=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$leaseAgreement->user_id,
+                'x'=>15.4+$DefaultX,
+                'y'=>$line12_1+$DefaultY
     ];
 
 //                    ماده 12
             $comments=[
-    'data'=>$a,
-    'x'=>0+$DefaultX,
-    'y'=>0+$DefaultY
+                'data'=>$leaseAgreement->comment,
+                'x'=>2.2+$DefaultX,
+                'y'=>$line13_1+$DefaultY
     ];
 
 
+            function MakeElement($data,$class=null){
+                echo "
+                    <p class='fixed {$class}' style='right: {$data['x']}cm;top:{$data['y']}cm;'>{$data['data']}</p>
+";
+            }
 
      @endphp
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Document</title>
     <style>
             *{
                 font-size: 13px;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
             body {
                 margin: 0;
                 color: #000;
                 background-color: #fff;
             }
-
+            .fixed{
+                position: fixed;
+                display: block;
+                padding: 2px;
+                width: 50%;
+            }
             html, body, div, span, applet, object, iframe,
             h1, h2, h3, h4, h5, h6, p, blockquote, pre,
             a, abbr, acronym, address, big, cite, code,
@@ -474,51 +496,93 @@
                 margin: 0;
                 padding: 0;
                 border: 0;
-                font-size: 100%;
-                font: inherit;
                 vertical-align: baseline;
             }
-            /* HTML5 display-role reset for older browsers */
-            article, aside, details, figcaption, figure,
-            footer, header, hgroup, menu, nav, section {
-                display: block;
-            }
+
+
             body {
-                line-height: 1;
+                direction: rtl;
+                font-family: 'samim';
+                font-size: 8px;
             }
-            ol, ul {
-                list-style: none;
+
+
+            *{
+                direction: rtl;
+
             }
-            blockquote, q {
-                quotes: none;
+            html {
+                /*font: 14px/1.5 Arial, sans-serif;*/
+
             }
-            blockquote:before, blockquote:after,
-            q:before, q:after {
-                content: '';
-                content: none;
+
+            body {
+
             }
-            table {
-                border-collapse: collapse;
-                border-spacing: 0;
+            p{
+                /*font-size: 16px;*/
+                width: 50%;
+
             }
-            h1{
-                position: fixed;
-                right: 0;
-                top:0;
+            .bgred{
+                /*background: red;*/
+                /*overflow: hidden; white-space: nowrap;*/
+                /*display: inline;*/
+            }
+
+            table th, td{
+                padding: 0;
             }
 
     </style>
 </head>
 <body>
-<h1>
-    {{$financial->lease_amount}}
-</h1>
-<h2>
-    ssadasd
-</h2>
-<h3>
-    sadasd
-</h3>
+@php
+    MakeElement($entirety);
+    MakeElement($title);
+//    MakeElement($type_of_lease);
+    MakeElement($address);
+    MakeElement($house_number);
+    MakeElement($sub_part_address);
+    MakeElement($main_part_address,'bgred');
+    MakeElement($part);
+    MakeElement($house_area);
+    MakeElement($title_deeds_number);
+    MakeElement($name);
+    MakeElement($bedroom);
+    MakeElement($rental_period,'bgred');
+//    MakeElement($rental_period_type);
+    MakeElement($from);
+    MakeElement($until);
+    MakeElement($lease_rial);
+    MakeElement($monthly_rental_amount_rial);
+//    MakeElement($at_first_data);
+    MakeElement($mortgage_rial);
+    MakeElement($mortgage_rial_word);
+    MakeElement($rent_rial);
+    MakeElement($rent_tooman);
+    MakeElement($cheque);
+    MakeElement($bank);
+    MakeElement($branch);
+    MakeElement($deposit_rial);
+    MakeElement($deposit_rial);
+    MakeElement($penalty_for_non_payment_rial);
+    MakeElement($penalty_for_non_return_rial);
+    MakeElement($delivery_time);
+    MakeElement($penalty_for_non_delivery_rial);
+    MakeElement($others);
+    MakeElement($damages_for_non_fulfillment_of_obligations_rial);
+    MakeElement($penalty_for_non_evacuation_rial);
+//    MakeElement($arbitration);
+    MakeElement($city);
+    MakeElement($wage_rial);
+    MakeElement($amount_received_each_rial);
+    MakeElement($tax_percent);
+    MakeElement($signature_date);
+    MakeElement($signature_hour);
+    MakeElement($user_membership_number);
+    MakeElement($comments);
 
+@endphp
 </body>
 </html>

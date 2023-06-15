@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\People\Add as Person_add;
 use App\Http\Livewire\People\Index as People_Index;
@@ -156,15 +157,26 @@ Route::get('/pdf/{leaseAgreement}', function (LeaseAgreement $leaseAgreement){
         $st="yes";
     }
 
-    return view('pdf',
-        [
-            'leaseAgreement'=>$leaseAgreement,
-            'financial'=>$financial->first(),
-            'DetailsOfRental'=>$DetailsOfRental->first(),
-            'LeaseAgreementPerson'=>$LeaseAgreementPerson->first(),
-            'RentalPropertyDetails'=>$RentalPropertyDetails->first(),
-            'st'=>$st,
-        ]);
+//    return view('pdf',
+//        [
+//            'leaseAgreement'=>$leaseAgreement,
+//            'financial'=>$financial->first(),
+//            'DetailsOfRental'=>$DetailsOfRental->first(),
+//            'LeaseAgreementPerson'=>$LeaseAgreementPerson->first(),
+//            'RentalPropertyDetails'=>$RentalPropertyDetails->first(),
+//            'st'=>$st,
+//        ]);
+    $path=base_path('resources/fonts/');
+    return '<html lang="fa"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><head><style>@font-face {
+		font-family: examplefont;
+	font-style: normal;
+	font-weight: normal;
+	src: url("'.$path.'eot/IRANSansWeb.eot");
+	src: url("'.$path.'eot/IRANSansWeb.eot?#iefix") format("embedded-opentype"),  /* IE6-8 */
+		 url("'.$path.'woff2/IRANSansWeb.woff2") format("woff2"),  /* FF39+,Chrome36+, Opera24+*/
+		 url("'.$path.'woff/IRANSansWeb.woff") format("woff"),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url("'.$path.'ttf/IRANSansWeb.ttf") format("truetype");
+    }  body {font-family:  "examplefont",examplefont !important;direction: rtl}</style><title>aaaa</title></head><body dir="rtl"><h1>علی</h1></body></html>';
 });
 
 Route::get('/pdf/p/{leaseAgreement}',function (LeaseAgreement $leaseAgreement){
@@ -178,14 +190,16 @@ Route::get('/pdf/p/{leaseAgreement}',function (LeaseAgreement $leaseAgreement){
         $st="yes";
     }
 
-    $pdf = PDF::loadView('pdf',[
-        'leaseAgreement'=>$leaseAgreement,
-        'financial'=>$financial->first(),
-        'DetailsOfRental'=>$DetailsOfRental->first(),
-        'LeaseAgreementPerson'=>$LeaseAgreementPerson->first(),
-        'RentalPropertyDetails'=>$RentalPropertyDetails->first(),
-        'st'=>$st,
-    ])->setPaper('a3');
-//    $pdf->loadHTML('<h1>Test</h1>');
+//    $pdf = PDF::loadView('pdf',[
+//        'leaseAgreement'=>$leaseAgreement,
+//        'financial'=>$financial->first(),
+//        'DetailsOfRental'=>$DetailsOfRental->first(),
+//        'LeaseAgreementPerson'=>$LeaseAgreementPerson->first(),
+//        'RentalPropertyDetails'=>$RentalPropertyDetails->first(),
+//        'st'=>$st,
+//    ])->setPaper('a3');
+    $pdf = PDF::loadHTML('<html lang="fa"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><head><style>body {font-family:  "examplefont",examplefont !important;direction: rtl}</style><title>aaaa</title></head><body dir="rtl"><h1>علی</h1></body></html>'
+    ,"UTF-8");
     return $pdf->stream();
 });
+Route::get('/create-pdf/{leaseAgreement}',[PDFController::class,'CreatePDF']);
