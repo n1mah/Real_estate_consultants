@@ -511,18 +511,18 @@
                 'y'=>$line11_1+$DefaultY
     ];
             $wage_rial=[
-                'data'=>$financial->wage,
+                'data'=>number_format($financial->wage),
                 'x'=>11.12+$DefaultX,
                 'y'=>$line11_1+$DefaultY
     ];
             $amount_received_each_rial=[
-                'data'=>$financial->amount_received_each,
+                'data'=>number_format($financial->amount_received_each),
                 'x'=>22.85+$DefaultX,
                 'y'=>$line11_1+$DefaultY
     ];
             $tax_percent=[
                 'data'=>$financial->tax,
-                'x'=>9.78+$DefaultX,
+                'x'=>9.78+$DefaultX+0.1,
                 'y'=>$line11_2+$DefaultY
     ];
 
@@ -714,6 +714,7 @@
     MakeElement($wage_rial);
     MakeElement($amount_received_each_rial);
     MakeElement($tax_percent);
+
     MakeElement($signature_date);
     MakeElement($signature_hour);
     MakeElement($user_membership_number);
