@@ -44,6 +44,184 @@
             $line13_1=36.6;
             $line13_2=37.2;
 
+//                    ماده ۱
+//                    به شرط اینکه طرفین یکی باشد در ماده ۱ در غیر اینصورت در توضیحات
+
+    $Lessor=$LeaseAgreementPersonLessor;
+    $Tenant=$LeaseAgreementPersonTenant;
+
+if ($Lessor->count()==1){
+        $LessorName=$Lessor->first()->firstname . ' ' . $Lessor->first()->lastname;
+        $LessorFather=$Lessor->first()->fathername;
+        $LessorBirthCertificateNumber=$Lessor->first()->birth_certificate_number;
+        $LessorPlaceOfBirth=$Lessor->first()->place_of_birth;
+        $LessorNationalCode=$Lessor->first()->national_code;
+        $LessorDateOfBirth=$Lessor->first()->date_of_birth;
+        $LessorAddress=$Lessor->first()->address;
+        $LessorPostalCode=$Lessor->first()->postal_code;
+        $LessorPhone=$Lessor->first()->phone;
+        $LessorLawyerId=$Lessor->first()->pivot->lawyer_id;
+        $LessorLawyer=\Illuminate\Support\Facades\DB::table('people')->where('id',$LessorLawyerId)->get();
+        $LessorLawyerName=$LessorLawyer->first()->firstname . ' ' . $LessorLawyer->first()->lastname;
+        $LessorLawyerFather=$LessorLawyer->first()->fathername;
+        $LessorLawyerBirthCertificateNumber=$LessorLawyer->first()->birth_certificate_number;
+        $LessorLawyerPlaceOfBirth=$LessorLawyer->first()->place_of_birth;
+$LessorNameData=[
+                'data'=>$LessorName,
+                'x'=>4.5+$DefaultX,
+                'y'=>$line1_1+$DefaultY
+            ];
+        $LessorFatherData=[
+                'data'=>$LessorFather,
+                'x'=>12.95+$DefaultX,
+                'y'=>$line1_1+$DefaultY
+            ];
+        $LessorBirthCertificateNumberData=[
+                'data'=>$LessorBirthCertificateNumber,
+                'x'=>19.2+$DefaultX,
+                'y'=>$line1_1+$DefaultY
+            ];
+        $LessorPlaceOfBirthData=[
+                'data'=>$LessorPlaceOfBirth,
+                'x'=>23.65+$DefaultX,
+                'y'=>$line1_1+$DefaultY
+            ];
+        $LessorNationalCodeData=[
+                'data'=>$LessorNationalCode,
+                'x'=>2.7+$DefaultX,
+                'y'=>$line1_2+$DefaultY
+            ];
+        $LessorDateOfBirthData=[
+                'data'=>$LessorDateOfBirth,
+                'x'=>7.9+$DefaultX,
+                'y'=>$line1_2+$DefaultY
+            ];
+        $LessorAddressData=[
+                'data'=>$LessorAddress,
+                'x'=>11.1+$DefaultX,
+                'y'=>$line1_2+$DefaultY
+            ];
+        $LessorPostalCodeData=[
+                'data'=>$LessorPostalCode,
+                'x'=>23.65+$DefaultX,
+                'y'=>$line1_2+$DefaultY
+            ];
+        $LessorPhoneData=[
+                'data'=>$LessorPhone,
+                'x'=>2.45+$DefaultX,
+                'y'=>$line1_3+$DefaultY
+            ];
+        $LessorLawyerNameData=[
+                'data'=>$LessorLawyerName,
+                'x'=>9.85+$DefaultX,
+                'y'=>$line1_3+$DefaultY
+            ];
+        $LessorLawyerFatherData=[
+                'data'=>$LessorLawyerFather,
+                'x'=>13.95+$DefaultX,
+                'y'=>$line1_3+$DefaultY
+            ];
+        $LessorLawyerBirthCertificateNumberData=[
+                'data'=>$LessorLawyerBirthCertificateNumber,
+                'x'=>19.65+$DefaultX,
+                'y'=>$line1_3+$DefaultY
+            ];
+        $LessorLawyerPlaceOfBirthData=[
+                'data'=>$LessorLawyerPlaceOfBirth,
+                'x'=>23.65+$DefaultX,
+                'y'=>$line1_3+$DefaultY
+            ];
+}
+if ($Tenant->count()==1){
+        $TenantName=$Tenant->first()->firstname . ' ' . $Tenant->first()->lastname;
+        $TenantFather=$Tenant->first()->fathername;
+        $TenantBirthCertificateNumber=$Tenant->first()->birth_certificate_number;
+        $TenantPlaceOfBirth=$Tenant->first()->place_of_birth;
+        $TenantNationalCode=$Tenant->first()->national_code;
+        $TenantDateOfBirth=$Tenant->first()->date_of_birth;
+        $TenantAddress=$Tenant->first()->address;
+        $TenantPostalCode=$Tenant->first()->postal_code;
+        $TenantPhone=$Tenant->first()->phone;
+        $TenantLawyerId=$Tenant->first()->pivot->lawyer_id;
+        $TenantLawyer=\Illuminate\Support\Facades\DB::table('people')->where('id',$TenantLawyerId)->get();
+        $TenantLawyerName=$TenantLawyer->first()->firstname . ' ' . $TenantLawyer->first()->lastname;
+        $TenantLawyerFather=$TenantLawyer->first()->fathername;
+        $TenantLawyerBirthCertificateNumber=$TenantLawyer->first()->fathername;
+        $TenantLawyerPlaceOfBirth=$TenantLawyer->first()->fathername;
+ $TenantNameData=[
+                'data'=>$TenantName,
+                'x'=>4.5+$DefaultX,
+                'y'=>$line1_5+$DefaultY
+            ];
+        $TenantFatherData=[
+                'data'=>$TenantFather,
+                'x'=>12.95+$DefaultX,
+                'y'=>$line1_5+$DefaultY
+            ];
+        $TenantBirthCertificateNumberData=[
+                'data'=>$TenantBirthCertificateNumber,
+                'x'=>19.2+$DefaultX,
+                'y'=>$line1_5+$DefaultY
+            ];
+        $TenantPlaceOfBirthData=[
+                'data'=>$TenantPlaceOfBirth,
+                'x'=>23.65+$DefaultX,
+                'y'=>$line1_5+$DefaultY
+            ];
+        $TenantNationalCodeData=[
+                'data'=>$TenantNationalCode,
+                'x'=>2.7+$DefaultX,
+                'y'=>$line1_6+$DefaultY
+            ];
+        $TenantDateOfBirthData=[
+                'data'=>$TenantDateOfBirth,
+                'x'=>7.9+$DefaultX,
+                'y'=>$line1_6+$DefaultY
+            ];
+        $TenantAddressData=[
+                'data'=>$TenantAddress,
+                'x'=>11.1+$DefaultX,
+                'y'=>$line1_6+$DefaultY
+            ];
+        $TenantPostalCodeData=[
+                'data'=>$TenantPostalCode,
+                'x'=>23.65+$DefaultX,
+                'y'=>$line1_6+$DefaultY
+            ];
+        $TenantPhoneData=[
+                'data'=>$TenantPhone,
+                'x'=>2.45+$DefaultX,
+                'y'=>$line1_7+$DefaultY
+            ];
+        $TenantLawyerNameData=[
+                'data'=>$TenantLawyerName,
+                'x'=>9.85+$DefaultX,
+                'y'=>$line1_7+$DefaultY
+            ];
+        $TenantLawyerFatherData=[
+                'data'=>$LessorLawyerFather,
+                'x'=>13.95+$DefaultX,
+                'y'=>$line1_7+$DefaultY
+            ];
+        $TenantLawyerBirthCertificateNumberData=[
+                'data'=>$TenantLawyerBirthCertificateNumber,
+                'x'=>19.65+$DefaultX,
+                'y'=>$line1_7+$DefaultY
+            ];
+        $TenantLawyerPlaceOfBirthData=[
+                'data'=>$TenantLawyerPlaceOfBirth,
+                'x'=>23.65+$DefaultX,
+                'y'=>$line1_7+$DefaultY
+            ];
+}
+
+
+
+
+
+
+
+
 //                    ماده ۲
             $entirety=[
                 'data'=>$RentalPropertyDetails->entirety,
@@ -591,6 +769,10 @@
             function MakeElement($data,$class=null){
                 echo "<p class='fixed {$class}' style='right: {$data['x']}cm;top:{$data['y']}cm;'>{$data['data']}</p>";
             }
+            function MakeElementCom($data,$class=null){
+                echo "<p class='fixed-comment {$class}' style='right: {$data['x']}cm;top:{$data['y']}cm;'>{$data['data']}</p>";
+            }
+
 
      @endphp
     <style>
@@ -637,6 +819,12 @@
                 display: block;
                 width: 50%;
             }
+            .fixed-comment{
+                position: fixed;
+                display: block;
+                width: 24cm;
+                font-size: 13px;
+            }
             html, body, div, span, applet, object, iframe,
             h1, h2, h3, h4, h5, h6, p, blockquote, pre,
             a, abbr, acronym, address, big, cite, code,
@@ -660,69 +848,188 @@
 </head>
 <body>
 @php
-    MakeElement($entirety);
-    MakeElement($title);
-    MakeLine($type_of_lease_line);
-    MakeLine($membership_right_line1);
-    MakeElement($membership_right2_warehouse);
-    MakeElement($membership_right_parking_number);
-    MakeLine($membership_right_line3);
-    MakeElement($membership_right_phone_number);
-    MakeElement($address);
-    MakeElement($house_number);
-    MakeElement($sub_part_address);
-    MakeElement($main_part_address);
-    MakeElement($part);
-    MakeElement($house_area);
-    MakeElement($title_deeds_number);
-    MakeElement($name);
-    MakeElement($bedroom);
-    MakeElement($postal_code);
+    $fullString="";
+    $fullStringTitle="";
+    if ($Lessor->count()==1){
 
-    MakeElement($rental_period);
-    MakeLine($rental_period_type_line);
-    MakeElement($from);
-    MakeElement($until);
+        MakeElement($LessorNameData);
+        MakeElement($LessorFatherData);
+        MakeElement($LessorBirthCertificateNumberData);
+        MakeElement($LessorPlaceOfBirthData);
+        MakeElement($LessorNationalCodeData);
+        MakeElement($LessorDateOfBirthData);
+        MakeElement($LessorAddressData);
+        MakeElement($LessorPostalCodeData);
+        MakeElement($LessorPhoneData);
+        MakeElement($LessorLawyerNameData);
+        MakeElement($LessorLawyerFatherData);
+        MakeElement($LessorLawyerBirthCertificateNumberData);
+        MakeElement($LessorLawyerPlaceOfBirthData);
+        }else{
+        $fullStringTitle.="تعداد موجران : ".$Lessor->count().'  -  ';
+        $fullStringLessor='';
+        $LC=1;
+        foreach ($Lessor as $item){
+             $LessorName=$item->firstname . ' ' . $item->lastname;
+            $LessorFather=$item->fathername;
+            $LessorBirthCertificateNumber=$item->birth_certificate_number;
+            $LessorPlaceOfBirth=$item->place_of_birth;
+            $LessorNationalCode=$item->national_code;
+            $LessorDateOfBirth=\Morilog\Jalali\Jalalian::forge($item->date_of_birth)->format('Y/m/d');
+            $LessorAddress=$item->address;
+            $LessorPostalCode=$item->postal_code;
+            $LessorPhone=$item->phone;
+            $LessorLawyerId=$item->pivot->lawyer_id;
+            $LessorLawyer=\Illuminate\Support\Facades\DB::table('people')->where('id',$LessorLawyerId)->get();
+            $str1=$LC++.'- '.$LessorName.'  فرزند '.$LessorFather.'  ش.ش '.$LessorBirthCertificateNumber.'  صادره از '.$LessorPlaceOfBirth.'  کدملی'.$LessorNationalCode.'  متولد '.$LessorDateOfBirth;
+            $str2='ساکن '.$LessorAddress.'  کدپستی '.$LessorPostalCode.'  تلفن '.$LessorPhone;
+            $fullStringLessor.=$str1.''.$str2.' ';
+            if ($LessorLawyer->first()==null){
+                $LessorLawyerName='';
+                $LessorLawyerFather='';
+                $LessorLawyerBirthCertificateNumber='';
+                $LessorLawyerPlaceOfBirth='';
+            }else{
+                $LessorLawyerName=$LessorLawyer->first()->firstname . ' ' . $LessorLawyer->first()->lastname;
+                $LessorLawyerFather=$LessorLawyer->first()->fathername;
+                $LessorLawyerBirthCertificateNumber=$LessorLawyer->first()->birth_certificate_number;
+                $LessorLawyerPlaceOfBirth=$LessorLawyer->first()->place_of_birth;
+                $str3='باوکالت '.$LessorLawyerName.'  فرزند '.$LessorLawyerFather.'  ش.ش '.$LessorLawyerFather.'  متولد '.$LessorLawyerPlaceOfBirth;
+                $fullStringLessor.=$str3.'  -  ';
+            }
 
-    MakeElement($lease_rial);
-    MakeElement($monthly_rental_amount_rial);
-    MakeLine($at_first_line);
-    MakeElement($mortgage_rial);
-    MakeElement($mortgage_rial_word);
-    MakeElement($rent_rial);
-    MakeElement($rent_tooman);
-    MakeLine($payment_type_line);
-    MakeElement($cheque);
-    MakeElement($bank);
-    MakeElement($branch);
-    MakeElement($deposit_rial);
-    MakeElement($deposit_return_date);
-    MakeElement($penalty_for_non_payment_rial);
-    MakeElement($penalty_for_non_return_rial);
+
+        }
+        $fullString.=$fullStringLessor;
+
+         }
+        if ($Tenant->count()==1){
+        MakeElement($TenantNameData);
+        MakeElement($TenantFatherData);
+        MakeElement($TenantBirthCertificateNumberData);
+        MakeElement($TenantPlaceOfBirthData);
+        MakeElement($TenantNationalCodeData);
+        MakeElement($TenantDateOfBirthData);
+        MakeElement($TenantAddressData);
+        MakeElement($TenantPostalCodeData);
+        MakeElement($TenantPhoneData);
+        MakeElement($TenantLawyerNameData);
+        MakeElement($TenantLawyerFatherData);
+        MakeElement($TenantLawyerBirthCertificateNumberData);
+        MakeElement($TenantLawyerPlaceOfBirthData);
+        }else{
+            $fullStringTitle.="تعداد مستاجران  : ".$Tenant->count();
+            $fullStringTenant="";
+            $TC=1;
+        foreach ($Tenant as $item){
+             $TenantName=$item->firstname . ' ' . $item->lastname;
+            $TenantFather=$item->fathername;
+            $TenantBirthCertificateNumber=$item->birth_certificate_number;
+            $TenantPlaceOfBirth=$item->place_of_birth;
+            $TenantNationalCode=$item->national_code;
+            $TenantDateOfBirth=\Morilog\Jalali\Jalalian::forge($item->date_of_birth)->format('Y/m/d');
+            $TenantAddress=$item->address;
+            $TenantPostalCode=$item->postal_code;
+            $TenantPhone=$item->phone;
+            $TenantLawyerId=$item->pivot->lawyer_id;
+            $TenantLawyer=\Illuminate\Support\Facades\DB::table('people')->where('id',$TenantLawyerId)->get();
+            $str1=$TC++.'- '.$TenantName.'  فرزند '.$TenantFather.'  ش.ش '.$TenantBirthCertificateNumber.'  صادره از '.$TenantPlaceOfBirth.'  کدملی'.$TenantNationalCode.''.$TenantDateOfBirth;
+            $str2='ساکن '.$TenantAddress.'  کدپستی '.$TenantPostalCode.'  تلفن '.$TenantPhone;
+            $fullStringTenant.=$str1.''.$str2.'';
+            if ($TenantLawyer->first()==null){
+                $TenantLawyerName='';
+                $TenantLawyerFather='';
+                $TenantLawyerBirthCertificateNumber='';
+                $TenantLawyerPlaceOfBirth='';
+            }else{
+                $TenantLawyerName=$TenantLawyer->first()->firstname . ' ' . $TenantLawyer->first()->lastname;
+                $TenantLawyerFather=$TenantLawyer->first()->fathername;
+                $TenantLawyerBirthCertificateNumber=$TenantLawyer->first()->birth_certificate_number;
+                $TenantLawyerPlaceOfBirth=$TenantLawyer->first()->place_of_birth;
+                $str3='باوکالت '.$TenantLawyerName.'  فرزند '.$TenantLawyerFather.'  ش.ش '.$TenantLawyerBirthCertificateNumber.'  متولد '.$TenantLawyerPlaceOfBirth;
+                $fullStringTenant.=$str3.' - ';
+            }
+        }
+        $fullString.=$fullStringTenant;
+
+        }
+        if ($Tenant->count()!=1 || $Lessor->count()!=1){
+
+        $fullStringTitleData=[
+            'data'=>$fullStringTitle,
+            'x'=>2.2+$DefaultX,
+            'y'=>$line13_2+$DefaultY
+         ];
+          $fullStringData=[
+            'data'=>$fullString,
+            'x'=>2.2+$DefaultX,
+            'y'=>$line13_2+$DefaultY+0.6
+         ];
+                MakeElementCom($fullStringData);
+                MakeElementCom($fullStringTitleData);
+        }
+        MakeElement($entirety);
+        MakeElement($title);
+        MakeLine($type_of_lease_line);
+        MakeLine($membership_right_line1);
+        MakeElement($membership_right2_warehouse);
+        MakeElement($membership_right_parking_number);
+        MakeLine($membership_right_line3);
+        MakeElement($membership_right_phone_number);
+        MakeElement($address);
+        MakeElement($house_number);
+        MakeElement($sub_part_address);
+        MakeElement($main_part_address);
+        MakeElement($part);
+        MakeElement($house_area);
+        MakeElement($title_deeds_number);
+        MakeElement($name);
+        MakeElement($bedroom);
+        MakeElement($postal_code);
+
+        MakeElement($rental_period);
+        MakeLine($rental_period_type_line);
+        MakeElement($from);
+        MakeElement($until);
+
+        MakeElement($lease_rial);
+        MakeElement($monthly_rental_amount_rial);
+        MakeLine($at_first_line);
+        MakeElement($mortgage_rial);
+        MakeElement($mortgage_rial_word);
+        MakeElement($rent_rial);
+        MakeElement($rent_tooman);
+        MakeLine($payment_type_line);
+        MakeElement($cheque);
+        MakeElement($bank);
+        MakeElement($branch);
+        MakeElement($deposit_rial);
+        MakeElement($deposit_return_date);
+        MakeElement($penalty_for_non_payment_rial);
+        MakeElement($penalty_for_non_return_rial);
 
 
-    MakeElement($delivery_time);
-    MakeElement($penalty_for_non_delivery_rial);
+        MakeElement($delivery_time);
+        MakeElement($penalty_for_non_delivery_rial);
 
-    MakeElement($others);
-    MakeElement($damages_for_non_fulfillment_of_obligations_rial);
-    MakeElement($penalty_for_non_evacuation_rial);
+        MakeElement($others);
+        MakeElement($damages_for_non_fulfillment_of_obligations_rial);
+        MakeElement($penalty_for_non_evacuation_rial);
 
-    MakeSquare($arbitration);
+        MakeSquare($arbitration);
 
-    MakeElement($city);
-    MakeElement($wage_rial);
-    MakeElement($amount_received_each_rial);
-    MakeElement($tax_percent);
+        MakeElement($city);
+        MakeElement($wage_rial);
+        MakeElement($amount_received_each_rial);
+        MakeElement($tax_percent);
 
-    MakeElement($signature_date);
-    MakeElement($signature_hour);
-    MakeElement($user_membership_number);
-    MakeElement($user_manager);
-    MakeElement($user_address);
+        MakeElement($signature_date);
+        MakeElement($signature_hour);
+        MakeElement($user_membership_number);
+        MakeElement($user_manager);
+        MakeElement($user_address);
 
-    MakeElement($comments);
-
+        MakeElement($comments);
 @endphp
 </body>
 </html>

@@ -16,24 +16,25 @@ class PDFController extends Controller
 
     public function CreatePDF(LeaseAgreement $leaseAgreement){
         $path=base_path('resources/fonts/');
-    //        dd(1);
         $financial=FinancialLease::where('lease_agreement_id',$leaseAgreement->id);
         $DetailsOfRental=DetailsOfRental::where('lease_agreement_id',$leaseAgreement->id);
         $LeaseAgreementPerson=LeaseAgreementPerson::where('lease_agreement_id',$leaseAgreement->id);
+//        $LeaseAgreementPersonTenant=LeaseAgreementPerson::where('lease_agreement_id',$leaseAgreement->id)->where('is_tenant',true);
+//        $LeaseAgreementPersonLessor=LeaseAgreementPerson::where('lease_agreement_id',$leaseAgreement->id)->where('is_tenant',false);
         $RentalPropertyDetails=RentalPropertyDetails::where('lease_agreement_id',$leaseAgreement->id);
         $user=User::where('id',$leaseAgreement->user_id);
 
         $st="no";
-        if ($financial->count()==1 &&$DetailsOfRental->count()==1 &&$LeaseAgreementPerson->count()==1 &&$RentalPropertyDetails->count()==1){
+        if ($financial->count()==1 &&$DetailsOfRental->count()==1 && $LeaseAgreementPerson->count()>1 &&$RentalPropertyDetails->count()==1){
             $st="yes";
         }
-
-//        return view('test',['path'=>$path]);
         $pdf = PDF::loadView('pdf',['path'=>$path,
             'leaseAgreement'=>$leaseAgreement,
             'financial'=>$financial->first(),
             'DetailsOfRental'=>$DetailsOfRental->first(),
-            'LeaseAgreementPerson'=>$LeaseAgreementPerson->first(),
+            'LeaseAgreementPerson'=>$LeaseAgreementPerson->get(),
+            'LeaseAgreementPersonTenant'=>$leaseAgreement->peopleTenants()->get(),
+            'LeaseAgreementPersonLessor'=>$leaseAgreement->peopleLessors()->get(),
             'RentalPropertyDetails'=>$RentalPropertyDetails->first(),
             'user'=>$user->first(),
             'st'=>$st,
