@@ -528,8 +528,8 @@
 
 //                    ماده 12
             $signature_date=[
-                'data'=>$leaseAgreement->signature_date,
-                'x'=>4.2+$DefaultX,
+                'data'=>\Morilog\Jalali\Jalalian::forge($leaseAgreement->signature_date)->format('Y/m/d'),
+                'x'=>4.2+$DefaultX+0.01,
                 'y'=>$line12_1+$DefaultY
     ];
             $signature_hour=[
@@ -538,17 +538,17 @@
                 'y'=>$line12_1+$DefaultY
     ];
             $user_membership_number=[
-                'data'=>$leaseAgreement->user_id,
-                'x'=>9.78+$DefaultX,
+                'data'=>$user->membership_number,
+                'x'=>9.78+$DefaultX+0.25,
                 'y'=>$line12_1+$DefaultY
     ];
             $user_manager=[
-                'data'=>$leaseAgreement->user_id,
+                'data'=>$user->manager,
                 'x'=>12.25+$DefaultX,
                 'y'=>$line12_1+$DefaultY
     ];
             $user_address=[
-                'data'=>$leaseAgreement->user_id,
+                'data'=>$user->address,
                 'x'=>15.4+$DefaultX,
                 'y'=>$line12_1+$DefaultY
     ];
@@ -718,6 +718,9 @@
     MakeElement($signature_date);
     MakeElement($signature_hour);
     MakeElement($user_membership_number);
+    MakeElement($user_manager);
+    MakeElement($user_address);
+
     MakeElement($comments);
 
 @endphp
