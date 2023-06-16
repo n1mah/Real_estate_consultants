@@ -451,12 +451,12 @@
 
 //                    ماده 5
             $delivery_time=[
-                'data'=>$DetailsOfRental->delivery_time,
+                'data'=>\Morilog\Jalali\Jalalian::forge($DetailsOfRental->delivery_time)->format('Y/m/d'),
                 'x'=>4.55+$DefaultX,
                 'y'=>$line5_1+$DefaultY
     ];
             $penalty_for_non_delivery_rial=[
-                'data'=>$DetailsOfRental->penalty_for_non_delivery,
+                'data'=>number_format($DetailsOfRental->penalty_for_non_delivery),
                 'x'=>22.75+$DefaultX,
                 'y'=>$line5_1+$DefaultY
     ];
@@ -636,8 +636,6 @@
 @php
     MakeElement($entirety);
     MakeElement($title);
-//    MakeElement($type_of_lease);
-
     MakeLine($type_of_lease_line);
     MakeLine($membership_right_line1);
     MakeElement($membership_right2_warehouse);
@@ -655,23 +653,19 @@
     MakeElement($bedroom);
     MakeElement($postal_code);
 
-
-
     MakeElement($rental_period);
-//    MakeElement($rental_period_type);
     MakeLine($rental_period_type_line);
     MakeElement($from);
     MakeElement($until);
+
     MakeElement($lease_rial);
     MakeElement($monthly_rental_amount_rial);
-//    MakeElement($at_first_data);
     MakeLine($at_first_line);
     MakeElement($mortgage_rial);
     MakeElement($mortgage_rial_word);
     MakeElement($rent_rial);
     MakeElement($rent_tooman);
     MakeLine($payment_type_line);
-
     MakeElement($cheque);
     MakeElement($bank);
     MakeElement($branch);
@@ -679,6 +673,8 @@
     MakeElement($deposit_return_date);
     MakeElement($penalty_for_non_payment_rial);
     MakeElement($penalty_for_non_return_rial);
+
+
     MakeElement($delivery_time);
     MakeElement($penalty_for_non_delivery_rial);
     MakeElement($others);
