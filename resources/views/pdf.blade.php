@@ -105,87 +105,171 @@
                 'x'=>23.7+$DefaultX,
                 'y'=>$line2_2+$DefaultY
             ];
-            $membership_right=$RentalPropertyDetails->membership_right;
-            $membership_right_electricity=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_water=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_gas=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_gas_private=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_gas_public=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_shoo=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_shoo_on=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_shoo_off=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_cooling=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_parking=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
+            $membership_right=json_decode($RentalPropertyDetails->membership_right);
+            $membership_right1=[];
+            function membership_right_check1($str)
+            {
+
+                if ($str=="آب" || $str=="برق" || $str=="گاز اشتراکی" || $str=="گاز اختصاصی" || $str=="شوفاژ روشن" || $str=="شوفاژ غیر روشن" || $str=="کولر" || $str=="پارکینگ دارد")
+                    return $str;
+                return  null;
+            }
+            $membership_right1=(array_filter($membership_right,"membership_right_check1"));
+            $membership_right_line1=[
+            'data'=>$membership_right1,
+            'x'=>3.25+$DefaultX,
+            'x2'=>11.9+$DefaultX,
+             'y'=>$line2_3+$DefaultY-0.06
+        ];
+
+
+
+            $membership_right_line4=[
+            'data'=>$membership_right,
+            'x'=>6.8+$DefaultX,
+            'x2'=>8.35+$DefaultX,
+            'y'=>$line2_1+$DefaultY
+        ];
+
+
+//            $membership_right_electricity=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_water=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_gas=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_gas_private=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_gas_public=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_shoo=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_shoo_on=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_shoo_off=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_cooling=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_parking=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
             $membership_right_parking_number=[
                 'data'=>$RentalPropertyDetails->parking,
                 'x'=>12.8+$DefaultX,
                 'y'=>$line2_3+$DefaultY
             ];
+
             $membership_right_warehouse=[
                 'data'=>$membership_right,
                 'x'=>0+$DefaultX,
                 'y'=>$line2_3+$DefaultY
             ];
-            $membership_right_warehouse_number=[
+
+            function membership_right_check2($str)
+            {
+                if ($str=="انباری دارد")
+                    return $str;
+                return null;
+            }
+            $membership_right2=(array_filter($membership_right,"membership_right_check2"));
+            $membership_right2_warehouse=null;
+            if(in_array("انباری دارد", $membership_right2)){
+                $membership_right2_warehouse=[
                 'data'=>$RentalPropertyDetails->warehouse,
                 'x'=>15.2+$DefaultX,
                 'y'=>$line2_3+$DefaultY
             ];
-            $membership_right_phone_in=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
+            }else{
+                $membership_right2_warehouse=[
+                'data'=>"ندارد",
+                'x'=>15.2+$DefaultX,
                 'y'=>$line2_3+$DefaultY
             ];
-            $membership_right_phone_out=[
-                'data'=>$membership_right,
-                'x'=>0+$DefaultX,
-                'y'=>$line2_3+$DefaultY
-            ];
-            $membership_right_phone_number=[
+}
+//            $membership_right_warehouse_number=[
+//                'data'=>$RentalPropertyDetails->warehouse,
+//                'x'=>15.2+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_phone_in=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+//            $membership_right_phone_out=[
+//                'data'=>$membership_right,
+//                'x'=>0+$DefaultX,
+//                'y'=>$line2_3+$DefaultY
+//            ];
+
+            $membership_right3=[];
+            function membership_right_check3($str)
+            {
+
+                if ($str=="تلفن دایر" || $str=="تلفن غیر دایر")
+                    return $str;
+                return  null;
+            }
+            $membership_right3=(array_filter($membership_right,"membership_right_check3"));
+//            dd($membership_right3);
+            if((in_array("تلفن غیر دایر", $membership_right3) || in_array("تلفن دایر", $membership_right3)) &&  count($membership_right3)){
+                foreach ($membership_right3 as $membership_right3_item)
+                $membership_right3_data=$membership_right3_item;
+            }else{
+            $membership_right3_data="";
+            }
+            $membership_right_line3=[
+            'data'=>$membership_right3_data,
+            'x'=>17.75+$DefaultX,
+            'x2'=>19.75+$DefaultX,
+             'y'=>$line2_3+$DefaultY-0.06
+        ];
+
+
+
+            if(in_array("تلفن غیر دایر", $membership_right3) || in_array("تلفن دایر", $membership_right3)){
+              $membership_right_phone_number=[
                 'data'=>$RentalPropertyDetails->telephone,
                 'x'=>20.3+$DefaultX,
                 'y'=>$line2_3+$DefaultY
             ];
+            }else{
+                 $membership_right_phone_number=[
+                'data'=>"",
+                'x'=>20.3+$DefaultX,
+                'y'=>$line2_3+$DefaultY
+            ];
+}
+
             $postal_code=[
                 'data'=>$RentalPropertyDetails->postal_code,
                 'x'=>3.45+$DefaultX,
@@ -454,30 +538,66 @@
                 'y'=>$line13_1+$DefaultY
     ];
 
+    $type_of_lease_line=[
+            'data'=>$RentalPropertyDetails->type_of_lease,
+            'x'=>6.6+$DefaultX,
+            'x2'=>8.7+$DefaultX,
+            'y'=>$line2_1+$DefaultY-0.06
 
+        ];
+
+
+
+        function MakeLine($data){
+            $label=$data['data'];
+            $x1=$data['x'];
+            $x2=$data['x2'];
+            $y=$data['y'];
+            $width=$x2-$x1;
+            if (is_array($label)){
+               $label= implode(" / ", $label);
+            }
+            echo "
+            <div class='line' style='width:{$width}cm;right:{$x1}cm;top:{$y}cm'>
+                {$label}
+            </div>
+            ";
+        }
             function MakeElement($data,$class=null){
-                echo "
-                    <p class='fixed {$class}' style='right: {$data['x']}cm;top:{$data['y']}cm;'>{$data['data']}</p>
-";
+                echo "<p class='fixed {$class}' style='right: {$data['x']}cm;top:{$data['y']}cm;'>{$data['data']}</p>";
             }
 
      @endphp
     <style>
+        .line{
+            height: 0.35cm;
+            background: #282828;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 14.2px;
+        }
             *{
                 font-size: 13px;
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
+                direction: rtl;
             }
             body {
                 margin: 0;
                 color: #000;
                 background-color: #fff;
+                direction: rtl;
+                font-family: 'samim';
+                font-size: 8px;
             }
             .fixed{
                 position: fixed;
                 display: block;
-                padding: 2px;
                 width: 50%;
             }
             html, body, div, span, applet, object, iframe,
@@ -499,41 +619,6 @@
                 vertical-align: baseline;
             }
 
-
-            body {
-                direction: rtl;
-                font-family: 'samim';
-                font-size: 8px;
-            }
-
-
-            *{
-                direction: rtl;
-
-            }
-            html {
-                /*font: 14px/1.5 Arial, sans-serif;*/
-
-            }
-
-            body {
-
-            }
-            p{
-                /*font-size: 16px;*/
-                width: 50%;
-
-            }
-            .bgred{
-                /*background: red;*/
-                /*overflow: hidden; white-space: nowrap;*/
-                /*display: inline;*/
-            }
-
-            table th, td{
-                padding: 0;
-            }
-
     </style>
 </head>
 <body>
@@ -541,16 +626,24 @@
     MakeElement($entirety);
     MakeElement($title);
 //    MakeElement($type_of_lease);
+
+    MakeLine($type_of_lease_line);
+    MakeLine($membership_right_line1);
+    MakeElement($membership_right2_warehouse);
+    MakeElement($membership_right_parking_number);
+    MakeLine($membership_right_line3);
+    MakeElement($membership_right_phone_number);
     MakeElement($address);
     MakeElement($house_number);
     MakeElement($sub_part_address);
-    MakeElement($main_part_address,'bgred');
+    MakeElement($main_part_address);
     MakeElement($part);
     MakeElement($house_area);
     MakeElement($title_deeds_number);
     MakeElement($name);
     MakeElement($bedroom);
-    MakeElement($rental_period,'bgred');
+    MakeElement($postal_code);
+    MakeElement($rental_period);
 //    MakeElement($rental_period_type);
     MakeElement($from);
     MakeElement($until);
