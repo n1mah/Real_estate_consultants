@@ -336,68 +336,82 @@
 //                    ماده 4
 
             $lease_rial=[
-                'data'=>$financial->lease_amount,
-                'x'=>4.4+$DefaultX,
+                'data'=>number_format($financial->lease_amount),
+                'x'=>4.4+$DefaultX+0.2,
                 'y'=>$line4_1+$DefaultY
             ];
             $monthly_rental_amount_rial=[
-                'data'=>$financial->monthly_rental_amount,
+                'data'=>number_format($financial->monthly_rental_amount),
                 'x'=>12.1+$DefaultX,
                 'y'=>$line4_1+$DefaultY
              ];
-            $at_first_data=$financial->at_first;
-            $at_first=[
+            $at_first_data=($financial->at_first)==1?'اول':'آخر';
+
+            $at_first_line=[
                 'data'=>$at_first_data,
                 'x'=>21.08+$DefaultX,
-                'y'=>$line4_1+$DefaultY
-            ];
-            $at_first_first=[
-                'data'=>$at_first_data,
-                'x'=>21.08+$DefaultX,
-                'y'=>$line4_1+$DefaultY
-            ];
-            $at_first_last=[
-                'data'=>$at_first_data,
-                'x'=>21.08+$DefaultX,
-                'y'=>$line4_1+$DefaultY
-    ];
+                'x2'=>21.65+$DefaultX,
+                'y'=>$line4_1+$DefaultY-0.06
+             ];
+//            $at_first=[
+//                'data'=>$at_first_data,
+//                'x'=>21.08+$DefaultX,
+//                'y'=>$line4_1+$DefaultY
+//            ];
+//            $at_first_first=[
+//                'data'=>$at_first_data,
+//                'x'=>21.08+$DefaultX,
+//                'y'=>$line4_1+$DefaultY
+//            ];
+//            $at_first_last=[
+//                'data'=>$at_first_data,
+//                'x'=>21.08+$DefaultX,
+//                'y'=>$line4_1+$DefaultY
+//    ];
             $mortgage_rial=[
-                'data'=>$financial->mortgage,
-                'x'=>3.0+$DefaultX,
+                'data'=>number_format($financial->mortgage),
+                'x'=>3.0+$DefaultX+0.2,
                 'y'=>$line4_2+$DefaultY
     ];
             $mortgage_rial_word=[
-                'data'=>$financial->mortgage,
-                'x'=>10.1+$DefaultX,
+                'data'=>(new Number2Word)->numberToWords($financial->mortgage),
+                'x'=>10.1+$DefaultX+0.2,
                 'y'=>$line4_2+$DefaultY
     ];
 
             $rent_rial=[
-                'data'=>$financial->rent,
+                'data'=>number_format($financial->rent),
                 'x'=>4.95+$DefaultX,
                 'y'=>$line4_3+$DefaultY
     ];
             $rent_tooman=[
-                'data'=>$financial->rent,
+                'data'=>number_format($financial->rent/10),
                 'x'=>10.9+$DefaultX,
                 'y'=>$line4_3+$DefaultY
     ];
             $payment_type_data=$financial->payment_type;
-            $payment_type=[
+
+            $payment_type_line=[
                 'data'=>$payment_type_data,
                 'x'=>14.95+$DefaultX,
-                'y'=>$line4_3+$DefaultY
-    ];
-            $payment_type_cash=[
-                'data'=>$payment_type_data,
-                'x'=>14.95+$DefaultX,
-                'y'=>$line4_3+$DefaultY
-    ];
-            $payment_type_cheque=[
-                'data'=>$payment_type_data,
-                'x'=>14.95+$DefaultX,
-                'y'=>$line4_3+$DefaultY
-    ];
+                'x2'=>16.20+$DefaultX,
+                'y'=>$line4_3+$DefaultY-0.06
+             ];
+//            $payment_type=[
+//                'data'=>$payment_type_data,
+//                'x'=>14.95+$DefaultX,
+//                'y'=>$line4_3+$DefaultY
+//    ];
+//            $payment_type_cash=[
+//                'data'=>$payment_type_data,
+//                'x'=>14.95+$DefaultX,
+//                'y'=>$line4_3+$DefaultY
+//    ];
+//            $payment_type_cheque=[
+//                'data'=>$payment_type_data,
+//                'x'=>14.95+$DefaultX,
+//                'y'=>$line4_3+$DefaultY
+//    ];
             $cheque=[
                 'data'=>$financial->cheque,
                 'x'=>16.3+$DefaultX,
@@ -415,22 +429,22 @@
     ];
 
             $deposit_rial=[
-                'data'=>$financial->deposit,
+                'data'=>number_format($financial->deposit),
                 'x'=>3.78+$DefaultX,
                 'y'=>$line4_4+$DefaultY
     ];
             $deposit_return_date=[
-                'data'=>$financial->deposit_return_date,
+                'data'=>\Morilog\Jalali\Jalalian::forge($financial->deposit_return_date)->format('Y/m/d'),
                 'x'=>8.15+$DefaultX,
                 'y'=>$line4_4+$DefaultY
     ];
             $penalty_for_non_payment_rial=[
-                'data'=>$DetailsOfRental->penalty_for_non_payment,
+                'data'=>number_format($DetailsOfRental->penalty_for_non_payment),
                 'x'=>19.75+$DefaultX,
                 'y'=>$line4_5+$DefaultY
     ];
             $penalty_for_non_return_rial=[
-                'data'=>$DetailsOfRental->penalty_for_non_return,
+                'data'=>number_format($DetailsOfRental->penalty_for_non_return),
                 'x'=>3.7+$DefaultX,
                 'y'=>$line4_6+$DefaultY
     ];
@@ -651,15 +665,18 @@
     MakeElement($lease_rial);
     MakeElement($monthly_rental_amount_rial);
 //    MakeElement($at_first_data);
+    MakeLine($at_first_line);
     MakeElement($mortgage_rial);
     MakeElement($mortgage_rial_word);
     MakeElement($rent_rial);
     MakeElement($rent_tooman);
+    MakeLine($payment_type_line);
+
     MakeElement($cheque);
     MakeElement($bank);
     MakeElement($branch);
     MakeElement($deposit_rial);
-    MakeElement($deposit_rial);
+    MakeElement($deposit_return_date);
     MakeElement($penalty_for_non_payment_rial);
     MakeElement($penalty_for_non_return_rial);
     MakeElement($delivery_time);
