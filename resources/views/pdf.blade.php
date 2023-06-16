@@ -50,11 +50,17 @@
                 'x'=>4.5+$DefaultX,
                 'y'=>$line2_1+$DefaultY
             ];
-            $type_of_lease=[
+//            $type_of_lease=[
+//                'data'=>$RentalPropertyDetails->type_of_lease,
+//                'x'=>6.6+$DefaultX,
+//                'y'=>$line2_1+$DefaultY
+//            ];
+              $type_of_lease_line=[
                 'data'=>$RentalPropertyDetails->type_of_lease,
                 'x'=>6.6+$DefaultX,
-                'y'=>$line2_1+$DefaultY
-            ];
+                'x2'=>8.7+$DefaultX,
+                'y'=>$line2_1+$DefaultY-0.06
+             ];
             $title=[
                 'data'=>$RentalPropertyDetails->title,
                 'x'=>8.85+$DefaultX,
@@ -116,20 +122,11 @@
             }
             $membership_right1=(array_filter($membership_right,"membership_right_check1"));
             $membership_right_line1=[
-            'data'=>$membership_right1,
-            'x'=>3.25+$DefaultX,
-            'x2'=>11.9+$DefaultX,
-             'y'=>$line2_3+$DefaultY-0.06
-        ];
-
-
-
-            $membership_right_line4=[
-            'data'=>$membership_right,
-            'x'=>6.8+$DefaultX,
-            'x2'=>8.35+$DefaultX,
-            'y'=>$line2_1+$DefaultY
-        ];
+                'data'=>$membership_right1,
+                'x'=>3.25+$DefaultX,
+                'x2'=>11.9+$DefaultX,
+                 'y'=>$line2_3+$DefaultY-0.06
+            ];
 
 
 //            $membership_right_electricity=[
@@ -279,56 +276,62 @@
 //                    ماده ۳
             $rental_period=[
                 'data'=>$DetailsOfRental->rental_period,
-                'x'=>3.0+$DefaultX,
+                'x'=>3.0+$DefaultX+1,
                 'y'=>$line3_1+$DefaultY
             ];
-            $rental_period_type=[
+//            $rental_period_type=[
+//                'data'=>$DetailsOfRental->rental_period_type,
+//                'x'=>6.8+$DefaultX,
+//                'y'=>$line3_1+$DefaultY
+//            ];
+            $rental_period_type_line=[
                 'data'=>$DetailsOfRental->rental_period_type,
                 'x'=>6.8+$DefaultX,
-                'y'=>$line3_1+$DefaultY
-            ];
+                'x2'=>7.7+$DefaultX,
+                'y'=>$line3_1+$DefaultY-0.06
+             ];
             $f=$DetailsOfRental->from;
             $from=[
-                'data'=>$f,
-                'x'=>9.4+$DefaultX,
-                'y'=>$line3_1+$DefaultY
+                'data'=>\Morilog\Jalali\Jalalian::forge($f)->format('Y/m/d'),
+                'x'=>9.4+$DefaultX+0.2,
+                'y'=>$line3_1+$DefaultY-0.05
             ];
-            $from_day=[
-                'data'=>$f,
-                'x'=>9.4+$DefaultX,
-                'y'=>$line3_1+$DefaultY
-            ];
-            $from_month=[
-                'data'=>$f,
-                'x'=>9.4+$DefaultX,
-                'y'=>$line3_1+$DefaultY
-            ];
-            $from_year=[
-                'data'=>$f,
-                'x'=>9.4+$DefaultX,
-                'y'=>$line3_1+$DefaultY
-            ];
+//            $from_day=[
+//                'data'=>$f,
+//                'x'=>9.4+$DefaultX,
+//                'y'=>$line3_1+$DefaultY
+//            ];
+//            $from_month=[
+//                'data'=>$f,
+//                'x'=>9.4+$DefaultX,
+//                'y'=>$line3_1+$DefaultY
+//            ];
+//            $from_year=[
+//                'data'=>$f,
+//                'x'=>9.4+$DefaultX,
+//                'y'=>$line3_1+$DefaultY
+//            ];
             $u=$DetailsOfRental->until;
             $until=[
-                'data'=>$u,
-                'x'=>11.5+$DefaultX,
-                'y'=>$line3_1+$DefaultY
+                'data'=>\Morilog\Jalali\Jalalian::forge($u)->format('Y/m/d'),
+                'x'=>11.5+$DefaultX+0.2,
+                'y'=>$line3_1+$DefaultY-0.05
             ];
-            $until_day=[
-                'data'=>$u,
-                'x'=>11.5+$DefaultX,
-                'y'=>$line3_1+$DefaultY
-            ];
-            $until_month=[
-                'data'=>$u,
-                'x'=>11.5+$DefaultX,
-                'y'=>$line3_1+$DefaultY
-            ];
-            $until_year=[
-                'data'=>$u,
-                'x'=>11.5+$DefaultX,
-                'y'=>$line3_1+$DefaultY
-            ];
+//            $until_day=[
+//                'data'=>$u,
+//                'x'=>11.5+$DefaultX,
+//                'y'=>$line3_1+$DefaultY
+//            ];
+//            $until_month=[
+//                'data'=>$u,
+//                'x'=>11.5+$DefaultX,
+//                'y'=>$line3_1+$DefaultY
+//            ];
+//            $until_year=[
+//                'data'=>$u,
+//                'x'=>11.5+$DefaultX,
+//                'y'=>$line3_1+$DefaultY
+//            ];
 
 //                    ماده 4
 
@@ -538,13 +541,7 @@
                 'y'=>$line13_1+$DefaultY
     ];
 
-    $type_of_lease_line=[
-            'data'=>$RentalPropertyDetails->type_of_lease,
-            'x'=>6.6+$DefaultX,
-            'x2'=>8.7+$DefaultX,
-            'y'=>$line2_1+$DefaultY-0.06
 
-        ];
 
 
 
@@ -643,8 +640,12 @@
     MakeElement($name);
     MakeElement($bedroom);
     MakeElement($postal_code);
+
+
+
     MakeElement($rental_period);
 //    MakeElement($rental_period_type);
+    MakeLine($rental_period_type_line);
     MakeElement($from);
     MakeElement($until);
     MakeElement($lease_rial);
