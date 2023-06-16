@@ -37,7 +37,7 @@
             $line6_1=20.85;
             $line6_2=21.9;
             $line6_3=27.1;
-            $line10_1=32.75;
+            $line10_1=32.65;//32.75
             $line11_1=33.7;
             $line11_2=34.35;
             $line12_1=35.35;
@@ -483,21 +483,26 @@
 //                    ماده 9
 //                    ماده 10
             $arbitration_data=$DetailsOfRental->arbitration;
+            if ($arbitration_data==1){
+                $arbitration_x= 24.45+$DefaultX;
+            }elseif ($arbitration_data==0){
+                $arbitration_x= 26.35+$DefaultX;
+            }
             $arbitration=[
                 'data'=>$arbitration_data,
-                'x'=>24.4+$DefaultX,
-                'y'=>$line10_1+$DefaultY
+                'x'=>$arbitration_x,
+                'y'=>$line10_1+$DefaultY-0.05
     ];
-            $arbitration_yes=[
-                'data'=>$arbitration_data,
-                'x'=>24.4+$DefaultX,
-                'y'=>$line10_1+$DefaultY
-    ];
-            $arbitration_no=[
-                'data'=>$arbitration_data,
-                'x'=>24.4+$DefaultX,
-                'y'=>$line10_1+$DefaultY
-    ];
+//            $arbitration_yes=[
+//                'data'=>$arbitration_data,
+//                'x'=>24.4+$DefaultX,
+//                'y'=>$line10_1+$DefaultY
+//    ];
+//            $arbitration_no=[
+//                'data'=>$arbitration_data,
+//                'x'=>24.4+$DefaultX,
+//                'y'=>$line10_1+$DefaultY
+//    ];
 
 //                    ماده 11
             $city=[
@@ -559,21 +564,30 @@
 
 
 
-        function MakeLine($data){
-            $label=$data['data'];
-            $x1=$data['x'];
-            $x2=$data['x2'];
-            $y=$data['y'];
-            $width=$x2-$x1;
-            if (is_array($label)){
-               $label= implode(" / ", $label);
+            function MakeLine($data){
+                $label=$data['data'];
+                $x1=$data['x'];
+                $x2=$data['x2'];
+                $y=$data['y'];
+                $width=$x2-$x1;
+                if (is_array($label)){
+                   $label= implode(" / ", $label);
+                }
+                echo "
+                <div class='line' style='width:{$width}cm;right:{$x1}cm;top:{$y}cm'>
+                    {$label}
+                </div>
+                ";
             }
-            echo "
-            <div class='line' style='width:{$width}cm;right:{$x1}cm;top:{$y}cm'>
-                {$label}
-            </div>
-            ";
-        }
+            function MakeSquare($data){
+                $x1=$data['x'];
+                $y=$data['y'];
+                echo "
+                <div class='square' style='right:{$x1}cm;top:{$y}cm'>
+
+                </div>
+                ";
+            }
             function MakeElement($data,$class=null){
                 echo "<p class='fixed {$class}' style='right: {$data['x']}cm;top:{$data['y']}cm;'>{$data['data']}</p>";
             }
@@ -582,6 +596,18 @@
     <style>
         .line{
             height: 0.35cm;
+            background: #282828;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 14.2px;
+        }
+        .square{
+            height: 0.3cm;
+            width: 0.3cm;
             background: #282828;
             position: fixed;
             display: flex;
@@ -682,7 +708,8 @@
     MakeElement($damages_for_non_fulfillment_of_obligations_rial);
     MakeElement($penalty_for_non_evacuation_rial);
 
-//    MakeElement($arbitration);
+    MakeSquare($arbitration);
+
     MakeElement($city);
     MakeElement($wage_rial);
     MakeElement($amount_received_each_rial);
