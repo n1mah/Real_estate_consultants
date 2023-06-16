@@ -468,12 +468,12 @@
                 'y'=>$line6_1+$DefaultY
     ];
             $damages_for_non_fulfillment_of_obligations_rial=[
-                'data'=>$DetailsOfRental->damages_for_non_fulfillment_of_obligations,
+                'data'=>number_format($DetailsOfRental->damages_for_non_fulfillment_of_obligations),
                 'x'=>2.1+$DefaultX,
                 'y'=>$line6_2+$DefaultY
     ];
             $penalty_for_non_evacuation_rial=[
-                'data'=>$DetailsOfRental->penalty_for_non_evacuation,
+                'data'=>number_format($DetailsOfRental->penalty_for_non_evacuation),
                 'x'=>3.25+$DefaultX,
                 'y'=>$line6_3+$DefaultY
     ];
@@ -677,9 +677,11 @@
 
     MakeElement($delivery_time);
     MakeElement($penalty_for_non_delivery_rial);
+
     MakeElement($others);
     MakeElement($damages_for_non_fulfillment_of_obligations_rial);
     MakeElement($penalty_for_non_evacuation_rial);
+
 //    MakeElement($arbitration);
     MakeElement($city);
     MakeElement($wage_rial);
