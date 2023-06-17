@@ -7,7 +7,7 @@
         <div class="w-full flex flex-col justify-between items-start flex-wrap p-5">
             @if($lease_agreement->level!=66)
                 @for($j=1;$j<$lease_agreement->level && $j<14;$j++)
-                    @php $name="sales.level".$j.".single"; @endphp
+                    @php $name="rent.level".$j.".single"; @endphp
                     <a href="{{route($name,$lease_agreement->id)}}" type="button" class="w-full block px-2 my-2 py-2 text-xs font-medium text-center text-gray-900 bg-primary-200 border border-gray-300 focus:outline-none hover:bg-primary-700 hover:text-white focus:ring-4 focus:ring-gray-200  rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">مشاهده
                         @if($j==10)  توضیحات @else ماده {{$j}} @endif</a>
                 @endfor
