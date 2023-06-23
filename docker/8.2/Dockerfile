@@ -55,4 +55,7 @@ RUN chmod +x /usr/local/bin/start-container
 
 EXPOSE 8000
 
+RUN npm run dev
+
 ENTRYPOINT ["start-container"]
+
