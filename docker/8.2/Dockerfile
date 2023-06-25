@@ -55,9 +55,9 @@ RUN chmod +x /usr/local/bin/start-container
 
 EXPOSE 8000
 
-RUN #alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
-RUN #sail npm install
-RUN npm run dev
+#RUN #alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+#RUN #sail npm install
+#RUN npm run dev
 
 #    RUN sail npm run dev
 
