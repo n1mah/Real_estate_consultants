@@ -13,6 +13,7 @@ class Index extends Component
     protected $listeners = [
         'changeCustomer' => '$refresh',
 //        'deleteCustomer' => '$refresh'
+//        'deleteCustomer' => '$refresh'
     ];
     public $search="";
     public $perPage=10;
